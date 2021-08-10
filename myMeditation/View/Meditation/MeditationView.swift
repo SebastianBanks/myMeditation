@@ -95,9 +95,12 @@ struct MeditationView: View {
                     .opacity(buttonOpacity)
                         
                     Button(action: {
-                        if showMeditationProgress == false {
+                        if showMeditationProgress == false && isMeditating == false {
                             print("start")
                             showMeditationProgress = true
+                            isMeditating = true
+                        } else if showMeditationProgress == true && isMeditating == false {
+                            print("unpause")
                             isMeditating = true
                         } else {
                             print("pause")

@@ -3,13 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CAFDB4AFB2F2093855CCE97 /* Pods_myMeditation_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFCA14BE2617C062FF4384D /* Pods_myMeditation_WatchKit_App.framework */; };
-		8016F4DBC7779A9B94F3DBF6 /* Pods_myMeditation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42B5F0C6EF5FC46A0262787 /* Pods_myMeditation.framework */; };
-		A0A9AC659ADB76193DD4873F /* Pods_myMeditation_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB9EBD276BADE0DA6481610 /* Pods_myMeditation_WatchKit_Extension.framework */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
 		BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */; };
 		BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */; };
@@ -84,11 +81,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D1D1786BA5CB8971E7FCDB1 /* Pods-myMeditation WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-myMeditation WatchKit App/Pods-myMeditation WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
-		5854FEA66E2A70986342AD0D /* Pods-myMeditation WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-myMeditation WatchKit App/Pods-myMeditation WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
-		5BFCA14BE2617C062FF4384D /* Pods_myMeditation_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myMeditation_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75B15883D32C286D882B3CAD /* Pods-myMeditation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation.debug.xcconfig"; path = "Target Support Files/Pods-myMeditation/Pods-myMeditation.debug.xcconfig"; sourceTree = "<group>"; };
-		9BB9EBD276BADE0DA6481610 /* Pods_myMeditation_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myMeditation_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCompleteView.swift; sourceTree = "<group>"; };
@@ -123,10 +115,6 @@
 		BCEC85D22694807600E11858 /* SetGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalView.swift; sourceTree = "<group>"; };
 		BCEC85D42694808F00E11858 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		BCEC85D6269480A600E11858 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
-		C42B5F0C6EF5FC46A0262787 /* Pods_myMeditation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myMeditation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E65B9F3A4CDCC6312BA994A5 /* Pods-myMeditation WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-myMeditation WatchKit Extension/Pods-myMeditation WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
-		F0BC97C2842D3476AED5A954 /* Pods-myMeditation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation.release.xcconfig"; path = "Target Support Files/Pods-myMeditation/Pods-myMeditation.release.xcconfig"; sourceTree = "<group>"; };
-		FCCB067B5C90C7BDBB89657E /* Pods-myMeditation WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myMeditation WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-myMeditation WatchKit Extension/Pods-myMeditation WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8016F4DBC7779A9B94F3DBF6 /* Pods_myMeditation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +129,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0A9AC659ADB76193DD4873F /* Pods_myMeditation_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +136,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CAFDB4AFB2F2093855CCE97 /* Pods_myMeditation_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +145,6 @@
 		3858E80BC31F9072AB2D1801 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C42B5F0C6EF5FC46A0262787 /* Pods_myMeditation.framework */,
-				5BFCA14BE2617C062FF4384D /* Pods_myMeditation_WatchKit_App.framework */,
-				9BB9EBD276BADE0DA6481610 /* Pods_myMeditation_WatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,7 +196,6 @@
 				BC87FB602690DEF2006BB12C /* myMeditation WatchKit App */,
 				BC87FB6C2690DEF5006BB12C /* myMeditation WatchKit Extension */,
 				BC87FB4E2690DEED006BB12C /* Products */,
-				F2BF6B5BAA1DBB86758A8EBB /* Pods */,
 				3858E80BC31F9072AB2D1801 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -321,19 +302,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F2BF6B5BAA1DBB86758A8EBB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				75B15883D32C286D882B3CAD /* Pods-myMeditation.debug.xcconfig */,
-				F0BC97C2842D3476AED5A954 /* Pods-myMeditation.release.xcconfig */,
-				5854FEA66E2A70986342AD0D /* Pods-myMeditation WatchKit App.debug.xcconfig */,
-				1D1D1786BA5CB8971E7FCDB1 /* Pods-myMeditation WatchKit App.release.xcconfig */,
-				FCCB067B5C90C7BDBB89657E /* Pods-myMeditation WatchKit Extension.debug.xcconfig */,
-				E65B9F3A4CDCC6312BA994A5 /* Pods-myMeditation WatchKit Extension.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,12 +309,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC87FB882690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation" */;
 			buildPhases = (
-				D0F3B79D3E7AAD1C688F246C /* [CP] Check Pods Manifest.lock */,
 				BC87FB492690DEED006BB12C /* Sources */,
 				BC87FB4A2690DEED006BB12C /* Frameworks */,
 				BC87FB4B2690DEED006BB12C /* Resources */,
 				BC87FB872690DEF7006BB12C /* Embed Watch Content */,
-				97FC13425DE3A5A26986F37E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -362,7 +328,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC87FB842690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit App" */;
 			buildPhases = (
-				89A085DF45641EA99B455A1E /* [CP] Check Pods Manifest.lock */,
 				BC87FB5A2690DEF2006BB12C /* Resources */,
 				BC87FB832690DEF7006BB12C /* Embed App Extensions */,
 				E109C97A00BC23DBB2C018B3 /* Frameworks */,
@@ -381,7 +346,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC87FB802690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit Extension" */;
 			buildPhases = (
-				FA307E1D6C618A1F59D270D5 /* [CP] Check Pods Manifest.lock */,
 				BC87FB642690DEF5006BB12C /* Sources */,
 				BC87FB652690DEF5006BB12C /* Frameworks */,
 				BC87FB662690DEF5006BB12C /* Resources */,
@@ -464,92 +428,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		89A085DF45641EA99B455A1E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myMeditation WatchKit App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97FC13425DE3A5A26986F37E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myMeditation/Pods-myMeditation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myMeditation/Pods-myMeditation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myMeditation/Pods-myMeditation-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0F3B79D3E7AAD1C688F246C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myMeditation-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA307E1D6C618A1F59D270D5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myMeditation WatchKit Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC87FB492690DEED006BB12C /* Sources */ = {
@@ -720,7 +598,6 @@
 		};
 		BC87FB812690DEF7006BB12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCCB067B5C90C7BDBB89657E /* Pods-myMeditation WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -745,7 +622,6 @@
 		};
 		BC87FB822690DEF7006BB12C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E65B9F3A4CDCC6312BA994A5 /* Pods-myMeditation WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -771,7 +647,6 @@
 		};
 		BC87FB852690DEF7006BB12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5854FEA66E2A70986342AD0D /* Pods-myMeditation WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -792,7 +667,6 @@
 		};
 		BC87FB862690DEF7006BB12C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D1D1786BA5CB8971E7FCDB1 /* Pods-myMeditation WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -814,7 +688,6 @@
 		};
 		BC87FB892690DEF7006BB12C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75B15883D32C286D882B3CAD /* Pods-myMeditation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -838,7 +711,6 @@
 		};
 		BC87FB8A2690DEF7006BB12C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0BC97C2842D3476AED5A954 /* Pods-myMeditation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
