@@ -21,14 +21,14 @@ struct ProgressBar: View {
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.init("ProgressBar"))
                 .rotationEffect(Angle(degrees: 270.0))
                 .animation(.linear)
             
             Text(text)
                 .font(.system(size: 50))
                 .bold()
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.init("TextColor"))
         }
     }
 }

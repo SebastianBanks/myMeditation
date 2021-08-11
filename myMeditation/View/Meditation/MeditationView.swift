@@ -54,7 +54,7 @@ struct MeditationView: View {
                 if showMeditationProgress == false {
                 
                     DurationPicker(duration: $meditateTime, remaining: $meditateTimeRemaining)
-                        .colorScheme(.dark)
+                        
                         .transformEffect(.init(scaleX: 1.2, y: 1.2))
                         .offset(x: -32)
                     
