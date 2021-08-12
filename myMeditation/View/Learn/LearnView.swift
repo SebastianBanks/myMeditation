@@ -9,22 +9,24 @@ import SwiftUI
 
 struct LearnView: View {
     var body: some View {
+        
         ZStack {
             Color.init("BackgroundColor").ignoresSafeArea(.all)
             VStack {
                 Text("Learn")
                     .font(.system(size: 60))
                     .bold()
-                    .foregroundColor(.white)
+                    .font(.title)
+                    
                     .padding()
                     .frame(width: 390, height: 80, alignment: .leading)
             
             
-                
-                LearnTopicCell(topicName: "How to Meditate")
-                LearnTopicCell(topicName: "Types of Meditation")
-                LearnTopicCell(topicName: "Why Meditate")
-                
+                VStack(spacing: -45) {
+                    LearnTopicCell(topicName: "How to Meditate")
+                    LearnTopicCell(topicName: "Types of Meditation")
+                    LearnTopicCell(topicName: "Why Meditate")
+                }
             }
             
         }

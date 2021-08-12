@@ -43,7 +43,7 @@ struct MeditationView: View {
     
     var body: some View {
         
-        let buttonOpacity = showMeditationProgress ? 1.0 : 0.5
+        let buttonOpacity = showMeditationProgress ? 1.0 : 0.6
         
         ZStack {
             
@@ -70,7 +70,7 @@ struct MeditationView: View {
                 }
                 
                     
-                HStack(spacing: 15) {
+                HStack(spacing: 30) {
                     Button(action: {
                         if showMeditationProgress == true {
                             print("Timer Stopped")
@@ -84,14 +84,9 @@ struct MeditationView: View {
                         }
                         
                             }) {
-                        Text("Cancel")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        ButtonsView(buttonText: "Cancel")
                     }
-                    .padding(5)
-                    .frame(minWidth: 50, maxWidth: 120, minHeight: 50, maxHeight: 70)
-                    .background(Color.init("ButtonColor"))
-                    .clipShape(Capsule())
+                    .frame(width: 120, height: 90)
                     .opacity(buttonOpacity)
                         
                     Button(action: {
@@ -109,20 +104,20 @@ struct MeditationView: View {
                         
                         
                             }) {
-                        if isMeditating == false {
-                            Text("Start")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        } else {
-                            Text("Pause")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
+                        ButtonsView(buttonText: "Start")
+//                        ButtonsView(buttonText:
+//                            if isMeditating == false {
+//                            buttonText: "Start"
+//                                .font(.title)
+//                                .foregroundColor(.white)
+//                        } else {
+//                            buttonText: "Pause"
+//                                .font(.title)
+//                                .foregroundColor(.white)
+//                            }
+                        
                     }
-                    .padding(5)
-                    .frame(minWidth: 50, maxWidth: 120, minHeight: 50, maxHeight: 70)
-                    .background(Color.init("ButtonColor"))
-                    .clipShape(Capsule())
+                    .frame(width: 120, height: 90)
                     .sheet(isPresented: $showSheet, content: {
                         MeditationCompleteView()
                     })

@@ -13,6 +13,7 @@
 		BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */; };
 		BC7F4D4126C0050000A93CFD /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4026C0050000A93CFD /* SettingsCell.swift */; };
 		BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */; };
+		BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */; };
 		BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */; };
 		BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB502690DEED006BB12C /* myMeditationApp.swift */; };
 		BC87FB532690DEED006BB12C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB522690DEED006BB12C /* HomeView.swift */; };
@@ -87,6 +88,7 @@
 		BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleCell.swift; sourceTree = "<group>"; };
 		BC7F4D4026C0050000A93CFD /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicCell.swift; sourceTree = "<group>"; };
+		BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerCell.swift; sourceTree = "<group>"; };
 		BC87FB4D2690DEED006BB12C /* myMeditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myMeditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC87FB502690DEED006BB12C /* myMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myMeditationApp.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */,
 				BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */,
 				BC50969E269F0DFA0076301C /* DurationPicker.swift */,
+				BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */,
 			);
 			path = Meditation;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				BCEC85D12694805B00E11858 /* GoalView.swift in Sources */,
 				BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */,
 				BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */,
+				BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */,
 				BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */,
 				BCEC85D32694807600E11858 /* SetGoalView.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
