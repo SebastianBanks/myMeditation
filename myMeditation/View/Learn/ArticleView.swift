@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct ArticleView: View {
+    
+    @State var selectedArticleView: Article
+    
+    enum Article: Hashable {
+        case howToMeditate
+        case typesOfMeditation
+        case whyMeditate
+    }
+    
+    
+    
     var body: some View {
-        ZStack {
-            Color.init("BackgroundColor").ignoresSafeArea(.all)
+        
+        if selectedArticleView == Article.howToMeditate {
+            HowToMeditateArticle()
+        } else if selectedArticleView == Article.typesOfMeditation {
+            TypesOfMeditationArticle()
+        } else {
+            WhyMeditateArticle()
         }
     }
 }
 
 struct ArticleView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleView()
+        ArticleView(selectedArticleView: .howToMeditate)
     }
 }

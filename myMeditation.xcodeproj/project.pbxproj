@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0017B226CA998400323A2B /* HowToMeditateArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */; };
+		BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */; };
+		BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */; };
+		BC0017B826CAFE9900323A2B /* ArticleViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */; };
+		BC0017BE26CB0F2200323A2B /* How To Meditate.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017BD26CB0F2200323A2B /* How To Meditate.txt */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
 		BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */; };
 		BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */; };
@@ -14,6 +19,7 @@
 		BC7F4D4126C0050000A93CFD /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4026C0050000A93CFD /* SettingsCell.swift */; };
 		BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */; };
 		BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */; };
+		BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4626C549BD00A93CFD /* ListData.swift */; };
 		BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */; };
 		BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB502690DEED006BB12C /* myMeditationApp.swift */; };
 		BC87FB532690DEED006BB12C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB522690DEED006BB12C /* HomeView.swift */; };
@@ -82,6 +88,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToMeditateArticle.swift; sourceTree = "<group>"; };
+		BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfMeditationArticle.swift; sourceTree = "<group>"; };
+		BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyMeditateArticle.swift; sourceTree = "<group>"; };
+		BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewLayout.swift; sourceTree = "<group>"; };
+		BC0017BD26CB0F2200323A2B /* How To Meditate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "How To Meditate.txt"; sourceTree = "<group>"; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCompleteView.swift; sourceTree = "<group>"; };
@@ -89,6 +100,7 @@
 		BC7F4D4026C0050000A93CFD /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicCell.swift; sourceTree = "<group>"; };
 		BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		BC7F4D4626C549BD00A93CFD /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerCell.swift; sourceTree = "<group>"; };
 		BC87FB4D2690DEED006BB12C /* myMeditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myMeditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC87FB502690DEED006BB12C /* myMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myMeditationApp.swift; sourceTree = "<group>"; };
@@ -168,6 +180,10 @@
 				BCEC85D42694808F00E11858 /* LearnView.swift */,
 				BCEC85D6269480A600E11858 /* ArticleView.swift */,
 				BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */,
+				BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */,
+				BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */,
+				BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */,
+				BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -216,6 +232,7 @@
 		BC87FB4F2690DEED006BB12C /* myMeditation */ = {
 			isa = PBXGroup;
 			children = (
+				BC0017BD26CB0F2200323A2B /* How To Meditate.txt */,
 				BC87FB8D2690DF9B006BB12C /* Model */,
 				BC87FB8C2690DF92006BB12C /* View */,
 				BC8C9A3D26A6FB62001489E4 /* ViewModel */,
@@ -294,6 +311,7 @@
 		BC87FB8D2690DF9B006BB12C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC7F4D4626C549BD00A93CFD /* ListData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -410,6 +428,7 @@
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
 				BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */,
 				BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */,
+				BC0017BE26CB0F2200323A2B /* How To Meditate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */,
+				BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */,
 				BC87FB532690DEED006BB12C /* HomeView.swift in Sources */,
 				BCEC85D52694808F00E11858 /* LearnView.swift in Sources */,
 				BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */,
@@ -445,15 +465,19 @@
 				BCEC85D7269480A600E11858 /* ArticleView.swift in Sources */,
 				BCEC85D12694805B00E11858 /* GoalView.swift in Sources */,
 				BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */,
+				BC0017B226CA998400323A2B /* HowToMeditateArticle.swift in Sources */,
+				BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */,
 				BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */,
 				BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */,
 				BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */,
+				BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */,
 				BCEC85D32694807600E11858 /* SetGoalView.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
 				BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */,
 				BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */,
 				BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */,
 				BC7F4D4126C0050000A93CFD /* SettingsCell.swift in Sources */,
+				BC0017B826CAFE9900323A2B /* ArticleViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

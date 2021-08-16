@@ -9,43 +9,66 @@ import SwiftUI
 
 struct LearnTopicCell: View {
     
-    var topicName: String
+    @State var d = data
+    
+    
     
     var body: some View {
-        Button(action: { print("goals button") }) {
-            
-            VStack {
-            Text(topicName)
-                .font(.system(size: 33, weight: .semibold, design: .rounded))
-                .frame(width: 350, height: 150)
-                .foregroundColor(.white)
-                .background(
-                    ZStack {
-                        Color.init("ButtonColor")
-                        
-                        RoundedRectangle(cornerRadius: 40, style: .continuous)
-                            .foregroundColor(.clear)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-                        
-                        RoundedRectangle(cornerRadius: 40, style: .continuous)
-                            .fill(
-                                LinearGradient(gradient: Gradient(colors: [Color.init("ButtonColor"), Color(#colorLiteral(red: 0.9528151155, green: 0, blue: 0.1790324748, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                            )
-                            .padding(2)
-                            .blur(radius: 2)
+        
+        NavigationView {
+            List {
+                Section(header: GroupedListHeader()) {
+                    ForEach(d, id: \.self) { m in
+                        VStack {
+                            NavigationLink(destination: ArticleView(selectedArticleView: m.tag)) {
+                                HStack{
+                                    Image(m.Image)
+                                        .resizable()
+                                        .frame(width: 120, height: 90)
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        tags(tags: m.postType)
+                                        Text(m.title)
+                                            .bold()
+                                            .font(.subheadline)
+                                            .lineLimit(1)
+                                        Text("Sebastian Banks")
+                                            .font(.caption2)
+                                            .foregroundColor(Color.gray)
+                                    }
+                                }
+                            }
+                        }
                     }
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 40, style: .continuous))
-                
-                .shadow(color: Color("DarkShadow"), radius: 20, x: 20, y: 20)
-                .shadow(color: Color("LightShadow"), radius: 20, x: -20, y: -20)
+                }
+            }.listStyle(GroupedListStyle())
+            .navigationTitle("Learn")
         }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(10)
-            
-        }
-            
     }
 }
 
+struct GroupedListHeader: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "tray.full.fill")
+            Text("All Posts from myMeditation")
+        }
+    }
+}
+
+struct tags: View {
+    var tags: Array<String>
+    var body: some View {
+        HStack {
+        ForEach(tags, id: \.self) { e in
+            Text(e)
+                .foregroundColor(.black)
+                .font(.system(size: 6))
+                .padding(4)
+                .overlay(
+                   RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.green, lineWidth: 0.5)
+               )
+           }
+        }
+    }
+}
