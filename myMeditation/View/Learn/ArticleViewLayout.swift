@@ -11,27 +11,59 @@ struct ArticleViewLayout: View {
     
     var articleName: String
     var articleText: String
+    var image: String
+    
     
     var body: some View {
-        ZStack {
+        
+        ScrollView(.vertical, showsIndicators: false) {
+                StickyHeader {
+                    StickyHeader {
+                        Image(image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    
+                }
             
-            Color.init("BackgroundColor").ignoresSafeArea(.all)
-            
-            NavigationView {
-                ScrollView {
+            ZStack {
+                Color.init("BackgroundColor")
+                VStack {
+                    Text(articleName)
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .padding()
+                        
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color.init("TextColor"))
+                        
+                    
                     Text(articleText)
+                        .padding(.top, -20)
                         .padding(40)
                         .font(.system(size: 25))
-                        .multilineTextAlignment(.leading)
-                        .navigationTitle(articleName)
+                        
+                        
+                    
                 }
+            }.cornerRadius(25)
+            .offset(y: -100)
+            
+            
+
+                
+            
+                    
+                                
+
             }
-        }
+        
+                
     }
 }
 
 struct ArticleViewLayout_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleViewLayout(articleName: "Why Meditate", articleText: "Lorem ipsum")
+        ArticleViewLayout(articleName: "Why Meditate", articleText: "Lorem ipsum", image: "articleLotusImage")
     }
 }

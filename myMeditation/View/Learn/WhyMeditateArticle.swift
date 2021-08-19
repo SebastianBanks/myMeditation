@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct WhyMeditateArticle: View {
+    
+    func getArticleText(fileName: String, fileType: String) -> String {
+        var fileText = ""
+        if let filepath = Bundle.main.path(forResource: fileName, ofType: fileType) {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                fileText = contents
+            } catch {
+                print("contents could not be loaded")
+            }
+        }else {
+            print("example.txt not found!")
+        }
+        return fileText
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ArticleViewLayout(articleName: "Why Meditate", articleText: getArticleText(fileName: "Why Meditate", fileType: "txt"), image: "articleBellsImage")
     }
 }
 

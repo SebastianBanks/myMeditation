@@ -26,7 +26,7 @@ struct HowToMeditateArticle: View {
     
     var body: some View {
         
-        ArticleViewLayout(articleName: "How To Meditate", articleText: getArticleText(fileName: "How To Meditate", fileType: "txt"))
+        ArticleViewLayout(articleName: "How To Meditate", articleText: getArticleText(fileName: "How To Meditate", fileType: "txt"), image: "articleLotusImage")
     }
 }
 

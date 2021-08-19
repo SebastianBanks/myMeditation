@@ -61,12 +61,12 @@ struct tags: View {
         HStack {
         ForEach(tags, id: \.self) { e in
             Text(e)
-                .foregroundColor(.black)
+                .foregroundColor(Color.init("TextColor"))
                 .font(.system(size: 6))
                 .padding(4)
                 .overlay(
                    RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.green, lineWidth: 0.5)
+                    .stroke(Color.init("ButtonColor"), lineWidth: 0.5)
                )
            }
         }
