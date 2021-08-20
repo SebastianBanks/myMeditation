@@ -15,6 +15,9 @@
 		BC0017C326CBE09200323A2B /* Why Meditate.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017C126CBE09200323A2B /* Why Meditate.txt */; };
 		BC0017C426CBE09200323A2B /* Types of Meditation.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017C226CBE09200323A2B /* Types of Meditation.txt */; };
 		BC0017C626CD30C000323A2B /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C526CD30C000323A2B /* StickyHeader.swift */; };
+		BC0017C826CFF30C00323A2B /* GoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */; };
+		BC0017CA26CFF61A00323A2B /* EditGoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */; };
+		BC0017CC26CFF95400323A2B /* GoalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017CB26CFF95400323A2B /* GoalChartView.swift */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
 		BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */; };
 		BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */; };
@@ -99,6 +102,9 @@
 		BC0017C126CBE09200323A2B /* Why Meditate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Why Meditate.txt"; sourceTree = "<group>"; };
 		BC0017C226CBE09200323A2B /* Types of Meditation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Types of Meditation.txt"; sourceTree = "<group>"; };
 		BC0017C526CD30C000323A2B /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
+		BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWidgetView.swift; sourceTree = "<group>"; };
+		BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalButtonView.swift; sourceTree = "<group>"; };
+		BC0017CB26CFF95400323A2B /* GoalChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalChartView.swift; sourceTree = "<group>"; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCompleteView.swift; sourceTree = "<group>"; };
@@ -199,6 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				BCEC85D02694805B00E11858 /* GoalView.swift */,
+				BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */,
+				BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */,
+				BC0017CB26CFF95400323A2B /* GoalChartView.swift */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -461,6 +470,7 @@
 			files = (
 				BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */,
 				BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */,
+				BC0017CA26CFF61A00323A2B /* EditGoalButtonView.swift in Sources */,
 				BC87FB532690DEED006BB12C /* HomeView.swift in Sources */,
 				BCEC85D52694808F00E11858 /* LearnView.swift in Sources */,
 				BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */,
@@ -468,6 +478,7 @@
 				BCEC85D7269480A600E11858 /* ArticleView.swift in Sources */,
 				BCEC85D12694805B00E11858 /* GoalView.swift in Sources */,
 				BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */,
+				BC0017C826CFF30C00323A2B /* GoalWidgetView.swift in Sources */,
 				BC0017B226CA998400323A2B /* HowToMeditateArticle.swift in Sources */,
 				BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */,
 				BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */,
@@ -475,6 +486,7 @@
 				BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */,
 				BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */,
 				BC0017C626CD30C000323A2B /* StickyHeader.swift in Sources */,
+				BC0017CC26CFF95400323A2B /* GoalChartView.swift in Sources */,
 				BCEC85D32694807600E11858 /* SetGoalView.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
 				BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */,

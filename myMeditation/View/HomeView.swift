@@ -151,7 +151,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView()
-                .environment(\.colorScheme, .dark)
+//                .environment(\.colorScheme, .dark)
         }
     }
 }

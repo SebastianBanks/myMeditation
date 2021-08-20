@@ -104,17 +104,8 @@ struct MeditationView: View {
                         
                         
                             }) {
-                        ButtonsView(buttonText: "Start")
-//                        ButtonsView(buttonText:
-//                            if isMeditating == false {
-//                            buttonText: "Start"
-//                                .font(.title)
-//                                .foregroundColor(.white)
-//                        } else {
-//                            buttonText: "Pause"
-//                                .font(.title)
-//                                .foregroundColor(.white)
-//                            }
+                        ButtonsView(buttonText: isMeditating == false ? "Start" : "Pause")
+                       
                         
                     }
                     .frame(width: 120, height: 90)

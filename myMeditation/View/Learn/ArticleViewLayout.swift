@@ -48,13 +48,6 @@ struct ArticleViewLayout: View {
                 }
             }.cornerRadius(25)
             .offset(y: -100)
-            
-            
-
-                
-            
-                    
-                                
 
             }
         
