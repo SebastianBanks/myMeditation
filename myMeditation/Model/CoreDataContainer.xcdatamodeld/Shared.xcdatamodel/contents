@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GoalsEntity" representedClassName="GoalsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="friMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="monMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="satMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sunMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="thurMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tuesMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wedMeditate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MeditationSessionEntity" representedClassName="MeditationSessionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeMeditated" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="GoalsEntity" positionX="-63" positionY="9" width="128" height="134"/>
+        <element name="MeditationSessionEntity" positionX="94.54095458984375" positionY="-211.7175903320312" width="128" height="59"/>
+    </elements>
+</model>

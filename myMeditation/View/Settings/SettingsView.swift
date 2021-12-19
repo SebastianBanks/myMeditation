@@ -1,64 +1,83 @@
 //
-//  DonateView.swift
-//  myMeditation
+//  ContentView.swift
+//  Shared
 //
-//  Created by Sebastian Banks on 7/19/21.
+//  Created by Sebastian Banks on 10/1/21.
 //
 
 import SwiftUI
-
-
+import HealthKit
 
 struct SettingsView: View {
     
-    @State var notificationsOn = true
-    @State var meditationRemindersOn = true
-    @State var mindfulMotivationOn = true
+    @StateObject var settingsViewModel = SettingsViewModel()
+    @StateObject var notificationManager = NotificationManager()
     
-    @State var soundOn = true
-    @State var vibrationOn = true
-    var soundChoices = ["no sound", "some sound", "alotta sound"]
-    @State var soundChoice = ""
+    
+    @State private var isShowingMessages = false
+    
     
     var body: some View {
         
         NavigationView {
-            
             Form {
                 
                 Section(header: Text("General")) {
                     
-                    SettingsToggleCell(title: "Notifications", imgName: "app.badge", toggle: $notificationsOn)
+                    notificationToggle(notificationManager: notificationManager, title: "Notifications", imgName: "app.badge", key: notificationKeys.notificationsOn)
                     
-                    SettingsToggleCell(title: "Meditation Reminders", imgName: "app.badge", toggle: $meditationRemindersOn)
+                    reminderNotificationToggle(notificationManager: notificationManager, title: "Meditation Reminder", imgName: "app.badge", key: notificationKeys.meditationReminderOn)
                     
-                    SettingsToggleCell(title: "Mindful Motivation", imgName: "app.badge", toggle: $mindfulMotivationOn)
+                    motivationNotificationToggle(notificationManager: notificationManager, title: "Mindful Motivation", imgName: "app.badge", key: notificationKeys.mindfulMotivationOn)
                     
-                    SettingsToggleCell(title: "Sound", imgName: "speaker", toggle: $soundOn)
+                    SettingsToggleCell(title: "Sound", imgName: "speaker", key: SoundKey.soundOn)
                     
-                    SettingsToggleCell(title: "Vibration", imgName: "speaker", toggle: $vibrationOn)
+                    SettingsToggleCell(title: "Vibration", imgName: "speaker", key: VibrationKey.vibrationOn)
                             
-                    SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", items: soundChoices, selected: $soundChoice)
+                    SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "")
                     
-                    SettingsCell(title: "Apple Health", imgName: "heart")
-                            
-                    }
+                    HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel)
+                    
+                    
 
-                
+                }
+                /*
                 Section(header: Text("Support")) {
-
-                    SettingsCell(title: "Invite Friends", imgName: "person.3")
-    
+                    
+                    Button(action: {
+                        self.isShowingMessages = true
+                    }) {
+                        SettingsCell(title: "Invite Friends", imgName: "person.3")
+                    }
+                    .sheet(isPresented: self.$isShowingMessages) {
+                                MessageComposeView(recipients: ["recipients"], body: "Message goes here") { messageSent in
+                                    print("MessageComposeView with message sent? \(messageSent)")
+                                }.ignoresSafeArea(.keyboard)
+                            }
+                    
+                    /*
                     SettingsCell(title: "Tip Jar", imgName: "dollarsign.circle")
-                            
-                    SettingsCell(title: "Rate myMeditation", imgName: "star")
-                            
+                    */
+                    Button(action: {
+                        if let url = URL(string: "itms-apps://apple.com/app/id1477376905") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
+                        SettingsCell(title: "Rate myMeditation", imgName: "star")
+                    }
                     
                 }
-                
+                */
                 
 
             }.navigationBarTitle("Settings")
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .environmentObject(settingsViewModel)
+        .environmentObject(notificationManager)
+        .onAppear(perform: notificationManager.updateToggles)
+        .onChange(of: notificationManager.notificationsOn) { toggle in
+            notificationManager.updateToggles()
         }
     }
 }
@@ -68,3 +87,4 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+

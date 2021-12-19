@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC0017B226CA998400323A2B /* HowToMeditateArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */; };
+		BC0017B226CA998400323A2B /* WhatIsMeditationArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B126CA998400323A2B /* WhatIsMeditationArticle.swift */; };
 		BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */; };
 		BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */; };
 		BC0017B826CAFE9900323A2B /* ArticleViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */; };
-		BC0017BE26CB0F2200323A2B /* How To Meditate.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017BD26CB0F2200323A2B /* How To Meditate.txt */; };
+		BC0017BE26CB0F2200323A2B /* What is Meditation.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017BD26CB0F2200323A2B /* What is Meditation.txt */; };
 		BC0017C326CBE09200323A2B /* Why Meditate.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017C126CBE09200323A2B /* Why Meditate.txt */; };
 		BC0017C426CBE09200323A2B /* Types of Meditation.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC0017C226CBE09200323A2B /* Types of Meditation.txt */; };
 		BC0017C626CD30C000323A2B /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C526CD30C000323A2B /* StickyHeader.swift */; };
 		BC0017C826CFF30C00323A2B /* GoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */; };
-		BC0017CA26CFF61A00323A2B /* EditGoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */; };
 		BC0017CC26CFF95400323A2B /* GoalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0017CB26CFF95400323A2B /* GoalChartView.swift */; };
+		BC0444F727372C0C002FC01D /* MeditationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0444F627372C0C002FC01D /* MeditationViewModel.swift */; };
+		BC0444F927372C1B002FC01D /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0444F827372C1B002FC01D /* GoalsViewModel.swift */; };
+		BC0444FB27372C28002FC01D /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0444FA27372C28002FC01D /* LearnViewModel.swift */; };
+		BC04C55E275ABA39004DB85B /* CountDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04C55D275ABA39004DB85B /* CountDownPicker.swift */; };
+		BC13AADF2749618800FD40F7 /* weekData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13AADE2749618800FD40F7 /* weekData.swift */; };
+		BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF032742974900D03E9F /* quickStatView.swift */; };
+		BC2BFF082743E3BF00D03E9F /* CurrentGoalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */; };
+		BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
+		BC7E9685275AD86B007F5196 /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E9684275AD86B007F5196 /* EditGoalView.swift */; };
 		BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */; };
 		BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */; };
 		BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */; };
@@ -31,62 +39,49 @@
 		BC87FB532690DEED006BB12C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB522690DEED006BB12C /* HomeView.swift */; };
 		BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB542690DEF2006BB12C /* Assets.xcassets */; };
 		BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB572690DEF2006BB12C /* Preview Assets.xcassets */; };
-		BC87FB5D2690DEF2006BB12C /* myMeditation WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BC87FB5C2690DEF2006BB12C /* myMeditation WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BC87FB622690DEF4006BB12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB612690DEF4006BB12C /* Assets.xcassets */; };
-		BC87FB692690DEF5006BB12C /* myMeditation WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BC87FB682690DEF5006BB12C /* myMeditation WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BC87FB6E2690DEF5006BB12C /* myMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB6D2690DEF5006BB12C /* myMeditationApp.swift */; };
-		BC87FB702690DEF5006BB12C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB6F2690DEF5006BB12C /* ContentView.swift */; };
-		BC87FB722690DEF5006BB12C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB712690DEF5006BB12C /* NotificationController.swift */; };
-		BC87FB742690DEF5006BB12C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB732690DEF5006BB12C /* NotificationView.swift */; };
-		BC87FB762690DEF5006BB12C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB752690DEF5006BB12C /* ComplicationController.swift */; };
-		BC87FB782690DEF7006BB12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB772690DEF7006BB12C /* Assets.xcassets */; };
-		BC87FB7B2690DEF7006BB12C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB7A2690DEF7006BB12C /* Preview Assets.xcassets */; };
 		BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */; };
-		BC8C9A3A26A5A7BA001489E4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3926A5A7BA001489E4 /* MainView.swift */; };
+		BC8C9A3A26A5A7BA001489E4 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3926A5A7BA001489E4 /* AppMainView.swift */; };
 		BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */; };
+		BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E52732C3C100C332B5 /* Completion.ahap */; };
+		BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E62732C3C100C332B5 /* Breathe.ahap */; };
+		BCAC74EF2732C3C100C332B5 /* chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E82732C3C100C332B5 /* chime.mp3 */; };
+		BCAC74F02732C3C100C332B5 /* zen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E92732C3C100C332B5 /* zen.mp3 */; };
+		BCAC74F12732C3C100C332B5 /* bowl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EA2732C3C100C332B5 /* bowl.mp3 */; };
+		BCAC74F22732C3C100C332B5 /* piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EB2732C3C100C332B5 /* piano.mp3 */; };
+		BCAC74F32732C3C100C332B5 /* gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EC2732C3C100C332B5 /* gong.mp3 */; };
+		BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75032732C42A00C332B5 /* HealthButton.swift */; };
+		BCAC75092732C42B00C332B5 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75042732C42A00C332B5 /* MessageComposeView.swift */; };
+		BCAC750A2732C42B00C332B5 /* motivationNotificationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */; };
+		BCAC750B2732C42B00C332B5 /* notificationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75062732C42B00C332B5 /* notificationToggle.swift */; };
+		BCAC750C2732C42B00C332B5 /* reminderNotificationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75072732C42B00C332B5 /* reminderNotificationToggle.swift */; };
+		BCAC750E2732C46400C332B5 /* notificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC750D2732C46400C332B5 /* notificationsModel.swift */; };
+		BCAC751A2732CB0800C332B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75132732CB0800C332B5 /* NotificationManager.swift */; };
+		BCAC751B2732CB0800C332B5 /* CoreHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75142732CB0800C332B5 /* CoreHaptics.swift */; };
+		BCAC751C2732CB0800C332B5 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75152732CB0800C332B5 /* HealthStore.swift */; };
+		BCAC751D2732CB0800C332B5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */; };
+		BCAC751E2732CB0800C332B5 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75172732CB0800C332B5 /* SoundManager.swift */; };
+		BCAC75252733684A00C332B5 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75212733684A00C332B5 /* ChartData.swift */; };
+		BCAC75262733684A00C332B5 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75222733684A00C332B5 /* CoreDataContainer.xcdatamodeld */; };
+		BCAC75272733684A00C332B5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75242733684A00C332B5 /* CoreDataManager.swift */; };
+		BCAC752E2733689300C332B5 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC752A2733689300C332B5 /* BarChart.swift */; };
+		BCAC75302733689300C332B5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC752C2733689300C332B5 /* CoreData.swift */; };
+		BCAC7533273368F400C332B5 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC7531273368F400C332B5 /* BarChartCell.swift */; };
+		BCAD53DE274539BF003C3C6F /* dayGoalCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD53DD274539BF003C3C6F /* dayGoalCircle.swift */; };
+		BCB5C35B2753C7B4005BB243 /* EditGoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */; };
+		BCE4EED8276F731800328715 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE4EED7276F731800328715 /* HealthKit.framework */; };
 		BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85CC2694802900E11858 /* MeditationView.swift */; };
 		BCEC85D12694805B00E11858 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85D02694805B00E11858 /* GoalView.swift */; };
-		BCEC85D32694807600E11858 /* SetGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85D22694807600E11858 /* SetGoalView.swift */; };
 		BCEC85D52694808F00E11858 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85D42694808F00E11858 /* LearnView.swift */; };
 		BCEC85D7269480A600E11858 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85D6269480A600E11858 /* ArticleView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BC87FB5E2690DEF2006BB12C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC87FB452690DEEC006BB12C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BC87FB5B2690DEF2006BB12C;
-			remoteInfo = "MyMeditation WatchKit App";
-		};
-		BC87FB6A2690DEF5006BB12C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC87FB452690DEEC006BB12C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BC87FB672690DEF5006BB12C;
-			remoteInfo = "MyMeditation WatchKit Extension";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		BC87FB832690DEF7006BB12C /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				BC87FB692690DEF5006BB12C /* myMeditation WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC87FB872690DEF7006BB12C /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				BC87FB5D2690DEF2006BB12C /* myMeditation WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,18 +89,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToMeditateArticle.swift; sourceTree = "<group>"; };
+		BC0017B126CA998400323A2B /* WhatIsMeditationArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsMeditationArticle.swift; sourceTree = "<group>"; };
 		BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfMeditationArticle.swift; sourceTree = "<group>"; };
 		BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyMeditateArticle.swift; sourceTree = "<group>"; };
 		BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewLayout.swift; sourceTree = "<group>"; };
-		BC0017BD26CB0F2200323A2B /* How To Meditate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "How To Meditate.txt"; sourceTree = "<group>"; };
+		BC0017BD26CB0F2200323A2B /* What is Meditation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "What is Meditation.txt"; sourceTree = "<group>"; };
 		BC0017C126CBE09200323A2B /* Why Meditate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Why Meditate.txt"; sourceTree = "<group>"; };
 		BC0017C226CBE09200323A2B /* Types of Meditation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Types of Meditation.txt"; sourceTree = "<group>"; };
 		BC0017C526CD30C000323A2B /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWidgetView.swift; sourceTree = "<group>"; };
-		BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalButtonView.swift; sourceTree = "<group>"; };
 		BC0017CB26CFF95400323A2B /* GoalChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalChartView.swift; sourceTree = "<group>"; };
+		BC0444F627372C0C002FC01D /* MeditationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewModel.swift; sourceTree = "<group>"; };
+		BC0444F827372C1B002FC01D /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
+		BC0444FA27372C28002FC01D /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
+		BC04C55D275ABA39004DB85B /* CountDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownPicker.swift; sourceTree = "<group>"; };
+		BC13AADE2749618800FD40F7 /* weekData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekData.swift; sourceTree = "<group>"; };
+		BC2BFF032742974900D03E9F /* quickStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quickStatView.swift; sourceTree = "<group>"; };
+		BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGoalWidget.swift; sourceTree = "<group>"; };
+		BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalWidgetView.swift; sourceTree = "<group>"; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
+		BC7E9684275AD86B007F5196 /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCompleteView.swift; sourceTree = "<group>"; };
 		BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleCell.swift; sourceTree = "<group>"; };
@@ -120,25 +123,39 @@
 		BC87FB542690DEF2006BB12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC87FB572690DEF2006BB12C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC87FB592690DEF2006BB12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC87FB5C2690DEF2006BB12C /* myMeditation WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "myMeditation WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC87FB612690DEF4006BB12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC87FB632690DEF4006BB12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC87FB682690DEF5006BB12C /* myMeditation WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "myMeditation WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC87FB6D2690DEF5006BB12C /* myMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myMeditationApp.swift; sourceTree = "<group>"; };
-		BC87FB6F2690DEF5006BB12C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BC87FB712690DEF5006BB12C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		BC87FB732690DEF5006BB12C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		BC87FB752690DEF5006BB12C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		BC87FB772690DEF7006BB12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC87FB7A2690DEF7006BB12C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BC87FB7C2690DEF7006BB12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC87FB7D2690DEF7006BB12C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		BC8C9A3926A5A7BA001489E4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BC8C9A3926A5A7BA001489E4 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BCAC74E52732C3C100C332B5 /* Completion.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Completion.ahap; sourceTree = "<group>"; };
+		BCAC74E62732C3C100C332B5 /* Breathe.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Breathe.ahap; sourceTree = "<group>"; };
+		BCAC74E82732C3C100C332B5 /* chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chime.mp3; sourceTree = "<group>"; };
+		BCAC74E92732C3C100C332B5 /* zen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zen.mp3; sourceTree = "<group>"; };
+		BCAC74EA2732C3C100C332B5 /* bowl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bowl.mp3; sourceTree = "<group>"; };
+		BCAC74EB2732C3C100C332B5 /* piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piano.mp3; sourceTree = "<group>"; };
+		BCAC74EC2732C3C100C332B5 /* gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gong.mp3; sourceTree = "<group>"; };
+		BCAC75032732C42A00C332B5 /* HealthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthButton.swift; sourceTree = "<group>"; };
+		BCAC75042732C42A00C332B5 /* MessageComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposeView.swift; sourceTree = "<group>"; };
+		BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = motivationNotificationToggle.swift; sourceTree = "<group>"; };
+		BCAC75062732C42B00C332B5 /* notificationToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationToggle.swift; sourceTree = "<group>"; };
+		BCAC75072732C42B00C332B5 /* reminderNotificationToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = reminderNotificationToggle.swift; sourceTree = "<group>"; };
+		BCAC750D2732C46400C332B5 /* notificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notificationsModel.swift; path = myMeditation/Model/notificationsModel.swift; sourceTree = SOURCE_ROOT; };
+		BCAC750F2732C71300C332B5 /* myMeditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myMeditation.entitlements; sourceTree = "<group>"; };
+		BCAC75132732CB0800C332B5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		BCAC75142732CB0800C332B5 /* CoreHaptics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreHaptics.swift; sourceTree = "<group>"; };
+		BCAC75152732CB0800C332B5 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		BCAC75172732CB0800C332B5 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BCAC75212733684A00C332B5 /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		BCAC75232733684A00C332B5 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		BCAC75242733684A00C332B5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		BCAC752A2733689300C332B5 /* BarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		BCAC752C2733689300C332B5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		BCAC7531273368F400C332B5 /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		BCAD53DD274539BF003C3C6F /* dayGoalCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayGoalCircle.swift; sourceTree = "<group>"; };
+		BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalButtonView.swift; sourceTree = "<group>"; };
+		BCE4EED7276F731800328715 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BCEC85CC2694802900E11858 /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
 		BCEC85D02694805B00E11858 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
-		BCEC85D22694807600E11858 /* SetGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalView.swift; sourceTree = "<group>"; };
 		BCEC85D42694808F00E11858 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		BCEC85D6269480A600E11858 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,20 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC87FB652690DEF5006BB12C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E109C97A00BC23DBB2C018B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				BCE4EED8276F731800328715 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,17 +175,97 @@
 		3858E80BC31F9072AB2D1801 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCE4EED7276F731800328715 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC0444F5273729EC002FC01D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC75242733684A00C332B5 /* CoreDataManager.swift */,
+				BCAC752C2733689300C332B5 /* CoreData.swift */,
+				BCAC75122732CAD200C332B5 /* Settings */,
+				BCAC74E72732C3C100C332B5 /* Sounds */,
+				BCAC74E42732C3C100C332B5 /* AHAP */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BC50566E27340BC70040CFF2 /* Meditation Componets */ = {
+			isa = PBXGroup;
+			children = (
+				BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */,
+				BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */,
+				BC50969E269F0DFA0076301C /* DurationPicker.swift */,
+				BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */,
+				BC04C55D275ABA39004DB85B /* CountDownPicker.swift */,
+			);
+			path = "Meditation Componets";
+			sourceTree = "<group>";
+		};
+		BC50566F27340BEB0040CFF2 /* Goal Componets */ = {
+			isa = PBXGroup;
+			children = (
+				BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */,
+				BCAC752A2733689300C332B5 /* BarChart.swift */,
+				BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */,
+				BC0017CB26CFF95400323A2B /* GoalChartView.swift */,
+				BCAC7531273368F400C332B5 /* BarChartCell.swift */,
+				BC2BFF032742974900D03E9F /* quickStatView.swift */,
+				BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */,
+				BCAD53DD274539BF003C3C6F /* dayGoalCircle.swift */,
+				BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */,
+				BC7E9684275AD86B007F5196 /* EditGoalView.swift */,
+			);
+			path = "Goal Componets";
+			sourceTree = "<group>";
+		};
+		BC50567027340C050040CFF2 /* Learn Componets */ = {
+			isa = PBXGroup;
+			children = (
+				BCEC85D6269480A600E11858 /* ArticleView.swift */,
+				BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */,
+				BC0017B126CA998400323A2B /* WhatIsMeditationArticle.swift */,
+				BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */,
+				BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */,
+				BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */,
+				BC0017C526CD30C000323A2B /* StickyHeader.swift */,
+			);
+			path = "Learn Componets";
+			sourceTree = "<group>";
+		};
+		BC50567127340C2A0040CFF2 /* Settings Componets */ = {
+			isa = PBXGroup;
+			children = (
+				BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */,
+				BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */,
+				BC7F4D4026C0050000A93CFD /* SettingsCell.swift */,
+				BCAC75032732C42A00C332B5 /* HealthButton.swift */,
+				BCAC75042732C42A00C332B5 /* MessageComposeView.swift */,
+				BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */,
+				BCAC75062732C42B00C332B5 /* notificationToggle.swift */,
+				BCAC75072732C42B00C332B5 /* reminderNotificationToggle.swift */,
+			);
+			path = "Settings Componets";
+			sourceTree = "<group>";
+		};
+		BC62C54A2707B32300621953 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BC0444F627372C0C002FC01D /* MeditationViewModel.swift */,
+				BC0444F827372C1B002FC01D /* GoalsViewModel.swift */,
+				BC0444FA27372C28002FC01D /* LearnViewModel.swift */,
+				BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		BC7F4D2F26BCFCDB00A93CFD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */,
-				BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */,
-				BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */,
-				BC7F4D4026C0050000A93CFD /* SettingsCell.swift */,
+				BC50567127340C2A0040CFF2 /* Settings Componets */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -190,13 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEC85D42694808F00E11858 /* LearnView.swift */,
-				BCEC85D6269480A600E11858 /* ArticleView.swift */,
-				BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */,
-				BC0017B126CA998400323A2B /* HowToMeditateArticle.swift */,
-				BC0017B326CA999B00323A2B /* TypesOfMeditationArticle.swift */,
-				BC0017B526CA99B400323A2B /* WhyMeditateArticle.swift */,
-				BC0017B726CAFE9900323A2B /* ArticleViewLayout.swift */,
-				BC0017C526CD30C000323A2B /* StickyHeader.swift */,
+				BC50567027340C050040CFF2 /* Learn Componets */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -205,9 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEC85D02694805B00E11858 /* GoalView.swift */,
-				BC0017C726CFF30B00323A2B /* GoalWidgetView.swift */,
-				BC0017C926CFF61A00323A2B /* EditGoalButtonView.swift */,
-				BC0017CB26CFF95400323A2B /* GoalChartView.swift */,
+				BC50566F27340BEB0040CFF2 /* Goal Componets */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -216,10 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEC85CC2694802900E11858 /* MeditationView.swift */,
-				BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */,
-				BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */,
-				BC50969E269F0DFA0076301C /* DurationPicker.swift */,
-				BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */,
+				BC50566E27340BC70040CFF2 /* Meditation Componets */,
 			);
 			path = Meditation;
 			sourceTree = "<group>";
@@ -228,8 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				BC87FB4F2690DEED006BB12C /* myMeditation */,
-				BC87FB602690DEF2006BB12C /* myMeditation WatchKit App */,
-				BC87FB6C2690DEF5006BB12C /* myMeditation WatchKit Extension */,
 				BC87FB4E2690DEED006BB12C /* Products */,
 				3858E80BC31F9072AB2D1801 /* Frameworks */,
 			);
@@ -239,8 +310,6 @@
 			isa = PBXGroup;
 			children = (
 				BC87FB4D2690DEED006BB12C /* myMeditation.app */,
-				BC87FB5C2690DEF2006BB12C /* myMeditation WatchKit App.app */,
-				BC87FB682690DEF5006BB12C /* myMeditation WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,17 +317,19 @@
 		BC87FB4F2690DEED006BB12C /* myMeditation */ = {
 			isa = PBXGroup;
 			children = (
+				BCAC750F2732C71300C332B5 /* myMeditation.entitlements */,
+				BC87FB502690DEED006BB12C /* myMeditationApp.swift */,
 				BC0017C226CBE09200323A2B /* Types of Meditation.txt */,
 				BC0017C126CBE09200323A2B /* Why Meditate.txt */,
-				BC0017BD26CB0F2200323A2B /* How To Meditate.txt */,
+				BC0017BD26CB0F2200323A2B /* What is Meditation.txt */,
 				BC87FB8D2690DF9B006BB12C /* Model */,
+				BC0444F5273729EC002FC01D /* Utilities */,
+				BC62C54A2707B32300621953 /* ViewModels */,
 				BC87FB8C2690DF92006BB12C /* View */,
-				BC87FB8B2690DF62006BB12C /* Controller */,
 				BC87FB542690DEF2006BB12C /* Assets.xcassets */,
 				BC87FB592690DEF2006BB12C /* Info.plist */,
 				BC87FB562690DEF2006BB12C /* Preview Content */,
 				BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */,
-				BCEC85D22694807600E11858 /* SetGoalView.swift */,
 			);
 			path = myMeditation;
 			sourceTree = "<group>";
@@ -271,51 +342,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BC87FB602690DEF2006BB12C /* myMeditation WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				BC87FB612690DEF4006BB12C /* Assets.xcassets */,
-				BC87FB632690DEF4006BB12C /* Info.plist */,
-			);
-			path = "myMeditation WatchKit App";
-			sourceTree = "<group>";
-		};
-		BC87FB6C2690DEF5006BB12C /* myMeditation WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				BC87FB6D2690DEF5006BB12C /* myMeditationApp.swift */,
-				BC87FB6F2690DEF5006BB12C /* ContentView.swift */,
-				BC87FB712690DEF5006BB12C /* NotificationController.swift */,
-				BC87FB732690DEF5006BB12C /* NotificationView.swift */,
-				BC87FB752690DEF5006BB12C /* ComplicationController.swift */,
-				BC87FB772690DEF7006BB12C /* Assets.xcassets */,
-				BC87FB7C2690DEF7006BB12C /* Info.plist */,
-				BC87FB7D2690DEF7006BB12C /* PushNotificationPayload.apns */,
-				BC87FB792690DEF7006BB12C /* Preview Content */,
-			);
-			path = "myMeditation WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		BC87FB792690DEF7006BB12C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BC87FB7A2690DEF7006BB12C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BC87FB8B2690DF62006BB12C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BC87FB502690DEED006BB12C /* myMeditationApp.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		BC87FB8C2690DF92006BB12C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC8C9A3926A5A7BA001489E4 /* MainView.swift */,
+				BC8C9A3926A5A7BA001489E4 /* AppMainView.swift */,
 				BC7F4D3326BCFD5C00A93CFD /* Meditation */,
 				BC7F4D3126BCFD1C00A93CFD /* Goal */,
 				BC7F4D3026BCFD0600A93CFD /* Learn */,
@@ -328,9 +358,47 @@
 		BC87FB8D2690DF9B006BB12C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCAC75212733684A00C332B5 /* ChartData.swift */,
+				BCAC75222733684A00C332B5 /* CoreDataContainer.xcdatamodeld */,
 				BC7F4D4626C549BD00A93CFD /* ListData.swift */,
+				BCAC750D2732C46400C332B5 /* notificationsModel.swift */,
+				BC13AADE2749618800FD40F7 /* weekData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BCAC74E42732C3C100C332B5 /* AHAP */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC74E52732C3C100C332B5 /* Completion.ahap */,
+				BCAC74E62732C3C100C332B5 /* Breathe.ahap */,
+			);
+			name = AHAP;
+			path = myMeditation/Utilities/AHAP;
+			sourceTree = SOURCE_ROOT;
+		};
+		BCAC74E72732C3C100C332B5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC74E82732C3C100C332B5 /* chime.mp3 */,
+				BCAC74E92732C3C100C332B5 /* zen.mp3 */,
+				BCAC74EA2732C3C100C332B5 /* bowl.mp3 */,
+				BCAC74EB2732C3C100C332B5 /* piano.mp3 */,
+				BCAC74EC2732C3C100C332B5 /* gong.mp3 */,
+			);
+			name = Sounds;
+			path = myMeditation/Utilities/Sounds;
+			sourceTree = SOURCE_ROOT;
+		};
+		BCAC75122732CAD200C332B5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC75142732CB0800C332B5 /* CoreHaptics.swift */,
+				BCAC75152732CB0800C332B5 /* HealthStore.swift */,
+				BCAC75132732CB0800C332B5 /* NotificationManager.swift */,
+				BCAC75172732CB0800C332B5 /* SoundManager.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,47 +416,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				BC87FB5F2690DEF2006BB12C /* PBXTargetDependency */,
 			);
 			name = myMeditation;
 			productName = MyMeditation;
 			productReference = BC87FB4D2690DEED006BB12C /* myMeditation.app */;
 			productType = "com.apple.product-type.application";
-		};
-		BC87FB5B2690DEF2006BB12C /* myMeditation WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BC87FB842690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit App" */;
-			buildPhases = (
-				BC87FB5A2690DEF2006BB12C /* Resources */,
-				BC87FB832690DEF7006BB12C /* Embed App Extensions */,
-				E109C97A00BC23DBB2C018B3 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BC87FB6B2690DEF5006BB12C /* PBXTargetDependency */,
-			);
-			name = "myMeditation WatchKit App";
-			productName = "MyMeditation WatchKit App";
-			productReference = BC87FB5C2690DEF2006BB12C /* myMeditation WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		BC87FB672690DEF5006BB12C /* myMeditation WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BC87FB802690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit Extension" */;
-			buildPhases = (
-				BC87FB642690DEF5006BB12C /* Sources */,
-				BC87FB652690DEF5006BB12C /* Frameworks */,
-				BC87FB662690DEF5006BB12C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "myMeditation WatchKit Extension";
-			productName = "MyMeditation WatchKit Extension";
-			productReference = BC87FB682690DEF5006BB12C /* myMeditation WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -396,16 +428,10 @@
 		BC87FB452690DEEC006BB12C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					BC87FB4C2690DEED006BB12C = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
-					BC87FB5B2690DEF2006BB12C = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
-					BC87FB672690DEF5006BB12C = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -424,8 +450,6 @@
 			projectRoot = "";
 			targets = (
 				BC87FB4C2690DEED006BB12C /* myMeditation */,
-				BC87FB5B2690DEF2006BB12C /* myMeditation WatchKit App */,
-				BC87FB672690DEF5006BB12C /* myMeditation WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -435,29 +459,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCAC74EF2732C3C100C332B5 /* chime.mp3 in Resources */,
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
+				BCAC74F22732C3C100C332B5 /* piano.mp3 in Resources */,
 				BC0017C426CBE09200323A2B /* Types of Meditation.txt in Resources */,
+				BCAC74F12732C3C100C332B5 /* bowl.mp3 in Resources */,
+				BCAC74F32732C3C100C332B5 /* gong.mp3 in Resources */,
 				BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */,
 				BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */,
 				BC0017C326CBE09200323A2B /* Why Meditate.txt in Resources */,
-				BC0017BE26CB0F2200323A2B /* How To Meditate.txt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC87FB5A2690DEF2006BB12C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC87FB622690DEF4006BB12C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC87FB662690DEF5006BB12C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC87FB7B2690DEF7006BB12C /* Preview Assets.xcassets in Resources */,
-				BC87FB782690DEF7006BB12C /* Assets.xcassets in Resources */,
+				BCAC74F02732C3C100C332B5 /* zen.mp3 in Resources */,
+				BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */,
+				BC0017BE26CB0F2200323A2B /* What is Meditation.txt in Resources */,
+				BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,61 +482,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCAC750A2732C42B00C332B5 /* motivationNotificationToggle.swift in Sources */,
 				BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */,
+				BCAC751B2732CB0800C332B5 /* CoreHaptics.swift in Sources */,
 				BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */,
-				BC0017CA26CFF61A00323A2B /* EditGoalButtonView.swift in Sources */,
+				BC0444F727372C0C002FC01D /* MeditationViewModel.swift in Sources */,
+				BC2BFF082743E3BF00D03E9F /* CurrentGoalWidget.swift in Sources */,
+				BCAC750C2732C42B00C332B5 /* reminderNotificationToggle.swift in Sources */,
 				BC87FB532690DEED006BB12C /* HomeView.swift in Sources */,
 				BCEC85D52694808F00E11858 /* LearnView.swift in Sources */,
+				BCAC751E2732CB0800C332B5 /* SoundManager.swift in Sources */,
+				BC7E9685275AD86B007F5196 /* EditGoalView.swift in Sources */,
 				BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */,
-				BC8C9A3A26A5A7BA001489E4 /* MainView.swift in Sources */,
+				BC8C9A3A26A5A7BA001489E4 /* AppMainView.swift in Sources */,
 				BCEC85D7269480A600E11858 /* ArticleView.swift in Sources */,
 				BCEC85D12694805B00E11858 /* GoalView.swift in Sources */,
+				BCAC751C2732CB0800C332B5 /* HealthStore.swift in Sources */,
 				BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */,
+				BCAC751D2732CB0800C332B5 /* SettingsViewModel.swift in Sources */,
 				BC0017C826CFF30C00323A2B /* GoalWidgetView.swift in Sources */,
-				BC0017B226CA998400323A2B /* HowToMeditateArticle.swift in Sources */,
+				BC0017B226CA998400323A2B /* WhatIsMeditationArticle.swift in Sources */,
+				BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */,
 				BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */,
+				BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */,
 				BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */,
 				BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */,
 				BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */,
+				BCAD53DE274539BF003C3C6F /* dayGoalCircle.swift in Sources */,
+				BCAC751A2732CB0800C332B5 /* NotificationManager.swift in Sources */,
+				BCAC75262733684A00C332B5 /* CoreDataContainer.xcdatamodeld in Sources */,
 				BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */,
+				BCAC75092732C42B00C332B5 /* MessageComposeView.swift in Sources */,
 				BC0017C626CD30C000323A2B /* StickyHeader.swift in Sources */,
 				BC0017CC26CFF95400323A2B /* GoalChartView.swift in Sources */,
-				BCEC85D32694807600E11858 /* SetGoalView.swift in Sources */,
+				BCAC7533273368F400C332B5 /* BarChartCell.swift in Sources */,
+				BC0444FB27372C28002FC01D /* LearnViewModel.swift in Sources */,
+				BCAC75252733684A00C332B5 /* ChartData.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
+				BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */,
 				BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */,
+				BCAC750E2732C46400C332B5 /* notificationsModel.swift in Sources */,
+				BCAC75302733689300C332B5 /* CoreData.swift in Sources */,
+				BCAC750B2732C42B00C332B5 /* notificationToggle.swift in Sources */,
+				BCB5C35B2753C7B4005BB243 /* EditGoalButtonView.swift in Sources */,
+				BC04C55E275ABA39004DB85B /* CountDownPicker.swift in Sources */,
 				BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */,
+				BC0444F927372C1B002FC01D /* GoalsViewModel.swift in Sources */,
 				BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */,
 				BC7F4D4126C0050000A93CFD /* SettingsCell.swift in Sources */,
+				BCAC75272733684A00C332B5 /* CoreDataManager.swift in Sources */,
+				BCAC752E2733689300C332B5 /* BarChart.swift in Sources */,
+				BC13AADF2749618800FD40F7 /* weekData.swift in Sources */,
 				BC0017B826CAFE9900323A2B /* ArticleViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC87FB642690DEF5006BB12C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC87FB722690DEF5006BB12C /* NotificationController.swift in Sources */,
-				BC87FB702690DEF5006BB12C /* ContentView.swift in Sources */,
-				BC87FB762690DEF5006BB12C /* ComplicationController.swift in Sources */,
-				BC87FB6E2690DEF5006BB12C /* myMeditationApp.swift in Sources */,
-				BC87FB742690DEF5006BB12C /* NotificationView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BC87FB5F2690DEF2006BB12C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BC87FB5B2690DEF2006BB12C /* myMeditation WatchKit App */;
-			targetProxy = BC87FB5E2690DEF2006BB12C /* PBXContainerItemProxy */;
-		};
-		BC87FB6B2690DEF5006BB12C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BC87FB672690DEF5006BB12C /* myMeditation WatchKit Extension */;
-			targetProxy = BC87FB6A2690DEF5006BB12C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BC87FB7E2690DEF7006BB12C /* Debug */ = {
@@ -577,6 +592,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -632,6 +648,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "";
@@ -640,102 +657,14 @@
 			};
 			name = Release;
 		};
-		BC87FB812690DEF7006BB12C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"myMeditation WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = SNNSSTW7MQ;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "myMeditation WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		BC87FB822690DEF7006BB12C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"myMeditation WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = SNNSSTW7MQ;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "myMeditation WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
-		BC87FB852690DEF7006BB12C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SNNSSTW7MQ;
-				IBSC_MODULE = myMeditation_WatchKit_Extension;
-				INFOPLIST_FILE = "myMeditation WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		BC87FB862690DEF7006BB12C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SNNSSTW7MQ;
-				IBSC_MODULE = myMeditation_WatchKit_Extension;
-				INFOPLIST_FILE = "myMeditation WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
 		BC87FB892690DEF7006BB12C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
@@ -745,6 +674,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -758,7 +688,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
@@ -768,6 +700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianbanks.myMeditation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -789,24 +722,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BC87FB802690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC87FB812690DEF7006BB12C /* Debug */,
-				BC87FB822690DEF7006BB12C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BC87FB842690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC87FB852690DEF7006BB12C /* Debug */,
-				BC87FB862690DEF7006BB12C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BC87FB882690DEF7006BB12C /* Build configuration list for PBXNativeTarget "myMeditation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -817,6 +732,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BCAC75222733684A00C332B5 /* CoreDataContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCAC75232733684A00C332B5 /* Shared.xcdatamodel */,
+			);
+			currentVersion = BCAC75232733684A00C332B5 /* Shared.xcdatamodel */;
+			path = CoreDataContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BC87FB452690DEEC006BB12C /* Project object */;
 }

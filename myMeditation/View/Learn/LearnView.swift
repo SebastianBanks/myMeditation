@@ -14,6 +14,8 @@ struct LearnView: View {
             Color.init("BackgroundColor").ignoresSafeArea(.all)
            LearnTopicCell()
             
+            
+            
         }
     }
 }

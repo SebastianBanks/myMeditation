@@ -7,134 +7,89 @@
 
 import SwiftUI
 
+@available(iOS 15, *)
 struct MeditationView: View {
     
-    @State var meditateTime = 60.0
-    @State var meditateTimeRemaining = 60.0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var isMeditating = false
-    @State var showMeditationProgress = false
-    @State var showSheet: Bool = false
     
-    func timeToString(time: Double, timeremaining: Double) -> String {
-        var timeRemainingString: String = ""
-        let hours = timeremaining/3600
-        let minsMinusHours = hours.truncatingRemainder(dividingBy: 1)
-        let mins = minsMinusHours * 60
-        
-        let wholehrs = Int(hours)
-        let wholemins = Int(mins)
-        
-        if wholehrs > 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hrs"
-        } else if wholehrs == 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hr"
-        } else if wholehrs > 1 && wholemins >= 1{
-            timeRemainingString = "\(wholehrs) hrs \(wholemins) mins"
-        } else if wholehrs == 0 && wholemins >= 1{
-            timeRemainingString = "\(wholemins) mins"
-        } else {
-            timeRemainingString = "\(Int(timeremaining)) sec"
-        }
-        
-        
-        return timeRemainingString
-    }
+    
+    @ObservedObject var meditationViewModel = MeditationViewModel()
+    
+    @State var meditateTime = 0.0
+    @State var isMeditating = false
+    @State var pauseButton = true
+    
+    @State var hours = 0
+    @State var mins = 5
     
     var body: some View {
         
-        let buttonOpacity = showMeditationProgress ? 1.0 : 0.6
-        
         ZStack {
-            
             Color.init("BackgroundColor").ignoresSafeArea(.all)
-            
             VStack(spacing: 80) {
                 
-                if showMeditationProgress == false {
+                if isMeditating == false {
                 
-                    DurationPicker(duration: $meditateTime, remaining: $meditateTimeRemaining)
-                        
+                    CountDownPicker(selectedHours: $hours, selectedMins: $mins)
+                        .offset(y: 25)
+                    
+                    /*
+                    DurationPicker(duration: $meditateTime)
                         .transformEffect(.init(scaleX: 1.2, y: 1.2))
                         .offset(x: -32)
-                    
-                    
+                    */
                 } else {
                     VStack {
-                        ProgressBar(progress: Float(meditateTimeRemaining / meditateTime), text: String(timeToString(time: meditateTime, timeremaining: meditateTimeRemaining)))
+                        ProgressBar(progress: $meditationViewModel.progress, text: $meditationViewModel.progressText)
                             .frame(width: 300.0, height: 300.0)
                             .padding(20.0)
-                    
-                    
                     }
                 }
-                
                     
                 HStack(spacing: 30) {
                     Button(action: {
-                        if showMeditationProgress == true {
-                            print("Timer Stopped")
-                            showMeditationProgress = false
-                            meditateTimeRemaining = meditateTime
-                            isMeditating = false
-                        } else {
-                            print("Cancel Pressed")
-                            
-                            
-                        }
                         
-                            }) {
+                        meditationViewModel.cancel()
+                        
+                        print("is meditating: \(meditationViewModel.isMeditating)")
+                    }) {
                         ButtonsView(buttonText: "Cancel")
                     }
                     .frame(width: 120, height: 90)
-                    .opacity(buttonOpacity)
+                    .opacity(meditationViewModel.isMeditating ? 1.0 : 0.5)
+                    .disabled(meditationViewModel.isMeditating ? false : true)
                         
                     Button(action: {
-                        if showMeditationProgress == false && isMeditating == false {
-                            print("start")
-                            showMeditationProgress = true
-                            isMeditating = true
-                        } else if showMeditationProgress == true && isMeditating == false {
-                            print("unpause")
-                            isMeditating = true
-                        } else {
-                            print("pause")
-                            isMeditating = false
-                        }
+                        let meditatehours = Double(hours) * 3600
+                        let meditatemins = Double(mins) * 60
+                        let meditation = meditatehours + meditatemins
+                        meditationViewModel.startPauseButton(time: meditation)
                         
                         
+                        print("Meditate Time: \(meditateTime)")
                             }) {
-                        ButtonsView(buttonText: isMeditating == false ? "Start" : "Pause")
-                       
-                        
+                                ButtonsView(buttonText: meditationViewModel.startPauseString())
                     }
                     .frame(width: 120, height: 90)
-                    .sheet(isPresented: $showSheet, content: {
-                        MeditationCompleteView()
-                    })
+                    
                     
                 }
             }
-        }.onReceive(timer) { time in
-            guard self.isMeditating else {return}
-            
-            if self.meditateTimeRemaining > 0 {
-                self.meditateTimeRemaining -= 1
-            }
         }
+        .onReceive(meditationViewModel.$isMeditating) { bool in
+            self.isMeditating = bool
+        }
+        .sheet(isPresented: $meditationViewModel.isDone, content: {
+            MeditationCompleteView(showSheet: $meditationViewModel.isDone,  timeMeditated: $meditationViewModel.timeMeditated)
+        })
         
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in self.isMeditating = false
-            
-        }
-        
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in isMeditating = true
-        }
     }
+    
 }
     
 
 
 
+@available(iOS 15, *)
 struct MeditationView_Previews: PreviewProvider {
     static var previews: some View {
         MeditationView()
