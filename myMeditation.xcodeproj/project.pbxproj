@@ -22,10 +22,15 @@
 		BC0444FB27372C28002FC01D /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0444FA27372C28002FC01D /* LearnViewModel.swift */; };
 		BC04C55E275ABA39004DB85B /* CountDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04C55D275ABA39004DB85B /* CountDownPicker.swift */; };
 		BC13AADF2749618800FD40F7 /* weekData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13AADE2749618800FD40F7 /* weekData.swift */; };
+		BC1C212C27721D6C00C1C4FA /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C212B27721D6A00C1C4FA /* SoundPickerView.swift */; };
 		BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF032742974900D03E9F /* quickStatView.swift */; };
 		BC2BFF082743E3BF00D03E9F /* CurrentGoalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */; };
 		BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
+		BC68664B2774ACFE001B969C /* TibetanBell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866472774ACFE001B969C /* TibetanBell.wav */; };
+		BC68664C2774ACFE001B969C /* Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866482774ACFE001B969C /* Piano.wav */; };
+		BC68664D2774ACFE001B969C /* Bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866492774ACFE001B969C /* Bell.wav */; };
+		BC68664E2774ACFE001B969C /* Gong.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC68664A2774ACFE001B969C /* Gong.wav */; };
 		BC7E9685275AD86B007F5196 /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E9684275AD86B007F5196 /* EditGoalView.swift */; };
 		BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */; };
 		BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */; };
@@ -44,11 +49,6 @@
 		BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */; };
 		BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E52732C3C100C332B5 /* Completion.ahap */; };
 		BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E62732C3C100C332B5 /* Breathe.ahap */; };
-		BCAC74EF2732C3C100C332B5 /* chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E82732C3C100C332B5 /* chime.mp3 */; };
-		BCAC74F02732C3C100C332B5 /* zen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E92732C3C100C332B5 /* zen.mp3 */; };
-		BCAC74F12732C3C100C332B5 /* bowl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EA2732C3C100C332B5 /* bowl.mp3 */; };
-		BCAC74F22732C3C100C332B5 /* piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EB2732C3C100C332B5 /* piano.mp3 */; };
-		BCAC74F32732C3C100C332B5 /* gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74EC2732C3C100C332B5 /* gong.mp3 */; };
 		BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75032732C42A00C332B5 /* HealthButton.swift */; };
 		BCAC75092732C42B00C332B5 /* MessageComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75042732C42A00C332B5 /* MessageComposeView.swift */; };
 		BCAC750A2732C42B00C332B5 /* motivationNotificationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */; };
@@ -104,10 +104,15 @@
 		BC0444FA27372C28002FC01D /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
 		BC04C55D275ABA39004DB85B /* CountDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownPicker.swift; sourceTree = "<group>"; };
 		BC13AADE2749618800FD40F7 /* weekData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekData.swift; sourceTree = "<group>"; };
+		BC1C212B27721D6A00C1C4FA /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
 		BC2BFF032742974900D03E9F /* quickStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quickStatView.swift; sourceTree = "<group>"; };
 		BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGoalWidget.swift; sourceTree = "<group>"; };
 		BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalWidgetView.swift; sourceTree = "<group>"; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
+		BC6866472774ACFE001B969C /* TibetanBell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibetanBell.wav; sourceTree = "<group>"; };
+		BC6866482774ACFE001B969C /* Piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Piano.wav; sourceTree = "<group>"; };
+		BC6866492774ACFE001B969C /* Bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bell.wav; sourceTree = "<group>"; };
+		BC68664A2774ACFE001B969C /* Gong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gong.wav; sourceTree = "<group>"; };
 		BC7E9684275AD86B007F5196 /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		BC7F4D3426BEE09100A93CFD /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationCompleteView.swift; sourceTree = "<group>"; };
@@ -128,11 +133,6 @@
 		BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BCAC74E52732C3C100C332B5 /* Completion.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Completion.ahap; sourceTree = "<group>"; };
 		BCAC74E62732C3C100C332B5 /* Breathe.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Breathe.ahap; sourceTree = "<group>"; };
-		BCAC74E82732C3C100C332B5 /* chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chime.mp3; sourceTree = "<group>"; };
-		BCAC74E92732C3C100C332B5 /* zen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zen.mp3; sourceTree = "<group>"; };
-		BCAC74EA2732C3C100C332B5 /* bowl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bowl.mp3; sourceTree = "<group>"; };
-		BCAC74EB2732C3C100C332B5 /* piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = piano.mp3; sourceTree = "<group>"; };
-		BCAC74EC2732C3C100C332B5 /* gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gong.mp3; sourceTree = "<group>"; };
 		BCAC75032732C42A00C332B5 /* HealthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthButton.swift; sourceTree = "<group>"; };
 		BCAC75042732C42A00C332B5 /* MessageComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposeView.swift; sourceTree = "<group>"; };
 		BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = motivationNotificationToggle.swift; sourceTree = "<group>"; };
@@ -246,6 +246,7 @@
 				BCAC75052732C42A00C332B5 /* motivationNotificationToggle.swift */,
 				BCAC75062732C42B00C332B5 /* notificationToggle.swift */,
 				BCAC75072732C42B00C332B5 /* reminderNotificationToggle.swift */,
+				BC1C212B27721D6A00C1C4FA /* SoundPickerView.swift */,
 			);
 			path = "Settings Componets";
 			sourceTree = "<group>";
@@ -380,11 +381,10 @@
 		BCAC74E72732C3C100C332B5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				BCAC74E82732C3C100C332B5 /* chime.mp3 */,
-				BCAC74E92732C3C100C332B5 /* zen.mp3 */,
-				BCAC74EA2732C3C100C332B5 /* bowl.mp3 */,
-				BCAC74EB2732C3C100C332B5 /* piano.mp3 */,
-				BCAC74EC2732C3C100C332B5 /* gong.mp3 */,
+				BC6866492774ACFE001B969C /* Bell.wav */,
+				BC68664A2774ACFE001B969C /* Gong.wav */,
+				BC6866482774ACFE001B969C /* Piano.wav */,
+				BC6866472774ACFE001B969C /* TibetanBell.wav */,
 			);
 			name = Sounds;
 			path = myMeditation/Utilities/Sounds;
@@ -459,18 +459,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAC74EF2732C3C100C332B5 /* chime.mp3 in Resources */,
+				BC68664B2774ACFE001B969C /* TibetanBell.wav in Resources */,
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
-				BCAC74F22732C3C100C332B5 /* piano.mp3 in Resources */,
+				BC68664D2774ACFE001B969C /* Bell.wav in Resources */,
+				BC68664E2774ACFE001B969C /* Gong.wav in Resources */,
 				BC0017C426CBE09200323A2B /* Types of Meditation.txt in Resources */,
-				BCAC74F12732C3C100C332B5 /* bowl.mp3 in Resources */,
-				BCAC74F32732C3C100C332B5 /* gong.mp3 in Resources */,
 				BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */,
 				BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */,
 				BC0017C326CBE09200323A2B /* Why Meditate.txt in Resources */,
-				BCAC74F02732C3C100C332B5 /* zen.mp3 in Resources */,
 				BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */,
 				BC0017BE26CB0F2200323A2B /* What is Meditation.txt in Resources */,
+				BC68664C2774ACFE001B969C /* Piano.wav in Resources */,
 				BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +532,7 @@
 				BCAC75272733684A00C332B5 /* CoreDataManager.swift in Sources */,
 				BCAC752E2733689300C332B5 /* BarChart.swift in Sources */,
 				BC13AADF2749618800FD40F7 /* weekData.swift in Sources */,
+				BC1C212C27721D6C00C1C4FA /* SoundPickerView.swift in Sources */,
 				BC0017B826CAFE9900323A2B /* ArticleViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,7 +664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
@@ -690,7 +690,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;

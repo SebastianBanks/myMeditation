@@ -17,11 +17,10 @@ enum SoundKey {
 }
 
 enum CompletionSound: String {
-    case bowl
-    case chime
-    case gong
-    case piano
-    case zen
+    case TibetanBell
+    case Bell
+    case Gong
+    case Piano
 }
 
 class SoundManager: ObservableObject {
@@ -49,12 +48,16 @@ class SoundManager: ObservableObject {
     
     init() {
         
-        self.completionSound = (UserDefaults.standard.object(forKey: "completionSound") == nil ? CompletionSound.bowl : CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String)) ?? CompletionSound.bowl
+        self.completionSound = (UserDefaults.standard.object(forKey: "completionSound") == nil ? CompletionSound.Gong : CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String)) ?? CompletionSound.Gong
+    }
+    
+    func updateCompletionSound() {
+        self.completionSound = CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String) ?? CompletionSound.Gong
     }
 
     func playCompletionSoundOf(sound: CompletionSound) {
         
-        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".wav") else { return }
         
         do {
             player = try AVAudioPlayer(contentsOf: url)
@@ -64,9 +67,10 @@ class SoundManager: ObservableObject {
         }
     }
     
+    
     func playCompletionSound() {
         
-        guard let url = Bundle.main.url(forResource: completionSound.rawValue, withExtension: ".mp3") else { return }
+        guard let url = Bundle.main.url(forResource: completionSound.rawValue, withExtension: ".wav") else { return }
         
         do {
             player = try AVAudioPlayer(contentsOf: url)

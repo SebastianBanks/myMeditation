@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import HealthKit
 
 
 struct HealthButton: View {
     
     var title: String
     var imgName: String
-    @ObservedObject var settingsViewModel: SettingsViewModel
+    var popup = false
+    @ObservedObject var settingsViewModel = SettingsViewModel()
     
     
     var body: some View {

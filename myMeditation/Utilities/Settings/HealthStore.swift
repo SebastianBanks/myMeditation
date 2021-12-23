@@ -15,11 +15,14 @@ import simd
 class HealthStore {
     
     var healthStore = HKHealthStore()
+    var status: HKAuthorizationStatus
     
     init() {
         if HKHealthStore.isHealthDataAvailable() {
             self.healthStore = HKHealthStore()
         }
+        
+        self.status = healthStore.authorizationStatus(for: HKCategoryType.categoryType(forIdentifier: .mindfulSession)!)
         
     }
     

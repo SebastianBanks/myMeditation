@@ -10,11 +10,13 @@ import HealthKit
 
 struct SettingsView: View {
     
-    @StateObject var settingsViewModel = SettingsViewModel()
+    @ObservedObject var settingsViewModel = SettingsViewModel()
     @StateObject var notificationManager = NotificationManager()
     
     
     @State private var isShowingMessages = false
+    @State var selectedSound = ""
+    @State var showPicker = false
     
     
     var body: some View {
@@ -33,8 +35,13 @@ struct SettingsView: View {
                     SettingsToggleCell(title: "Sound", imgName: "speaker", key: SoundKey.soundOn)
                     
                     SettingsToggleCell(title: "Vibration", imgName: "speaker", key: VibrationKey.vibrationOn)
+                    
                             
-                    SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "")
+                    Button(action: {
+                        showPicker = true
+                    }) {
+                        SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedSound)
+                    }
                     
                     HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel)
                     
@@ -75,9 +82,25 @@ struct SettingsView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .environmentObject(settingsViewModel)
         .environmentObject(notificationManager)
+        .onAppear(perform: {
+            settingsViewModel.soundManager.updateCompletionSound()
+            settingsViewModel.getSelectedSound()
+            selectedSound = settingsViewModel.selectedSound
+        })
         .onAppear(perform: notificationManager.updateToggles)
         .onChange(of: notificationManager.notificationsOn) { toggle in
             notificationManager.updateToggles()
+        }
+        /*
+        .onChange(of: showPicker) { value in
+            if showPicker == true {
+                SoundPickerView(selectedSound: $selectedSound)
+            }
+        
+        }
+         */
+        .fullScreenCover(isPresented: $showPicker) {
+            SoundPickerView(selectedSound: $selectedSound, showPicker: $showPicker)
         }
     }
 }

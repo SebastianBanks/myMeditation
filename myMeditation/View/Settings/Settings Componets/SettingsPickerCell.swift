@@ -10,12 +10,13 @@ import SwiftUI
 
 struct SettingsPickerCell: View {
     
+    @ObservedObject var settingsVM = SettingsViewModel()
     @StateObject var soundManager = SoundManager()
     
     var title: String
     var imgName: String
     var pickerName: String = ""
-    
+    @Binding var selectedSound: String
     
     var body: some View {
         
@@ -30,13 +31,14 @@ struct SettingsPickerCell: View {
             
             Spacer()
             
+            HStack {
+                Text(selectedSound)
+                Image(systemName: "chevron.right")
+            }
+            /*
             Picker(pickerName, selection: $soundManager.completionSound, content: {
                 Text("Tibetan Singing Bowl").tag(CompletionSound.bowl)
-                    .onTapGesture {
-                        if soundManager.soundOn == true {
-                            soundManager.playCompletionSoundOf(sound: CompletionSound.bowl)
-                        }
-                    }
+                    
                 Text("Chime").tag(CompletionSound.chime)
                     .onTapGesture {
                         if soundManager.soundOn == true {
@@ -63,9 +65,20 @@ struct SettingsPickerCell: View {
                     }
                 
             })
-
+             */
         }
         .environmentObject(soundManager)
+        .onAppear(perform: {
+            soundManager.updateCompletionSound()
+            settingsVM.getSelectedSound()
+            selectedSound = settingsVM.selectedSound
+        })
+        .onChange(of: settingsVM.selectedSound, perform: { value in
+            print("\(value)")
+            soundManager.updateCompletionSound()
+            settingsVM.getSelectedSound()
+            selectedSound = settingsVM.selectedSound
+        })
     }
 }
 

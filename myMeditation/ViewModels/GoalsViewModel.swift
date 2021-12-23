@@ -337,7 +337,12 @@ class GoalsViewModel: ObservableObject {
                 }
             }
             
+            
             self.bestStreak = tempStreak
+            
+            if self.streak > self.bestStreak {
+                self.bestStreak = self.streak
+            }
             
             print("x: \(x)")
             print("z: \(z)")
