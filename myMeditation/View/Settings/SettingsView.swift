@@ -17,6 +17,14 @@ struct SettingsView: View {
     @State private var isShowingMessages = false
     @State var selectedSound = ""
     @State var showPicker = false
+    @State var alertType: myAlerts? = nil
+    @State var showAlert = false
+    
+    enum myAlerts {
+        case authorized
+        case denied
+    }
+    
     
     
     var body: some View {
@@ -42,10 +50,18 @@ struct SettingsView: View {
                     }) {
                         SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedSound)
                     }
-                    
-                    HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel)
-                    
-                    
+                    Button(action: {
+                        if settingsViewModel.healthStore?.status == .notDetermined {
+                            settingsViewModel.requestAuthorization()
+                        } else {
+                            showAlert.toggle()
+                        }
+                    }) {
+                        HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel)
+                    }
+                    .alert(isPresented: $showAlert, content: {
+                        returnAlert()
+                    })
 
                 }
                 /*
@@ -86,11 +102,31 @@ struct SettingsView: View {
             settingsViewModel.soundManager.updateCompletionSound()
             settingsViewModel.getSelectedSound()
             selectedSound = settingsViewModel.selectedSound
+            
+            switch settingsViewModel.healthStore?.status {
+            case .sharingAuthorized:
+                self.alertType = .authorized
+            case .sharingDenied:
+                self.alertType = .denied
+            default:
+                self.alertType = nil
+            }
+            
         })
         .onAppear(perform: notificationManager.updateToggles)
         .onChange(of: notificationManager.notificationsOn) { toggle in
             notificationManager.updateToggles()
         }
+        .onChange(of: settingsViewModel.healthStore?.status, perform: { value in
+            switch settingsViewModel.healthStore?.status {
+            case .sharingDenied:
+                self.alertType = .denied
+            case .sharingAuthorized:
+                self.alertType = .authorized
+            default:
+                self.alertType = nil
+            }
+        })
         /*
         .onChange(of: showPicker) { value in
             if showPicker == true {
@@ -101,6 +137,21 @@ struct SettingsView: View {
          */
         .fullScreenCover(isPresented: $showPicker) {
             SoundPickerView(selectedSound: $selectedSound, showPicker: $showPicker)
+        }
+    }
+    func returnAlert() -> Alert {
+        switch alertType {
+        case .authorized:
+            return Alert(
+                title: Text("Health access has been authorized"),
+                message: Text("You have authorized saving mindful data in the health app. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn Off All")
+            )
+        case .denied:
+            return Alert(title: Text("Health access has been denied"),
+                  message: Text("Seems you've denied health access. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn On All")
+            )
+        default:
+            return Alert(title: Text("Error"))
         }
     }
 }

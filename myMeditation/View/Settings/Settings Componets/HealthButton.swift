@@ -19,9 +19,6 @@ struct HealthButton: View {
     
     var body: some View {
         
-        Button(action: {
-            settingsViewModel.requestAuthorization()
-        }) {
             HStack {
                 Image(systemName: imgName)
                     .font(.headline)
@@ -33,13 +30,9 @@ struct HealthButton: View {
                 
                 Spacer()
                 
-                /*
-                Image(systemName: settingsViewModel.healthStore?.authorization == .sharingAuthorized ? "chechmark" : "")
-                    .font(.headline)
-                    .foregroundColor(.green)
-                 */
+                settingsViewModel.returnImageStatus()
+                 
             }
-        }
         
        
     }
@@ -65,3 +58,5 @@ struct HealthButton: PrimitiveButtonStyle {
     }
 }
 */
+
+

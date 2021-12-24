@@ -20,8 +20,8 @@ class HealthStore {
     init() {
         if HKHealthStore.isHealthDataAvailable() {
             self.healthStore = HKHealthStore()
+            
         }
-        
         self.status = healthStore.authorizationStatus(for: HKCategoryType.categoryType(forIdentifier: .mindfulSession)!)
         
     }

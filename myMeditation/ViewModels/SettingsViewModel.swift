@@ -21,6 +21,8 @@ class SettingsViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
+    
+    
     init() {
         coreHaptics = CoreHaptics()
         healthStore = HealthStore()
@@ -74,6 +76,21 @@ class SettingsViewModel: ObservableObject {
         })
     }
     
-    
+    func returnImageStatus() -> some View {
+        switch healthStore?.status {
+        case .sharingAuthorized:
+            return Image(systemName: "checkmark")
+                .font(.headline)
+                .foregroundColor(.green)
+        case .sharingDenied:
+            return Image(systemName: "xmark")
+                .font(.headline)
+                .foregroundColor(.red)
+        default:
+            return Image(systemName: "questionmark")
+                .font(.headline)
+                .foregroundColor(Color.init("TextColor"))
+        }
+    }
 }
 
