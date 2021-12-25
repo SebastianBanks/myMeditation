@@ -52,10 +52,20 @@ class SoundManager: ObservableObject {
     }
     
     func updateCompletionSound() {
-        self.completionSound = CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String) ?? CompletionSound.Gong
+        if UserDefaults.standard.object(forKey: "completionSound") != nil {
+            self.completionSound = CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String) ?? CompletionSound.Gong
+        } else {
+            print("there was an error updating completion sound")
+        }
     }
 
     func playCompletionSoundOf(sound: CompletionSound) {
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
+        }
         
         guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".wav") else { return }
         
@@ -69,6 +79,12 @@ class SoundManager: ObservableObject {
     
     
     func playCompletionSound() {
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch {
+            print(error.localizedDescription)
+        }
         
         guard let url = Bundle.main.url(forResource: completionSound.rawValue, withExtension: ".wav") else { return }
         

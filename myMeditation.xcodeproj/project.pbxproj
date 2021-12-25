@@ -26,8 +26,8 @@
 		BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF032742974900D03E9F /* quickStatView.swift */; };
 		BC2BFF082743E3BF00D03E9F /* CurrentGoalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */; };
 		BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */; };
+		BC4BB553277750B50078FE28 /* TibetanBell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC4BB552277750B50078FE28 /* TibetanBell.wav */; };
 		BC50969F269F0DFA0076301C /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC50969E269F0DFA0076301C /* DurationPicker.swift */; };
-		BC68664B2774ACFE001B969C /* TibetanBell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866472774ACFE001B969C /* TibetanBell.wav */; };
 		BC68664C2774ACFE001B969C /* Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866482774ACFE001B969C /* Piano.wav */; };
 		BC68664D2774ACFE001B969C /* Bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866492774ACFE001B969C /* Bell.wav */; };
 		BC68664E2774ACFE001B969C /* Gong.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC68664A2774ACFE001B969C /* Gong.wav */; };
@@ -108,8 +108,8 @@
 		BC2BFF032742974900D03E9F /* quickStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quickStatView.swift; sourceTree = "<group>"; };
 		BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGoalWidget.swift; sourceTree = "<group>"; };
 		BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalWidgetView.swift; sourceTree = "<group>"; };
+		BC4BB552277750B50078FE28 /* TibetanBell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibetanBell.wav; sourceTree = "<group>"; };
 		BC50969E269F0DFA0076301C /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
-		BC6866472774ACFE001B969C /* TibetanBell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibetanBell.wav; sourceTree = "<group>"; };
 		BC6866482774ACFE001B969C /* Piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Piano.wav; sourceTree = "<group>"; };
 		BC6866492774ACFE001B969C /* Bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bell.wav; sourceTree = "<group>"; };
 		BC68664A2774ACFE001B969C /* Gong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gong.wav; sourceTree = "<group>"; };
@@ -381,10 +381,10 @@
 		BCAC74E72732C3C100C332B5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				BC4BB552277750B50078FE28 /* TibetanBell.wav */,
 				BC6866492774ACFE001B969C /* Bell.wav */,
 				BC68664A2774ACFE001B969C /* Gong.wav */,
 				BC6866482774ACFE001B969C /* Piano.wav */,
-				BC6866472774ACFE001B969C /* TibetanBell.wav */,
 			);
 			name = Sounds;
 			path = myMeditation/Utilities/Sounds;
@@ -459,7 +459,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC68664B2774ACFE001B969C /* TibetanBell.wav in Resources */,
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
 				BC68664D2774ACFE001B969C /* Bell.wav in Resources */,
 				BC68664E2774ACFE001B969C /* Gong.wav in Resources */,
@@ -469,6 +468,7 @@
 				BC0017C326CBE09200323A2B /* Why Meditate.txt in Resources */,
 				BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */,
 				BC0017BE26CB0F2200323A2B /* What is Meditation.txt in Resources */,
+				BC4BB553277750B50078FE28 /* TibetanBell.wav in Resources */,
 				BC68664C2774ACFE001B969C /* Piano.wav in Resources */,
 				BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */,
 			);
@@ -664,12 +664,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myMeditation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -690,12 +690,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = myMeditation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

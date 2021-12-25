@@ -14,6 +14,7 @@ struct HealthButton: View {
     var title: String
     var imgName: String
     var popup = false
+
     @ObservedObject var settingsViewModel = SettingsViewModel()
     
     
@@ -36,6 +37,7 @@ struct HealthButton: View {
         
        
     }
+
 }
 
 

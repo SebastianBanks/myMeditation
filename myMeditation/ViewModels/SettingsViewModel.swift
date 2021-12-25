@@ -45,7 +45,11 @@ class SettingsViewModel: ObservableObject {
     
     func getSelectedSound() {
         
-        selectedSound = UserDefaults.standard.object(forKey: "completionSound") as! String
+        if UserDefaults.standard.object(forKey: "completionSound") != nil {
+            selectedSound = UserDefaults.standard.object(forKey: "completionSound") as! String
+        } else {
+            selectedSound = ""
+        }
         
     }
     
