@@ -34,6 +34,9 @@ class MeditationViewModel: ObservableObject {
     let today: Date
     var progressText: String = ""
     
+    @AppStorage("meditateHourPicker", store: .standard) var meditateHourPicker: Int = 0
+    @AppStorage("meditateMinPicker", store: .standard) var meditateMinPicker: Int = 5
+    
     init() {
         healthStore = HealthStore()
         today = calendar.startOfDay(for: Date())

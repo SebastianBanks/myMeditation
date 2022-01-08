@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Webp.net-resizeimage.jpg",
+      "filename" : "IMG_5435.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Webp.net-resizeimage@2x.jpg",
+      "filename" : "IMG_5435@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Webp.net-resizeimage@3x.jpg",
+      "filename" : "IMG_5435@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

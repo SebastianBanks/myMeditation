@@ -16,6 +16,7 @@ struct HealthButton: View {
     var popup = false
 
     @ObservedObject var settingsViewModel = SettingsViewModel()
+    @Binding var image: Image
     
     
     var body: some View {
@@ -31,14 +32,14 @@ struct HealthButton: View {
                 
                 Spacer()
                 
-                settingsViewModel.returnImageStatus()
+                settingsViewModel.addImageModifiers(image: image)
                  
             }
-        
        
     }
 
 }
+
 
 
 /*

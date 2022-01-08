@@ -78,10 +78,19 @@ struct MeditationView: View {
         .onReceive(meditationViewModel.$isMeditating) { bool in
             self.isMeditating = bool
         }
+        .onChange(of: hours, perform: { value in
+            meditationViewModel.meditateHourPicker = hours
+        })
+        .onChange(of: mins, perform: { value in
+            meditationViewModel.meditateMinPicker = mins
+        })
+        .onAppear(perform: {
+            self.hours = meditationViewModel.meditateHourPicker
+            self.mins = meditationViewModel.meditateMinPicker
+        })
         .sheet(isPresented: $meditationViewModel.isDone, content: {
             MeditationCompleteView(showSheet: $meditationViewModel.isDone,  timeMeditated: $meditationViewModel.timeMeditated)
         })
-        
     }
     
 }

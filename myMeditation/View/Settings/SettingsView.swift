@@ -19,10 +19,13 @@ struct SettingsView: View {
     @State var showPicker = false
     @State var alertType: myAlerts? = nil
     @State var showAlert = false
+    @State var buddhaModeAlert = false
+    @State var healthImage: Image = Image(systemName: "heart")
     
     enum myAlerts {
         case authorized
         case denied
+        case buddhaAlert
     }
     
     
@@ -44,6 +47,8 @@ struct SettingsView: View {
                     
                     SettingsToggleCell(title: "Vibration", imgName: "speaker", key: VibrationKey.vibrationOn)
                     
+                    SettingsToggleCell(title: "Buddha Mode", imgName: "clock", key: "buddhaMode")
+                    
                             
                     Button(action: {
                         showPicker = true
@@ -51,17 +56,34 @@ struct SettingsView: View {
                         SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedSound)
                     }
                     Button(action: {
+                        let delaytime = DispatchTime.now() + 7.0
                         if settingsViewModel.healthStore?.status == .notDetermined {
                             settingsViewModel.requestAuthorization()
+                            DispatchQueue.main.asyncAfter(deadline: delaytime, execute: {
+                                settingsViewModel.updateStatusImage()
+                                healthImage = settingsViewModel.statusImage
+                            })
                         } else {
+                            switch settingsViewModel.healthStore?.status {
+                            case .sharingDenied:
+                                self.alertType = .denied
+                            case .sharingAuthorized:
+                                self.alertType = .authorized
+                            default:
+                                self.alertType = nil
+                            }
+                            
                             showAlert.toggle()
+                            
+                            print("\(showAlert)")
                         }
                     }) {
-                        HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel)
+                        HealthButton(title: "Apple Health", imgName: "heart", settingsViewModel: settingsViewModel, image: $healthImage)
                     }
                     .alert(isPresented: $showAlert, content: {
                         returnAlert()
                     })
+                    
 
                 }
                 /*
@@ -102,6 +124,7 @@ struct SettingsView: View {
             settingsViewModel.soundManager.updateCompletionSound()
             settingsViewModel.getSelectedSound()
             selectedSound = settingsViewModel.selectedSound
+            self.healthImage = settingsViewModel.statusImage
             
             switch settingsViewModel.healthStore?.status {
             case .sharingAuthorized:
@@ -117,38 +140,48 @@ struct SettingsView: View {
         .onChange(of: notificationManager.notificationsOn) { toggle in
             notificationManager.updateToggles()
         }
-        .onChange(of: settingsViewModel.healthStore?.status, perform: { value in
-            switch settingsViewModel.healthStore?.status {
-            case .sharingDenied:
-                self.alertType = .denied
-            case .sharingAuthorized:
-                self.alertType = .authorized
-            default:
-                self.alertType = nil
+        .onChange(of: settingsViewModel.buddhaModeOn, perform: { bool in
+            if settingsViewModel.buddhaModeOn == true {
+                alertType = .buddhaAlert
+                showAlert.toggle()
             }
         })
-        /*
-        .onChange(of: showPicker) { value in
-            if showPicker == true {
-                SoundPickerView(selectedSound: $selectedSound)
-            }
-        
-        }
-         */
         .fullScreenCover(isPresented: $showPicker) {
             SoundPickerView(selectedSound: $selectedSound, showPicker: $showPicker)
         }
     }
+    
+    func returnBuddaAlert() -> Alert {
+        return Alert(
+            title: Text("Buddha Mode On"),
+            message: Text("You know have the option to meditate hours on end 😄"), dismissButton: .cancel())
+    }
+    
     func returnAlert() -> Alert {
         switch alertType {
         case .authorized:
             return Alert(
-                title: Text("Health access has been authorized"),
-                message: Text("You have authorized saving mindful data in the health app. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn Off All")
+                title: Text("Health access is authorized"),
+                message: Text("You have authorized saving mindful data in the health app. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn Off All"),
+                primaryButton: .default(Text("Health App")) {
+                    settingsViewModel.openURL(urlString: "x-apple-health://")
+                },
+                secondaryButton: .cancel()
             )
         case .denied:
-            return Alert(title: Text("Health access has been denied"),
-                  message: Text("Seems you've denied health access. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn On All")
+            return Alert(
+                title: Text("Health access was denied"),
+                message: Text("Seems you've denied health access. If you wish to change this please go to the Health App > Profile > Apps > myMeditation > Turn On All"),
+                primaryButton: .default(Text("Health App")) {
+                    settingsViewModel.openURL(urlString: "x-apple-health://")
+                },
+                secondaryButton: .cancel()
+            )
+        case .buddhaAlert:
+            return Alert(
+                title: Text("Buddha Mode On"),
+                message: Text("You now have the option to meditate for hours on end, see the change in the meditation view 😄"),
+                dismissButton: .cancel()
             )
         default:
             return Alert(title: Text("Error"))
@@ -157,6 +190,7 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    
     static var previews: some View {
         SettingsView()
     }

@@ -18,6 +18,8 @@ class SettingsViewModel: ObservableObject {
     @ObservedObject var soundManager = SoundManager()
     @Published var selectedSound: String = ""
     var healthStore: HealthStore?
+    var statusImage: Image = Image(systemName: "questionMark")
+    @AppStorage("buddhaMode", store: .standard) var buddhaModeOn: Bool = false
     
     var cancellables = Set<AnyCancellable>()
     
@@ -27,7 +29,7 @@ class SettingsViewModel: ObservableObject {
         coreHaptics = CoreHaptics()
         healthStore = HealthStore()
         getSelectedSound()
-            
+        self.statusImage = returnImageStatus()
     }
     
     func getIsOn(key: String) -> Binding<Bool> {
@@ -37,6 +39,8 @@ class SettingsViewModel: ObservableObject {
             return self.$soundManager.soundOn
         case VibrationKey.vibrationOn:
             return self.$soundManager.vibrationOn
+        case "buddhaMode":
+            return self.$buddhaModeOn
         default:
             print("key not identified")
             return self.$soundManager.soundOn
@@ -78,22 +82,56 @@ class SettingsViewModel: ObservableObject {
         healthStore?.requestAuthorization(completion: { success in
             print(success)
         })
+        
+        healthStore?.updateHealthStatus()
     }
     
-    func returnImageStatus() -> some View {
+    func updateStatusImage() {
+        healthStore?.updateHealthStatus()
+        self.statusImage = returnImageStatus()
+    }
+    
+    func returnImageStatus() -> Image {
+        healthStore?.updateHealthStatus()
+        
         switch healthStore?.status {
         case .sharingAuthorized:
             return Image(systemName: "checkmark")
+        case .sharingDenied:
+            return Image(systemName: "xmark")
+        default:
+            return Image(systemName: "questionmark")
+        }
+    }
+    
+    func addImageModifiers(image: Image) -> some View {
+        healthStore?.updateHealthStatus()
+        
+        switch healthStore?.status {
+        case .notDetermined:
+            return image
+                .font(.headline)
+                .foregroundColor(Color.init("TextColor"))
+        case .sharingAuthorized:
+            return image
                 .font(.headline)
                 .foregroundColor(.green)
         case .sharingDenied:
-            return Image(systemName: "xmark")
+            return image
                 .font(.headline)
                 .foregroundColor(.red)
         default:
-            return Image(systemName: "questionmark")
+            return image
                 .font(.headline)
-                .foregroundColor(Color.init("TextColor"))
+                .foregroundColor(.gray)
+        }
+    }
+    
+    func openURL(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:])
         }
     }
 }

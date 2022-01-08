@@ -17,20 +17,30 @@ struct EditGoalView: View {
     var body: some View {
         
         NavigationView {
-            ZStack{
+            ZStack {
             
             Color.init("BackgroundColor").ignoresSafeArea(.all)
 
                 VStack  {
+                    
+                    ZStack {
+                        Text("Select the days you'd like to meditate:")
+                            .padding()
+                            .padding(.top, 20)
+                            .font(.title2)
+                    }
+                    .zIndex(1)
+                    
+                    
                     EditGoalWidgetView()
-                        .offset(y: -300)
+                        .offset(y: -250)
                         
                     if nm.meditationReminderOn == true {
                         DatePicker("Reminder Time:", selection: $date, displayedComponents: .hourAndMinute)
                             .datePickerStyle(.automatic)
                             .font(.title2)
                             .padding()
-                            .offset(y: -350)
+                            .offset(y: -240)
                     }
                     
                     
@@ -40,7 +50,7 @@ struct EditGoalView: View {
                         self.showSheet = false
                         
                     }) {
-                        EditGoalButtonView()
+                        EditGoalButtonView(buttonText: "Save Goal")
                     }
                     .padding()
                     .frame(width: 300, height: 70, alignment: .center)

@@ -16,9 +16,5 @@ struct ListData: Identifiable,Hashable {
     var tag: ArticleView.Article
 }
 
-var data = [
-    ListData(Image: "lotusImage", title: "What is Meditation", date: "12 Aug", postType: ["How to", "Meditation", "Mindfulness"], tag: .whatIsMeditation),
-    ListData(Image: "meditateImage", title: "Types of Meditation", date: "15 dec", postType: ["Buddhism", "Meditation", "Mindfulness"], tag: .typesOfMeditation),
-    ListData(Image: "bellsImage", title: "Why Meditate", date: "20 Nov", postType: ["Benefits", "Meditation", "Mental Health"], tag: .whyMeditate)
-    ]
+
 

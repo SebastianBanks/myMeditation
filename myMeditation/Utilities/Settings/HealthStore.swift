@@ -49,7 +49,9 @@ class HealthStore {
         
     }
         
-    
+    func updateHealthStatus() {
+        self.status = healthStore.authorizationStatus(for: HKCategoryType.categoryType(forIdentifier: .mindfulSession)!)
+    }
     func writeMindful(amount: Double) {
 
         

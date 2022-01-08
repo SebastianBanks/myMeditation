@@ -37,8 +37,23 @@ struct motivationNotificationToggle: View {
         .onAppear(perform: notificationManager.updateToggles)
         .onChange(of: notificationManager.mindfulMotivationOn) { toggleIsOn in
             
+            if notificationManager.mindfulMotivationOn == false {
+                notificationManager.deleteMindfulMotivationNotifications()
+                notificationManager.reloadNotifications()
+            }
+            
             notificationManager.getStatusSetToggle(isOn: toggleIsOn, key: key)
             notificationManager.updateToggles()
+            
+            /*
+            if notificationManager.mindfulMotivationOn == true {
+                for notifications in notificationManager.notifications {
+                    print("content title: \(notifications.content.title)")
+                    print("content body: \(notifications.content.body)")
+                    print("identifier description: \(notifications.trigger)")
+                }
+            }
+             */
         }
     }
 }

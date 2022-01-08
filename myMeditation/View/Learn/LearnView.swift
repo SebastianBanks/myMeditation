@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct LearnView: View {
+    
+    var learnViewModel = LearnViewModel()
+    
     var body: some View {
         
         ZStack {
             Color.init("BackgroundColor").ignoresSafeArea(.all)
-           LearnTopicCell()
+            LearnTopicCell(d: learnViewModel.data)
             
             
             

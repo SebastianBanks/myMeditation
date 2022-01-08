@@ -37,8 +37,16 @@ struct notificationToggle: View {
         .onAppear(perform: notificationManager.updateToggles)
         .onChange(of: notificationManager.notificationsOn) { toggleIsOn in
             
+            if toggleIsOn == false {
+                notificationManager.meditationReminderOn = toggleIsOn
+                notificationManager.mindfulMotivationOn = toggleIsOn
+                notificationManager.deleteNotifications()
+                notificationManager.reloadNotifications()
+            }
+            
             notificationManager.getStatusSetToggle(isOn: toggleIsOn, key: key)
             notificationManager.updateToggles()
+            
             
         }
     }

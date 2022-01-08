@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LearnTopicCell: View {
     
-    @State var d = data
+    var learnViewModel = LearnViewModel()
+    @State var d: [ListData]
     
     
     
@@ -45,6 +46,9 @@ struct LearnTopicCell: View {
 
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: {
+            self.d = learnViewModel.data
+        })
     }
 }
 

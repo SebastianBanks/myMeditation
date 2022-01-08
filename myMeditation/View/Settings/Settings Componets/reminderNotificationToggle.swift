@@ -37,6 +37,11 @@ struct reminderNotificationToggle: View {
         .onAppear(perform: notificationManager.updateToggles)
         .onChange(of: notificationManager.meditationReminderOn) { toggleIsOn in
             
+            if notificationManager.meditationReminderOn == false {
+                notificationManager.deleteReminderNotification()
+                notificationManager.reloadNotifications()
+            }
+            
             notificationManager.getStatusSetToggle(isOn: toggleIsOn, key: key)
             notificationManager.updateToggles()
         }

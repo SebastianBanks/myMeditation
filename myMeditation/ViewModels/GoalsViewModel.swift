@@ -263,15 +263,21 @@ class GoalsViewModel: ObservableObject {
                     print("tempStreak: \(tempStreak)")
                     print("1st")
                     continue
-                } else if previousWeekday == weekday {
+                } else if previousWeekday == weekday && tempStreak == 0 {
                     print("2nd")
+                    tempStreak += 1
+                    prev = weekday
+                    print("tempStreak: \(tempStreak)")
+                    continue
+                } else if previousWeekday == weekday {
+                    print("3rd")
                     prev = weekday
                     print("tempStreak: \(tempStreak)")
                     continue
                 } else if previousWeekday == 1 && weekday == 7 {
                     tempStreak += 1
                     prev = weekday
-                    print("3rd")
+                    print("4th")
                     print("tempStreak: \(tempStreak)")
                     continue
                 }
@@ -309,6 +315,7 @@ class GoalsViewModel: ObservableObject {
             if datesMeditated[0] == self.today.dayNumberOfWeek() {
                 tempStreak += 1
             }
+            currentStreak = 1
         }
                 
         while x + 1 < datesMeditated.count {
@@ -324,16 +331,16 @@ class GoalsViewModel: ObservableObject {
             } else if datesMeditated[x] > datesMeditated[z] && datesMeditated[x] != datesMeditated[z] + 1 || datesMeditated[x] < datesMeditated[z] {
                 if currentStreak > tempStreak {
                     tempStreak = currentStreak
-                    currentStreak = 0
+                    currentStreak = 1
                 } else {
-                    currentStreak = 0
+                    currentStreak = 1
                 }
             } else if z + 1 == datesMeditated.count {
                 if currentStreak > tempStreak {
                     tempStreak = currentStreak
-                    currentStreak = 0
+                    currentStreak = 1
                 } else {
-                    currentStreak = 0
+                    currentStreak = 1
                 }
             }
             
@@ -492,6 +499,15 @@ class GoalsViewModel: ObservableObject {
 
                 })
                 notificationManager.reloadNotifications()
+            }
+            
+            if notificationManager.mindfulMotivationOn == true {
+                notificationManager.deleteMindfulMotivationNotifications()
+                notificationManager.createMotivationNotification(completion: { error in
+                    if let error = error {
+                        print("motivation notification error: \(error.localizedDescription)")
+                    }
+                })
             }
             
         notificationManager.reloadNotifications()

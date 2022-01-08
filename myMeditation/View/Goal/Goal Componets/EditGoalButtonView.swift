@@ -9,9 +9,11 @@ import SwiftUI
 
 struct EditGoalButtonView: View {
     
+    var buttonText: String
+    
     var body: some View {
         VStack {
-        Text("Save Goal")
+        Text(buttonText)
             .font(.system(size: 30, weight: .semibold, design: .rounded))
             .frame(width: 300, height: 70)
             .foregroundColor(.white)
@@ -44,6 +46,6 @@ struct EditGoalButtonView: View {
 
 struct EditGoalButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        EditGoalButtonView()
+        EditGoalButtonView(buttonText: "Save Goal")
     }
 }

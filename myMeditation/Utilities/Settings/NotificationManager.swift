@@ -75,10 +75,15 @@ class NotificationManager: ObservableObject {
                 } else {
                     reloadNotifications()
                     updateToggles()
+                    
+                    for notification in notifications {
+                        print(notification.content.body)
+                        print(notification.trigger ?? "error")
+                    }
                 }
             } else {
                 self.notificationsOn = isOn
-                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                deleteNotifications()
             }
         case notificationKeys.meditationReminderOn:
             if isOn == true {
@@ -92,10 +97,6 @@ class NotificationManager: ObservableObject {
                 } else {
                     updateToggles()
                     reloadNotifications()
-                    for notification in notifications {
-                        print(notification.content.body)
-                        print(notification.trigger ?? "error")
-                    }
                 }
             } else {
                 deleteReminderNotification()
@@ -121,13 +122,8 @@ class NotificationManager: ObservableObject {
                 }
             } else {
                 self.mindfulMotivationOn = isOn
-                for quote in quotes {
-                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [quote.id])
-                }
+                deleteMindfulMotivationNotifications()
                 reloadNotifications()
-                
-                
-                
             }
         default:
             print("Uh oh, key was not recognized")
@@ -208,6 +204,12 @@ class NotificationManager: ObservableObject {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["ReminderSun", "ReminderMon", "ReminderTues", "ReminderWed", "ReminderThur", "ReminderFri", "ReminderSat", "Reminder"])
     }
     
+    func deleteMindfulMotivationNotifications() {
+        for quote in quotes {
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [quote.id])
+        }
+    }
+    
     func deleteNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
@@ -223,6 +225,9 @@ class NotificationManager: ObservableObject {
     }
     
     func createMotivationNotification(completion: @escaping (Error?) -> Void) {
+        
+        deleteMindfulMotivationNotifications()
+        reloadNotifications()
         
         for quote in quotes {
             var dateComponets = DateComponents()
