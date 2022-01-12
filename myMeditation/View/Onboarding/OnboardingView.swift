@@ -63,24 +63,25 @@ extension OnboardingView {
         
             NavigationView {
                 VStack {
-                    Text("I wanted to take the time and thank you for downloading myMeditation. This is my first app so I really appreciate it. I have a lot planned for the future of myMeditation, so stay tuned! If you have any suggestions or concerns please leave them in the app review. Again thank you so much. Happy Meditating 😄🙏")
-                        .font(.system(size: 20))
-                        .padding(.top, 20)
-                        .padding()
+                        Text("I wanted to take the time and thank you for downloading myMeditation. This is my first app so I really appreciate it. I have a lot planned for the future of myMeditation, so stay tuned! If you have any suggestions or concerns please leave them in the app review. Again thank you so much. Happy Meditating 😄🙏")
+                            .font(.system(size: 20))
+                            .padding(.top, 20)
+                            .padding()
+                        
+                        Text("Your Developer,")
+                            .padding(.leading, -175)
+                            .padding(1)
+                        Text("Sebastian B.")
+                            .padding(.leading, -150)
                     
-                    Text("Your Developer,")
-                        .padding(.leading, -175)
-                        .padding(1)
-                    Text("Sebastian B.")
-                        .padding(.leading, -150)
+                        Spacer()
+                            .frame(minHeight: 65, idealHeight: 170, maxHeight: .infinity)
                     
-                    bottomButton
-                        .frame(width: 150, height: 90, alignment: .center)
-                        .offset(y: 100)
-                        .padding()
-                        .padding(.top, 50)
-                    
-                }
+                        bottomButton
+                            .frame(width: 150, height: 90, alignment: .center)
+                            .padding()
+                            .padding(.top, 50)
+                    }
                 .navigationTitle("Thank You 😄🙏")
             }
         }
@@ -133,6 +134,7 @@ extension OnboardingView {
             Color.init("BackgroundColor").ignoresSafeArea(.all)
             
             VStack {
+                
                 SettingsView()
                 
                 bottomButton

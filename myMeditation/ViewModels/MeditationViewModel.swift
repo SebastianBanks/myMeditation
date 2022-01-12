@@ -18,7 +18,29 @@ class MeditationViewModel: ObservableObject {
     //Session - core data
     @ObservedObject var coreData = CoreData()
     
+    /*
+     @Published var vibrationOn: Bool = UserDefaults.standard.bool(forKey: VibrationKey.vibrationOn) {
+         didSet {
+             UserDefaults.standard.set(self.vibrationOn, forKey: VibrationKey.vibrationOn)
+         }
+     }
+     */
+    
+    enum meditationValues {
+        static let isMeditating = "isMeditating"
+        static let meditateTime = "meditateTime"
+        static let timeRemaining = "timeRemaining"
+        static let progress = "progress"
+        static let isDone = "isDone"
+        static let timeMeditated = "timeMeditated"
+    }
+    
     //Meditation Pipeline
+    @AppStorage("isMeditating", store: .standard) var isMeditatingPersist: Bool = false
+    @AppStorage("meditateTime", store: .standard) var meditateTimePersist: Double = 0.0
+    @AppStorage("timeRemaining", store: .standard) var timeRemainingPersist: Double = 0.0
+    @AppStorage("pause", store: .standard) var pausePersist: Bool = false
+    
     @Published var isMeditating: Bool = false
     @Published var meditateTime: Double = 0.0
     @Published var timeRemaining: Double = 0.0
@@ -37,15 +59,26 @@ class MeditationViewModel: ObservableObject {
     @AppStorage("meditateHourPicker", store: .standard) var meditateHourPicker: Int = 0
     @AppStorage("meditateMinPicker", store: .standard) var meditateMinPicker: Int = 5
     
+    
     init() {
         healthStore = HealthStore()
         today = calendar.startOfDay(for: Date())
         
+        if self.isMeditatingPersist == false {
+            self.pausePersist = false
+        }
+        
+        self.isMeditating = self.isMeditatingPersist
+        self.meditateTime = self.meditateTimePersist
+        self.timeRemaining = self.timeRemainingPersist
+        self.pause = self.pausePersist
     }
     
     func cancel() {
         UIApplication.shared.isIdleTimerDisabled = false
         self.isMeditating = false
+        self.isMeditatingPersist = false
+        self.pause = false
         self.timer.upstream.connect().cancel()
         for item in self.cancellables {
             item.cancel()
@@ -54,32 +87,99 @@ class MeditationViewModel: ObservableObject {
     
     func pauseButton() {
         UIApplication.shared.isIdleTimerDisabled = false
-        print("\(pause)")
+        print("pause before: \(pause)")
         self.pause = true
-
+        print("pause after: \(pause)")
     }
     
+    func appEnteredBackground(isMeditating: Bool) {
+        
+        if self.isMeditating == true && self.pause == false {
+            pauseButton()
+            
+            self.isMeditatingPersist = isMeditating
+            self.meditateTimePersist = self.meditateTime
+            self.timeRemainingPersist = self.timeRemaining
+            self.pausePersist = true
+            
+            print("----Background----")
+            print("isMeditaingPersist: \(self.isMeditatingPersist)")
+            print("meditateTimePersist: \(self.meditateTimePersist)")
+            print("timeRemainingPersist: \(self.timeRemainingPersist)")
+            print("pausePersist: \(self.pausePersist)")
+        }
+        
+    }
+    
+    func appEnteredForeground() {
+        if self.isMeditatingPersist == true {
+            self.meditateTime = self.meditateTimePersist
+            self.timeRemaining = self.timeRemainingPersist
+            self.pause = self.pausePersist
+            self.progress = Float(timeRemaining/meditateTime)
+            self.progressText = self.timeToString(timeRemaining: timeRemaining)
+            
+            print("----Foreground----")
+            print("meditateTime: \(self.meditateTime)")
+            print("isMeditating: \(self.isMeditatingPersist)")
+            print("timeRemaing: \(self.timeRemaining)")
+            print("pause: \(self.pause)")
+        }
+        
+    }
+    
+    func resetMeditationValues() {
+        self.isMeditatingPersist = false
+        self.meditateTimePersist = 0.0
+        self.timeRemainingPersist = 0.0
+        self.pausePersist = false
+        self.isMeditating = self.isMeditatingPersist
+        self.meditateTime = self.meditateTimePersist
+        self.timeRemaining = self.timeRemainingPersist
+        self.pause = self.pausePersist
+    }
+    
+//    make it so timeRemainingPersist does't change when timeRemaining changes
+//    figure out how
     func start(time: Double) {
         if time > 0.0 {
-            UIApplication.shared.isIdleTimerDisabled = true
-            if isMeditating == false {
-                self.isMeditating = true
-                self.meditateTime = time
-                
-                meditateTimeSub()
-                setUpTimer()
-                timeRemainingSub()
-                progressSub()
-                isDoneSub()
-                timeMeditatedSub()
-            } else {
-                self.pause = false
+                UIApplication.shared.isIdleTimerDisabled = true
+                if isMeditatingPersist == false {
+                    print("---- 1st start -----")
+                    self.isMeditating = true
+                    self.meditateTime = time
+                    self.meditateTimePersist = time
+                    
+                    meditateTimeSub()
+                    setUpTimer()
+                    timeRemainingSub()
+                    progressSub()
+                    isDoneSub()
+                    timeMeditatedSub()
+                } else if isMeditatingPersist == true && isMeditating == true {
+                    print("---- 2nd start -----")
+                    self.pause = false
+                    self.pausePersist = false
+                    self.meditateTime = self.meditateTimePersist
+                    self.timeRemaining = self.timeRemainingPersist
+                    self.isMeditating = true
+                    
+                    setUpTimer()
+                    timeRemainingSub()
+                    progressSub()
+                    isDoneSub()
+                    timeMeditatedSub()
+                } else {
+                    print("---- 3rd start -----")
+                    self.pause = false
+                    self.pausePersist = false
+                }
+                print("pause: \(pause)")
+                print("isMeditating: \(isMeditating)")
+                print("time: \(time)")
+                print("meditateTime: \(meditateTime)")
             }
-            print("pause: \(pause)")
-            print("isMeditating: \(isMeditating)")
         }
-
-    }
 
     
     func meditateTimeSub() {
@@ -89,6 +189,7 @@ class MeditationViewModel: ObservableObject {
             } receiveValue: { [weak self] (value) in
                 guard let self = self else { return }
                 self.timeRemaining = value
+                self.timeRemainingPersist = value
             }
             .store(in: &cancellables)
 
@@ -101,14 +202,16 @@ class MeditationViewModel: ObservableObject {
                 if self.pause == false {
                     print("pause: \(self.pause)")
                     self.timeRemaining -= 1
+                    self.timeRemainingPersist = self.timeRemaining
                     print(self.timeRemaining)
                     
-                    if self.timeRemaining == 0 {
+                    if self.timeRemaining == 0.0 {
                         self.cancel()
                     }
                 } else {
                     print("pause: \(self.pause)")
                     self.timeRemaining = self.timeRemaining
+                    self.timeRemainingPersist = self.timeRemaining
                     self.progress = self.progress
                 }
                 
@@ -146,6 +249,7 @@ class MeditationViewModel: ObservableObject {
             } receiveValue: { [weak self] value in
                 guard let self = self else { return }
                 self.isDone = value
+                print("isDone: \(self.isDone)")
             }
             .store(in: &cancellables)
     }
@@ -153,12 +257,16 @@ class MeditationViewModel: ObservableObject {
     func isDoneSub() {
         $isDone
             .map { (isDone) -> Double in
-                if isDone == true {
+                if isDone == true && self.pausePersist == false{
                     self.isMeditating = false
+                    self.isMeditatingPersist = false
                     self.pause = false
+                    self.pausePersist = false
                     print("isDone = True")
+                    print("1 meditateTime: \(self.meditateTime)")
                     return self.meditateTime
                 } else {
+                    print("2 meditateTime: \(self.meditateTime)")
                     return 0.0
                 }
             }
@@ -181,9 +289,11 @@ class MeditationViewModel: ObservableObject {
             } receiveValue: { [weak self] (time, bool) in
                 guard let self = self else { return }
                 if bool == true {
-                    print("saved to core data and health time: \(time), bool: \(bool)")
-                    self.coreData.addMeditationSession(time: time, date: self.today)
-                    self.healthStore?.writeMindful(amount: time)
+                    if time > 0.0 && self.isMeditatingPersist == false {
+                        print("saved to core data and health time: \(time), bool: \(bool)")
+                        self.coreData.addMeditationSession(time: time, date: self.today)
+                        self.healthStore?.writeMindful(amount: time)
+                    }
                     UIApplication.shared.isIdleTimerDisabled = false
                 } else {
                     print("not saved time: \(time) bool: \(bool)")
@@ -223,12 +333,12 @@ class MeditationViewModel: ObservableObject {
     
     func startPauseButton(time: Double) {
         if time > 0.0 {
-            if isMeditating == false && pause == false {
+            if isMeditatingPersist == false && pausePersist == false {
                 // start meditation
                 start(time: time)
-            } else if isMeditating == true && pause == true {
+            } else if isMeditatingPersist == true && pausePersist == true {
                 // resume meditation
-                start(time: time)
+                start(time: self.timeRemainingPersist)
             } else {
                 // pause meditation
                 pauseButton()

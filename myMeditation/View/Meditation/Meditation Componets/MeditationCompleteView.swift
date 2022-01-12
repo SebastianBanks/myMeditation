@@ -25,7 +25,7 @@ struct MeditationCompleteView: View {
             ZStack{
             
             Color.init("BackgroundColor").ignoresSafeArea(.all)
-
+                ScrollView {
                 VStack {
                     VStack(alignment: .leading) {
                         Text(vm.timeToString(timeRemaining: timeMeditated))
@@ -48,6 +48,7 @@ struct MeditationCompleteView: View {
                     
                     
                 }
+            }
             }
             .onAppear(perform: {
                 if vm.soundManager.soundOn == true {

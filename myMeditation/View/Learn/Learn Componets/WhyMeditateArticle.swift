@@ -10,6 +10,7 @@ import SwiftUI
 struct WhyMeditateArticle: View {
     
     var vm = LearnViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         
@@ -41,21 +42,13 @@ struct WhyMeditateArticle: View {
                             .font(.system(size: 30))
                             .offset(y: -20)
                         
-                        List {
-                            Text("- Reduce stress and anxiety")
-                            Text("- Improve your ability to focus")
-                            Text("- Improve sleep")
-                            Text("- Develop love and compassion")
-                            Text("- Increase confidence")
-                            Text("- Reduce stress and anxiety")
-                            Text("- Reduce heart disease")
-                            Text("- Counter the affects of aging")
-                            Text("- Manage depression")
+                        
+                        if colorScheme == .light {
+                            lightModeList
+                        } else {
+                            darkModeList
                         }
-                        .colorMultiply(Color.init("BackgroundColor")).padding(.top)
-                        .listStyle(.plain)
-                        .frame(height: 500)
-                        .offset(y: -60)
+                       
                         
                     }
                     .padding()
@@ -77,5 +70,50 @@ struct WhyMeditateArticle: View {
 struct WhyMeditateArticle_Previews: PreviewProvider {
     static var previews: some View {
         WhyMeditateArticle()
+            .preferredColorScheme(.light)
+    }
+}
+
+extension WhyMeditateArticle {
+    
+    private var lightModeList: some View {
+        ZStack {
+            List {
+                Text("- Reduce stress and anxiety")
+                Text("- Improve your ability to focus")
+                Text("- Improve sleep")
+                Text("- Develop love and compassion")
+                Text("- Increase confidence")
+                Text("- Reduce stress and anxiety")
+                Text("- Reduce heart disease")
+                Text("- Counter the affects of aging")
+                Text("- Manage depression")
+            }
+            .colorMultiply(Color.init("BackgroundColor")).padding(.top)
+            .listStyle(.plain)
+            .foregroundColor(Color.init("TextColor"))
+            .frame(height: 500)
+            .offset(y: -60)
+        }
+    }
+    
+    private var darkModeList: some View {
+        ZStack {
+            List{
+                Text("- Reduce stress and anxiety")
+                Text("- Improve your ability to focus")
+                Text("- Improve sleep")
+                Text("- Develop love and compassion")
+                Text("- Increase confidence")
+                Text("- Reduce stress and anxiety")
+                Text("- Reduce heart disease")
+                Text("- Counter the affects of aging")
+                Text("- Manage depression")
+            }
+            .listStyle(.plain)
+            .foregroundColor(Color.init("TextColor"))
+            .frame(height: 500)
+            .offset(y: -60)
+        }
     }
 }

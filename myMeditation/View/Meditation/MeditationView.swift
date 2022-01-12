@@ -21,6 +21,8 @@ struct MeditationView: View {
     @State var hours = 0
     @State var mins = 5
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some View {
         
         ZStack {
@@ -83,6 +85,40 @@ struct MeditationView: View {
         })
         .onChange(of: mins, perform: { value in
             meditationViewModel.meditateMinPicker = mins
+        })
+        .onChange(of: scenePhase, perform: { phase in
+            switch phase {
+            case .background:
+                print("App went to background")
+                if isMeditating == true {
+                    meditationViewModel.appEnteredBackground(isMeditating: isMeditating)
+                    print("something")
+                }
+                
+            case .active:
+                print("App became active or came to foreground")
+                meditationViewModel.appEnteredForeground()
+                self.meditateTime = meditationViewModel.meditateTime
+                self.isMeditating = meditationViewModel.isMeditating
+                self.pauseButton = meditationViewModel.pause
+                print("meditatetime: \(meditateTime)")
+            case .inactive:
+                print("App became inactive")
+            @unknown default:
+                print("Well, something certainly happened...")
+                meditationViewModel.resetMeditationValues()
+                self.meditateTime = meditationViewModel.meditateTime
+                self.isMeditating = meditationViewModel.isMeditating
+                self.pauseButton = meditationViewModel.pause
+            }
+        })
+        .onAppear(perform: {
+            self.meditateTime = meditationViewModel.meditateTimePersist
+            self.isMeditating = meditationViewModel.isMeditatingPersist
+            self.pauseButton = meditationViewModel.pausePersist
+            print("\(meditateTime)")
+            print("\(isMeditating)")
+            print("\(pauseButton)")
         })
         .onAppear(perform: {
             self.hours = meditationViewModel.meditateHourPicker

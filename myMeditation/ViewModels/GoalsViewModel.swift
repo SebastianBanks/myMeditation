@@ -219,7 +219,8 @@ class GoalsViewModel: ObservableObject {
         var longestSession2 = 0
         
         for entity in entities {
-            if (Int(entity.timeMeditated) / 60) >= longestSession {
+            if (Int(entity.timeMeditated) / 60) >= longestSession2 {
+                print("\(Int(entity.timeMeditated) / 60)")
                 longestSession2 = (Int(entity.timeMeditated) / 60)
             }
         }
