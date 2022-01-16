@@ -92,7 +92,6 @@ struct MeditationView: View {
                 print("App went to background")
                 if isMeditating == true {
                     meditationViewModel.appEnteredBackground(isMeditating: isMeditating)
-                    print("something")
                 }
                 
             case .active:
@@ -102,6 +101,8 @@ struct MeditationView: View {
                 self.isMeditating = meditationViewModel.isMeditating
                 self.pauseButton = meditationViewModel.pause
                 print("meditatetime: \(meditateTime)")
+                print("isMeditating: \(isMeditating)")
+                print("pauseButton: \(pauseButton)")
             case .inactive:
                 print("App became inactive")
             @unknown default:
@@ -126,6 +127,9 @@ struct MeditationView: View {
         })
         .sheet(isPresented: $meditationViewModel.isDone, content: {
             MeditationCompleteView(showSheet: $meditationViewModel.isDone,  timeMeditated: $meditationViewModel.timeMeditated)
+        })
+        .onDisappear(perform: {
+            meditationViewModel.isMeditatingOnDisappear(isMeditating: isMeditating)
         })
     }
     

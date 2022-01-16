@@ -111,7 +111,7 @@ class NotificationManager: ObservableObject {
                     self.meditationReminderOn = false
                     self.mindfulMotivationOn = false
                 } else if authorizationStatus == .authorized {
-                    
+                    deleteMindfulMotivationNotifications()
                     createMotivationNotification(completion: { error in
                         if let error = error {
                             print(error)

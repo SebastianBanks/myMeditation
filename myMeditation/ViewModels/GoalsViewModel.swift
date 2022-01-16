@@ -433,7 +433,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if monGoal == true {
@@ -444,7 +443,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if tuesGoal == true {
@@ -455,7 +453,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if wedGoal == true {
@@ -466,7 +463,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if thurGoal == true {
@@ -477,7 +473,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if friGoal == true {
@@ -488,7 +483,6 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
             
             if satGoal == true {
@@ -499,21 +493,7 @@ class GoalsViewModel: ObservableObject {
                     }
 
                 })
-                notificationManager.reloadNotifications()
             }
-            
-            if notificationManager.mindfulMotivationOn == true {
-                notificationManager.deleteMindfulMotivationNotifications()
-                notificationManager.createMotivationNotification(completion: { error in
-                    if let error = error {
-                        print("motivation notification error: \(error.localizedDescription)")
-                    }
-                })
-            }
-            
-        notificationManager.reloadNotifications()
-            
-
         }
     }
     

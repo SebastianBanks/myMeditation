@@ -48,6 +48,12 @@ struct GoalView: View {
             .navigationViewStyle(StackNavigationViewStyle())
         }
         .environmentObject(goalsViewModel)
+        .onChange(of: editGoal, perform: { value in
+            if editGoal == false {
+//                goalsViewModel.coreData.testData()
+                goalsViewModel.updateViewData()
+            }
+        })
         .onAppear {
             goalsViewModel.updateViewData()
         }

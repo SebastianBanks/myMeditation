@@ -13,44 +13,33 @@ class CoreData: ObservableObject {
     
     let manager = CoreDataManager.instance
     @Published var savedSessionEntites: [MeditationSessionEntity] = []
-    @Published var savedGoalsEntites: [GoalsEntity] = []
+    
     var time: Double = 0.0
     var run = 1
     var date = Date()
     
     init() {
         getSessions()
+        
     }
+    /*
+    func testData() {
+        let sun = Calendar.current.date(byAdding: .day, value: -5, to: date)
+        let mon = Calendar.current.date(byAdding: .day, value: -4, to: date)
+        let tues = Calendar.current.date(byAdding: .day, value: -3, to: date)
+        let wed = Calendar.current.date(byAdding: .day, value: -2, to: date)
+        let thur = Calendar.current.date(byAdding: .day, value: -1, to: date)
     
-    func getGoals() {
-        let request = NSFetchRequest<GoalsEntity>(entityName: "GoalsEntity")
         
-        do {
-            savedGoalsEntites = try manager.context.fetch(request)
-        } catch let error {
-            print("Error fetching goals. \(error.localizedDescription)")
-        }
+        addMeditationSession(time: 300.0, date: sun ?? date)
+        addMeditationSession(time: 600.0, date: mon ?? date)
+        addMeditationSession(time: 180.0, date: tues ?? date)
+        addMeditationSession(time: 420.0, date: wed ?? date)
+        addMeditationSession(time: 600.0, date: thur ?? date)
+        addMeditationSession(time: 600.0, date: date)
+        
     }
-    
-    func addGoals(sun: Bool, mon: Bool, tues: Bool, wed: Bool, thur: Bool, fri: Bool, sat: Bool) {
-        
-        for entite in savedGoalsEntites {
-            manager.context.delete(entite)
-        }
-        
-        let newGoals = GoalsEntity(context: manager.context)
-        
-        newGoals.sunMeditate = sun
-        newGoals.monMeditate = mon
-        newGoals.tuesMeditate = tues
-        newGoals.wedMeditate = wed
-        newGoals.thurMeditate = thur
-        newGoals.friMeditate = fri
-        newGoals.satMeditate = sat
-        
-        save()
-    }
-
+*/
     func getSessions() {
         let request = NSFetchRequest<MeditationSessionEntity>(entityName: "MeditationSessionEntity")
         
