@@ -83,6 +83,21 @@ class MeditationViewModel: ObservableObject {
         }
     }
     
+    func meditationIsOver() {
+        UIApplication.shared.isIdleTimerDisabled = false
+        self.isMeditatingPersist = false
+        self.meditateTimePersist = 0.0
+        self.timeRemainingPersist = 0.0
+        self.pausePersist = false
+        self.isMeditating = self.isMeditatingPersist
+        self.pause = self.pausePersist
+        self.progress = 0.0
+        self.timer.upstream.connect().cancel()
+        for item in self.cancellables {
+            item.cancel()
+        }
+    }
+    
     func pauseButton() {
         UIApplication.shared.isIdleTimerDisabled = false
         print("--- pause ----")
@@ -142,10 +157,10 @@ class MeditationViewModel: ObservableObject {
         self.timeRemainingPersist = 0.0
         self.pausePersist = false
         self.isMeditating = self.isMeditatingPersist
-        self.meditateTime = self.meditateTimePersist
         self.timeRemaining = self.timeRemainingPersist
         self.pause = self.pausePersist
         self.progress = 0.0
+        self.isDone = false
     }
     
     func isMeditatingOnDisappear(isMeditating: Bool) {
@@ -245,7 +260,7 @@ class MeditationViewModel: ObservableObject {
                     print(self.timeRemaining)
                     
                     if self.timeRemaining == 0.0 {
-                        self.cancel()
+                        self.meditationIsOver()
                     }
                 } else {
                     print("pause: \(self.pause)")
@@ -332,7 +347,7 @@ class MeditationViewModel: ObservableObject {
                         print("saved to core data and health time: \(time), bool: \(bool)")
                         self.coreData.addMeditationSession(time: time, date: self.today)
                         self.healthStore?.writeMindful(amount: time)
-                        self.cancel()
+                        self.meditationIsOver()
                     }
                     UIApplication.shared.isIdleTimerDisabled = false
                 } else {

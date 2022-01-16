@@ -62,8 +62,8 @@ struct MeditationCompleteView: View {
                 gvm.getMeditatedToday()
             })
             .navigationBarItems(leading: Button(action: {
-                    self.showSheet = false
-                    vm.isMeditating = false
+                self.showSheet = false
+                vm.resetMeditationValues()
                 }) {
                     Image(systemName: "xmark")
                         .foregroundColor(Color.init("TextColor"))
