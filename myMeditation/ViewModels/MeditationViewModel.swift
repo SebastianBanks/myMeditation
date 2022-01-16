@@ -76,13 +76,7 @@ class MeditationViewModel: ObservableObject {
     
     func cancel() {
         UIApplication.shared.isIdleTimerDisabled = false
-        self.isMeditating = false
-        self.isMeditatingPersist = false
-        self.timeRemainingPersist = 0.0
-        self.meditateTimePersist = 0.0
-        self.meditateTime = 0.0
-        self.pausePersist = false
-        self.pause = false
+        resetMeditationValues()
         self.timer.upstream.connect().cancel()
         for item in self.cancellables {
             item.cancel()
@@ -151,6 +145,7 @@ class MeditationViewModel: ObservableObject {
         self.meditateTime = self.meditateTimePersist
         self.timeRemaining = self.timeRemainingPersist
         self.pause = self.pausePersist
+        self.progress = 0.0
     }
     
     func isMeditatingOnDisappear(isMeditating: Bool) {
@@ -303,6 +298,7 @@ class MeditationViewModel: ObservableObject {
                 if isDone == true && self.pausePersist == false {
                     self.isMeditating = false
                     self.isMeditatingPersist = false
+                    self.timeRemainingPersist = 0.0
                     self.pause = false
                     self.pausePersist = false
                     print("isDone = True")
@@ -336,6 +332,7 @@ class MeditationViewModel: ObservableObject {
                         print("saved to core data and health time: \(time), bool: \(bool)")
                         self.coreData.addMeditationSession(time: time, date: self.today)
                         self.healthStore?.writeMindful(amount: time)
+                        self.cancel()
                     }
                     UIApplication.shared.isIdleTimerDisabled = false
                 } else {
