@@ -44,7 +44,7 @@ struct MeditationCompleteView: View {
                     CurrentGoalWidget()
                     
                     GoalWidgetView(title: "Meditated Today 💪", bodyText: "\(gvm.meditatedToday) mins")
-                    GoalWidgetView(title: "Total Meditated 🧘", bodyText: "\(gvm.meditatedTotal) mins")
+                    GoalWidgetView(title: "Total Meditated 🧘", bodyText: "\(gvm.timeToString(timeRemaining: gvm.meditatedTotal))")
                     
                     
                 }

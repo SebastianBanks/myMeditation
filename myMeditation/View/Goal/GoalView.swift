@@ -27,11 +27,11 @@ struct GoalView: View {
                         
                         CurrentGoalWidget()
                         
-                        GoalWidgetView(title: "Total Meditated 🧘", bodyText: "\(goalsViewModel.meditatedTotal) mins")
+                        GoalWidgetView(title: "Total Meditated 🧘", bodyText: "\(goalsViewModel.timeToString(timeRemaining: goalsViewModel.meditatedTotal))")
                         
                         GoalWidgetView(title: "Total Sessions ⏱", bodyText: "\(goalsViewModel.meditationSessions)")
                         
-                        GoalWidgetView(title: "Longest Session 🏃", bodyText: "\(goalsViewModel.longestSession) mins")
+                        GoalWidgetView(title: "Longest Session 🏃", bodyText: "\(goalsViewModel.timeToString(timeRemaining: goalsViewModel.longestSession))")
                         
                         GoalWidgetView(title: "Best Streak 😎", bodyText: "🔥 \(goalsViewModel.bestStreak)")
                         
@@ -70,3 +70,4 @@ struct GoalView_Previews: PreviewProvider {
         GoalView()
     }
 }
+

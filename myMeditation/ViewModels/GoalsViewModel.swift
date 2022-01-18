@@ -31,9 +31,9 @@ class GoalsViewModel: ObservableObject {
     @Published var bestStreak: Int = 0
     @Published var meditatedToday: Int = 0
     @Published var meditatedWeek: Int = 0
-    @Published var meditatedTotal: Int = 0
+    @Published var meditatedTotal: Double = 0.0
     @Published var meditationSessions: Int = 0
-    @Published var longestSession: Int = 0
+    @Published var longestSession: Double = 0.0
     
     @AppStorage(meditateGoal.sun, store: .standard) var sunGoal: Bool = false
     @AppStorage(meditateGoal.mon, store: .standard) var monGoal: Bool = false
@@ -208,7 +208,7 @@ class GoalsViewModel: ObservableObject {
         let entities = self.coreData.savedSessionEntites
         self.meditatedTotal = 0
         for entity in entities {
-            self.meditatedTotal += (Int(entity.timeMeditated) / 60)
+            self.meditatedTotal += entity.timeMeditated
         }
     }
     
@@ -216,12 +216,11 @@ class GoalsViewModel: ObservableObject {
         self.coreData.getSessions()
         
         let entities = self.coreData.savedSessionEntites
-        var longestSession2 = 0
+        var longestSession2 = 0.0
         
         for entity in entities {
-            if (Int(entity.timeMeditated) / 60) >= longestSession2 {
-                print("\(Int(entity.timeMeditated) / 60)")
-                longestSession2 = (Int(entity.timeMeditated) / 60)
+            if entity.timeMeditated >= longestSession2 {
+                longestSession2 = entity.timeMeditated
             }
         }
         
@@ -497,231 +496,41 @@ class GoalsViewModel: ObservableObject {
         }
     }
     
-    
-    
-    /* future combine pipeline
-     
-     
-     
-    func coreDataSub() {
-        coreData.$savedSessionEntites
-            .sink { completion in
-                print("core data completion: \(completion)")
-            } receiveValue: { [weak self] values in
-                guard let self = self else { return }
-                
-                for value in values {
-                    let timeMeditated = value.timeMeditated
-                    let date = value.date ?? self.today
-                    
-                    self.passThrough.send((timeMeditated, date))
-                }
-            }
-            .store(in: &cancellables)
-   
+    func timeToString(timeRemaining: Double) -> String {
+        var timeRemainingString: String = ""
+        
+        let hours = timeRemaining/3600
+        let minsMinusHours = hours.truncatingRemainder(dividingBy: 1)
+        let mins = minsMinusHours * 60
+        
+        let wholehrs = Int(hours)
+        let wholemins = Int(mins)
+        
+        if wholehrs > 1 && wholemins == 0 {
+            timeRemainingString = "\(wholehrs) hrs"
+        } else if wholehrs == 1 && wholemins == 0 {
+            timeRemainingString = "\(wholehrs) hr"
+        } else if wholehrs > 1 && wholemins > 1 {
+            timeRemainingString = "\(wholehrs) hrs \(wholemins) mins"
+        } else if wholehrs > 1 && wholemins == 1 {
+            timeRemainingString = "\(wholehrs) hrs \(wholemins) min"
+        } else if wholehrs == 1 && wholemins > 1 {
+            timeRemainingString = "\(wholehrs) hr \(wholemins) mins"
+        } else if wholehrs == 1 && wholemins == 1 {
+            timeRemainingString = "\(wholehrs) hr \(wholemins) min"
+        } else if wholehrs == 0 && wholemins > 1 {
+            timeRemainingString = "\(wholemins) mins"
+        } else if wholehrs == 0 && wholemins == 1 {
+            timeRemainingString = "\(wholemins) min"
+        } else {
+            timeRemainingString = "\(Int(timeRemaining)) sec"
+        }
+        
+        
+        return timeRemainingString
     }
     
     
-    func passThroughSubTimeMeditated() {
-        passThrough
-            .sink { completion in
-                print("meditated total completion \(completion)")
-            } receiveValue: { [weak self] (meditationTime, dateMeditated) in
-                guard let self = self else { return }
-                
-                
-                self.meditatedTotal += Int(meditationTime)
-                
-                if self.calendar.isDate(dateMeditated, equalTo: Date(), toGranularity: .day) {
-                    self.meditatedToday += Int(meditationTime)
-                }
-                
-                if dateMeditated >= self.startOfWeek {
-                    self.meditatedWeek += Int(meditationTime)
-                }
-            }
-            .store(in: &cancellables)
-    }
-    
-    func passThroughSubYearData() {
-        passThrough
-            .filter { meditationTime, dateMeditated in
-                if self.calendar.isDate(dateMeditated, equalTo: Date(), toGranularity: .year) {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            .sink { completion in
-                print("year data completion: \(completion)")
-            } receiveValue: { [weak self] meditationTime, dateMeditated in
-                guard let self = self else { return }
-                
-                let month = self.calendar.component(.month, from: dateMeditated)
-                
-                
-                switch month {
-                case 1:
-                    self.yearData.jan += meditationTime
-                case 2:
-                    self.yearData.feb += meditationTime
-                case 3:
-                    self.yearData.mar += meditationTime
-                case 4:
-                    self.yearData.apr += meditationTime
-                case 5:
-                    self.yearData.may += meditationTime
-                case 6:
-                    self.yearData.jun += meditationTime
-                case 7:
-                    self.yearData.jul += meditationTime
-                case 8:
-                    self.yearData.aug += meditationTime
-                case 9:
-                    self.yearData.sep += meditationTime
-                case 10:
-                    self.yearData.oct += meditationTime
-                case 11:
-                    self.yearData.nov += meditationTime
-                case 12:
-                    self.yearData.dec += meditationTime
-                default:
-                    self.yearData.jan += 0.0
-                    self.yearData.feb += 0.0
-                    self.yearData.mar += 0.0
-                    self.yearData.apr += 0.0
-                    self.yearData.may += 0.0
-                    self.yearData.jun += 0.0
-                    self.yearData.jul += 0.0
-                    self.yearData.aug += 0.0
-                    self.yearData.sep += 0.0
-                    self.yearData.oct += 0.0
-                    self.yearData.nov += 0.0
-                    self.yearData.dec += 0.0
-                }
-                
-                self.currentYearData = [
-                    ChartData(label: "jan", value: self.yearData.jan),
-                    ChartData(label: "feb", value: self.yearData.feb),
-                    ChartData(label: "mar", value: self.yearData.mar),
-                    ChartData(label: "apr", value: self.yearData.apr),
-                    ChartData(label: "may", value: self.yearData.may),
-                    ChartData(label: "jun", value: self.yearData.jun),
-                    ChartData(label: "jul", value: self.yearData.jul),
-                    ChartData(label: "aug", value: self.yearData.aug),
-                    ChartData(label: "sep", value: self.yearData.sep),
-                    ChartData(label: "oct", value: self.yearData.oct),
-                    ChartData(label: "nov", value: self.yearData.nov),
-                    ChartData(label: "dec", value: self.yearData.dec)
-                ]
-            }
-            .store(in: &cancellables)
-
-    }
-    
-    func passThroughSubMonthData() {
-        passThrough
-            .filter { meditationTime, dateMeditated in
-                if self.calendar.isDate(dateMeditated, equalTo: Date(), toGranularity: .month) {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            .sink { completion in
-                print("pass through month completion: \(completion)")
-            } receiveValue: { [weak self] meditationTime, dateMeditated in
-                guard let self = self else { return }
-                
-                let week = self.calendar.component(.weekOfMonth, from: dateMeditated)
-                
-                switch week {
-                case 1:
-                    self.monthData.week1 += meditationTime
-                case 2:
-                    self.monthData.week2 += meditationTime
-                case 3:
-                    self.monthData.week3 += meditationTime
-                case 4:
-                    self.monthData.week4 += meditationTime
-                case 5:
-                    self.monthData.week5 += meditationTime
-                default:
-                    self.monthData.week1 += 0.0
-                    self.monthData.week2 += 0.0
-                    self.monthData.week3 += 0.0
-                    self.monthData.week4 += 0.0
-                    self.monthData.week5 += 0.0
-                }
-                
-                
-                
-                self.currentMonthData = [
-                    ChartData(label: "w1", value: self.monthData.week1),
-                    ChartData(label: "w2", value: self.monthData.week2),
-                    ChartData(label: "w3", value: self.monthData.week3),
-                    ChartData(label: "w4", value: self.monthData.week4),
-                    ChartData(label: "w5", value: self.monthData.week5)
-                ]
-            }
-            .store(in: &cancellables)
-
-    }
-    
-    func passThroughWeekData() {
-        passThrough
-            .filter { meditatedTime, dateMeditated in
-                if dateMeditated >= self.startOfWeek {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            .sink { completion in
-                print("week data completion: \(completion)")
-            } receiveValue: { [weak self] meditatedTime, dateMeditated in
-                guard let self = self else { return }
-                
-                switch dateMeditated.dayNumberOfWeek() {
-                case 1:
-                    self.weekData.sun += meditatedTime
-                case 2:
-                    self.weekData.mon += meditatedTime
-                case 3:
-                    self.weekData.tues += meditatedTime
-                case 4:
-                    self.weekData.wed += meditatedTime
-                case 5:
-                    self.weekData.thur += meditatedTime
-                case 6:
-                    self.weekData.fri += meditatedTime
-                case 7:
-                    self.weekData.sat += meditatedTime
-                default:
-                    self.weekData.sun += 0.0
-                    self.weekData.mon += 0.0
-                    self.weekData.tues += 0.0
-                    self.weekData.wed += 0.0
-                    self.weekData.thur += 0.0
-                    self.weekData.fri += 0.0
-                    self.weekData.sat += 0.0
-                }
-                
-                self.currrentWeekData = [
-                    ChartData(label: "sun", value: self.weekData.sun),
-                    ChartData(label: "mon", value: self.weekData.mon),
-                    ChartData(label: "tue", value: self.weekData.tues),
-                    ChartData(label: "wed", value: self.weekData.wed),
-                    ChartData(label: "thu", value: self.weekData.thur),
-                    ChartData(label: "fri", value: self.weekData.fri),
-                    ChartData(label: "sat", value: self.weekData.sat)
-                ]
-                
-            }
-            .store(in: &cancellables)
-
-    }
-     */
     
 }
 

@@ -86,7 +86,7 @@ struct SettingsView: View {
                     
 
                 }
-                /*
+
                 Section(header: Text("Support")) {
                     
                     Button(action: {
@@ -95,7 +95,7 @@ struct SettingsView: View {
                         SettingsCell(title: "Invite Friends", imgName: "person.3")
                     }
                     .sheet(isPresented: self.$isShowingMessages) {
-                                MessageComposeView(recipients: ["recipients"], body: "Message goes here") { messageSent in
+                                MessageComposeView(recipients: [], body: "https://apps.apple.com/us/app/mymeditation-mindfulness-app/id1601051456") { messageSent in
                                     print("MessageComposeView with message sent? \(messageSent)")
                                 }.ignoresSafeArea(.keyboard)
                             }
@@ -104,7 +104,7 @@ struct SettingsView: View {
                     SettingsCell(title: "Tip Jar", imgName: "dollarsign.circle")
                     */
                     Button(action: {
-                        if let url = URL(string: "itms-apps://apple.com/app/id1477376905") {
+                        if let url = URL(string: "itms-apps://apple.com/app/id1601051456") {
                             UIApplication.shared.open(url)
                         }
                     }) {
@@ -112,7 +112,7 @@ struct SettingsView: View {
                     }
                     
                 }
-                */
+                
                 
 
             }.navigationBarTitle("Settings")
