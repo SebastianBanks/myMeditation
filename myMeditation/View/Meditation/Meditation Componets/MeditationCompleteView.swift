@@ -10,7 +10,6 @@ import SwiftUI
 @available(iOS 15, *)
 struct MeditationCompleteView: View {
     
-    var coreHaptics = CoreHaptics()
     @StateObject var vm = MeditationViewModel()
     @StateObject var gvm = GoalsViewModel()
     
@@ -54,12 +53,10 @@ struct MeditationCompleteView: View {
                 if vm.soundManager.soundOn == true {
                     vm.soundManager.playCompletionSound()
                 }
-                if vm.soundManager.vibrationOn == true {
-                    coreHaptics?.playHapticsFile(named: "Completion")
-                }
                 gvm.getStreak()
                 gvm.getTotalMeditated()
                 gvm.getMeditatedToday()
+                vm.requestReviewIfNeeded()
             })
             .navigationBarItems(leading: Button(action: {
                 self.showSheet = false

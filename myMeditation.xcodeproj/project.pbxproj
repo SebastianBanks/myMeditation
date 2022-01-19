@@ -64,6 +64,10 @@
 		BCAC75302733689300C332B5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC752C2733689300C332B5 /* CoreData.swift */; };
 		BCAC7533273368F400C332B5 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC7531273368F400C332B5 /* BarChartCell.swift */; };
 		BCAD53DE274539BF003C3C6F /* dayGoalCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAD53DD274539BF003C3C6F /* dayGoalCircle.swift */; };
+		BCAF11E92797D8F400C31F35 /* GongAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E52797D8F400C31F35 /* GongAhap.ahap */; };
+		BCAF11EA2797D8F400C31F35 /* PianoAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E62797D8F400C31F35 /* PianoAhap.ahap */; };
+		BCAF11EB2797D8F400C31F35 /* BellAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E72797D8F400C31F35 /* BellAhap.ahap */; };
+		BCAF11EC2797D8F400C31F35 /* TibetanBellAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E82797D8F400C31F35 /* TibetanBellAhap.ahap */; };
 		BCB5C35B2753C7B4005BB243 /* EditGoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */; };
 		BCE4EED8276F731800328715 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE4EED7276F731800328715 /* HealthKit.framework */; };
 		BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85CC2694802900E11858 /* MeditationView.swift */; };
@@ -146,6 +150,10 @@
 		BCAC752C2733689300C332B5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		BCAC7531273368F400C332B5 /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
 		BCAD53DD274539BF003C3C6F /* dayGoalCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayGoalCircle.swift; sourceTree = "<group>"; };
+		BCAF11E52797D8F400C31F35 /* GongAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GongAhap.ahap; sourceTree = "<group>"; };
+		BCAF11E62797D8F400C31F35 /* PianoAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PianoAhap.ahap; sourceTree = "<group>"; };
+		BCAF11E72797D8F400C31F35 /* BellAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BellAhap.ahap; sourceTree = "<group>"; };
+		BCAF11E82797D8F400C31F35 /* TibetanBellAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TibetanBellAhap.ahap; sourceTree = "<group>"; };
 		BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalButtonView.swift; sourceTree = "<group>"; };
 		BCE4EED7276F731800328715 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BCEC85CC2694802900E11858 /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
@@ -370,6 +378,10 @@
 		BCAC74E42732C3C100C332B5 /* AHAP */ = {
 			isa = PBXGroup;
 			children = (
+				BCAF11E72797D8F400C31F35 /* BellAhap.ahap */,
+				BCAF11E52797D8F400C31F35 /* GongAhap.ahap */,
+				BCAF11E62797D8F400C31F35 /* PianoAhap.ahap */,
+				BCAF11E82797D8F400C31F35 /* TibetanBellAhap.ahap */,
 				BCAC74E52732C3C100C332B5 /* Completion.ahap */,
 				BCAC74E62732C3C100C332B5 /* Breathe.ahap */,
 			);
@@ -460,9 +472,13 @@
 			files = (
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
 				BC68664D2774ACFE001B969C /* Bell.wav in Resources */,
+				BCAF11EA2797D8F400C31F35 /* PianoAhap.ahap in Resources */,
 				BC68664E2774ACFE001B969C /* Gong.wav in Resources */,
+				BCAF11EB2797D8F400C31F35 /* BellAhap.ahap in Resources */,
 				BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */,
+				BCAF11E92797D8F400C31F35 /* GongAhap.ahap in Resources */,
 				BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */,
+				BCAF11EC2797D8F400C31F35 /* TibetanBellAhap.ahap in Resources */,
 				BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */,
 				BC5FFDF4277F887D0089C03B /* TibetanBell.wav in Resources */,
 				BC68664C2774ACFE001B969C /* Piano.wav in Resources */,

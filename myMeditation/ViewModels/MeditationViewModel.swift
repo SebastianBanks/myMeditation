@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import StoreKit
 
 @available(iOS 15, *)
 class MeditationViewModel: ObservableObject {
@@ -34,6 +35,8 @@ class MeditationViewModel: ObservableObject {
         static let isDone = "isDone"
         static let timeMeditated = "timeMeditated"
     }
+    
+    @AppStorage("reviewsRequested") var reviewsRequested = 0
     
     //Meditation Pipeline
     @AppStorage("isMeditating", store: .standard) var isMeditatingPersist: Bool = false
@@ -108,7 +111,9 @@ class MeditationViewModel: ObservableObject {
         print("timeRemaingPersist: \(timeRemainingPersist)")
         print("pausePersist: \(pausePersist)")
     }
-    
+    func saveTimeRemaining(timeRemaining: Double) {
+        self.timeRemainingPersist = timeRemaining
+    }
     func appEnteredBackground(isMeditating: Bool) {
         
         if self.isMeditating == true && self.pause == false {
@@ -136,6 +141,7 @@ class MeditationViewModel: ObservableObject {
             for item in self.cancellables {
                 item.cancel()
             }
+            self.pausePersist = true
             self.meditateTime = self.meditateTimePersist
             self.timeRemaining = self.timeRemainingPersist
             self.pause = self.pausePersist
@@ -224,9 +230,22 @@ class MeditationViewModel: ObservableObject {
                     timeMeditatedSub()
                 } else {
                     print("---- 3rd start -----")
+                    self.timer.upstream.connect().cancel()
+                    for item in self.cancellables {
+                        item.cancel()
+                    }
+                    UIApplication.shared.isIdleTimerDisabled = true
+                    self.meditateTime = self.meditateTimePersist
+                    self.timeRemaining = self.timeRemainingPersist
+                    self.isMeditating = true
+                    self.pause = false
+                    self.pausePersist = false
                     
-                    self.pause = true
-                    self.pausePersist = true
+                    setUpTimer()
+                    timeRemainingSub()
+                    progressSub()
+                    isDoneSub()
+                    timeMeditatedSub()
                 }
                 print("pause: \(pause)")
                 print("isMeditating: \(isMeditating)")
@@ -257,6 +276,7 @@ class MeditationViewModel: ObservableObject {
                 if self.pausePersist == false {
                     print("pause: \(self.pause)")
                     self.timeRemaining -= 1
+                    self.saveTimeRemaining(timeRemaining: self.timeRemaining)
                     print(self.timeRemaining)
                     
                     if self.timeRemaining == 0.0 {
@@ -423,5 +443,29 @@ class MeditationViewModel: ObservableObject {
         }
     }
     
+    func requestReviewIfNeeded() {
+        var meditationsCompleted = 0
+        
+        for _ in coreData.savedSessionEntites {
+            meditationsCompleted += 1
+        }
+        
+        if self.reviewsRequested == 0 && meditationsCompleted >= 3 && meditationsCompleted < 25{
+            self.reviewsRequested += 1
+            if let scene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+        } else if self.reviewsRequested == 1 && meditationsCompleted >= 30 && meditationsCompleted < 75{
+            self.reviewsRequested += 1
+            if let scene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+        } else if self.reviewsRequested == 2 && meditationsCompleted >= 80{
+            self.reviewsRequested += 1
+            if let scene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+        }
+    }
     
 }

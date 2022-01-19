@@ -11,7 +11,7 @@ import SwiftUI
 struct MeditationView: View {
     
     
-    
+    var coreHaptics = CoreHaptics()
     @ObservedObject var meditationViewModel = MeditationViewModel()
     
     @State var meditateTime = 0.0
@@ -105,6 +105,7 @@ struct MeditationView: View {
                 print("pauseButton: \(pauseButton)")
             case .inactive:
                 print("App became inactive")
+                meditationViewModel.saveTimeRemaining(timeRemaining: meditationViewModel.timeRemaining)
             @unknown default:
                 print("Well, something certainly happened...")
                 meditationViewModel.resetMeditationValues()

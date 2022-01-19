@@ -45,6 +45,7 @@ class SoundManager: ObservableObject {
     }
     
     var player: AVAudioPlayer?
+    var coreHaptics = CoreHaptics()
     
     init() {
         
@@ -72,6 +73,22 @@ class SoundManager: ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
+            
+            if self.vibrationOn == true {
+                switch sound {
+                case .TibetanBell:
+                    coreHaptics?.playHapticsFile(named: "TibetanBellAhap")
+                case .Bell:
+                    coreHaptics?.playHapticsFile(named: "BellAhap")
+                case .Gong:
+                    coreHaptics?.playHapticsFile(named: "GongAhap")
+                case .Piano:
+                    coreHaptics?.playHapticsFile(named: "PianoAhap")
+                }
+            }
+            
+            
+            
         } catch let error {
             print("Error playing completion sound. \(error.localizedDescription)")
         }
@@ -91,6 +108,19 @@ class SoundManager: ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
+            if self.vibrationOn == true {
+                switch completionSound {
+                case .TibetanBell:
+                    coreHaptics?.playHapticsFile(named: "TibetanBellAhap")
+                case .Bell:
+                    coreHaptics?.playHapticsFile(named: "BellAhap")
+                case .Gong:
+                    coreHaptics?.playHapticsFile(named: "GongAhap")
+                case .Piano:
+                    coreHaptics?.playHapticsFile(named: "PianoAhap")
+                }
+            }
+           
         } catch let error {
             print("Error playing completion sound. \(error.localizedDescription)")
         }
