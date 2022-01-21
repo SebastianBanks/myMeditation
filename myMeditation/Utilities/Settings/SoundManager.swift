@@ -146,6 +146,7 @@ class SoundManager: ObservableObject {
             player = try AVAudioPlayer(contentsOf: url)
             
             if ambiantSoundOn == true {
+                player?.numberOfLoops = -1
                 player?.play()
             } else {
                 player?.stop()
