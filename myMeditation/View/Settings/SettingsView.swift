@@ -15,8 +15,10 @@ struct SettingsView: View {
     
     
     @State private var isShowingMessages = false
-    @State var selectedSound = ""
-    @State var showPicker = false
+    @State var selectedCompletionSound = ""
+    @State var showCompletionPicker = false
+    @State var selectedAmbiantSound = ""
+    @State var showAmbiantPicker = false
     @State var alertType: myAlerts? = nil
     @State var showAlert = false
     @State var buddhaModeAlert = false
@@ -51,10 +53,17 @@ struct SettingsView: View {
                     
                             
                     Button(action: {
-                        showPicker = true
+                        showCompletionPicker = true
                     }) {
-                        SettingsPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedSound)
+                        SettingsCompletionPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedCompletionSound)
                     }
+                    
+                    Button(action: {
+                        showAmbiantPicker = true
+                    }) {
+                        SettingsAmbiantPickerCell(title: "Ambiant Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedAmbiantSound)
+                    }
+                    
                     Button(action: {
                         let delaytime = DispatchTime.now() + 7.0
                         if settingsViewModel.healthStore?.status == .notDetermined {
@@ -122,8 +131,11 @@ struct SettingsView: View {
         .environmentObject(notificationManager)
         .onAppear(perform: {
             settingsViewModel.soundManager.updateCompletionSound()
-            settingsViewModel.getSelectedSound()
-            selectedSound = settingsViewModel.selectedSound
+            settingsViewModel.soundManager.updateAmbiantSound()
+            settingsViewModel.getCompletionSound()
+            settingsViewModel.getAmbiantSound()
+            selectedCompletionSound = settingsViewModel.selectedCompletionSound
+            selectedAmbiantSound = settingsViewModel.selectedAmbiantSound
             self.healthImage = settingsViewModel.statusImage
             
             switch settingsViewModel.healthStore?.status {
@@ -146,8 +158,11 @@ struct SettingsView: View {
                 showAlert.toggle()
             }
         })
-        .fullScreenCover(isPresented: $showPicker) {
-            SoundPickerView(selectedSound: $selectedSound, showPicker: $showPicker)
+        .fullScreenCover(isPresented: $showCompletionPicker) {
+            SoundPickerView(selectedSound: $selectedCompletionSound, showPicker: $showCompletionPicker)
+        }
+        .fullScreenCover(isPresented: $showAmbiantPicker) {
+            SettingsPickerAmbiantView(selectedAmbiantSound: $selectedAmbiantSound, showPicker: $showAmbiantPicker)
         }
     }
     

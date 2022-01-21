@@ -59,11 +59,11 @@ struct SoundPickerView: View {
             )
             .environmentObject(settingsViewModel)
             .onAppear(perform: {
-                settingsViewModel.getSelectedSound()
-                selectedSound = settingsViewModel.selectedSound
+                settingsViewModel.getCompletionSound()
+                selectedSound = settingsViewModel.selectedCompletionSound
             })
             .onDisappear(perform: {
-                settingsViewModel.getSelectedSound()
+                settingsViewModel.getCompletionSound()
             })
         }
         

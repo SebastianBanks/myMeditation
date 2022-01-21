@@ -16,7 +16,8 @@ class SettingsViewModel: ObservableObject {
     
     var coreHaptics: CoreHaptics?
     @ObservedObject var soundManager = SoundManager()
-    @Published var selectedSound: String = ""
+    @Published var selectedCompletionSound: String = ""
+    @Published var selectedAmbiantSound: String = ""
     var healthStore: HealthStore?
     var statusImage: Image = Image(systemName: "questionMark")
     @AppStorage("buddhaMode", store: .standard) var buddhaModeOn: Bool = false
@@ -28,7 +29,8 @@ class SettingsViewModel: ObservableObject {
     init() {
         coreHaptics = CoreHaptics()
         healthStore = HealthStore()
-        getSelectedSound()
+        getCompletionSound()
+        getAmbiantSound()
         self.statusImage = returnImageStatus()
     }
     
@@ -47,14 +49,22 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
-    func getSelectedSound() {
+    func getCompletionSound() {
         
         if UserDefaults.standard.object(forKey: "completionSound") != nil {
-            selectedSound = UserDefaults.standard.object(forKey: "completionSound") as! String
+            selectedCompletionSound = UserDefaults.standard.object(forKey: "completionSound") as! String
         } else {
-            selectedSound = ""
+            selectedCompletionSound = ""
         }
+    }
+    
+    func getAmbiantSound() {
         
+        if UserDefaults.standard.object(forKey: "ambiantSound") != nil {
+            selectedAmbiantSound = UserDefaults.standard.object(forKey: "ambiantSound") as! String
+        } else {
+            selectedAmbiantSound = ""
+        }
     }
     
     
@@ -73,7 +83,27 @@ class SettingsViewModel: ObservableObject {
         }
         
         soundManager.updateCompletionSound()
-        getSelectedSound()
+        getCompletionSound()
+    }
+    
+    func setAmbiantSound(selectedSound: String) {
+        switch selectedSound {
+        case "Ocean":
+            UserDefaults.standard.set(AmbiantSound.Ocean.rawValue, forKey: "ambiantSound")
+        case "Rain":
+            UserDefaults.standard.set(AmbiantSound.Rain.rawValue, forKey: "ambiantSound")
+        case "Stream":
+            UserDefaults.standard.set(AmbiantSound.Stream.rawValue, forKey: "ambiantSound")
+        case "Fire":
+            UserDefaults.standard.set(AmbiantSound.Fire.rawValue, forKey: "ambiantSound")
+        case "Birds":
+            UserDefaults.standard.set(AmbiantSound.Birds.rawValue, forKey: "ambiantSound")
+        default:
+            print("selectedSound not found \(selectedSound)")
+        }
+        
+        soundManager.updateAmbiantSound()
+        getAmbiantSound()
     }
     
 //Mark: - Health

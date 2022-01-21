@@ -35,7 +35,7 @@
 		BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */; };
 		BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */; };
 		BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F4D4626C549BD00A93CFD /* ListData.swift */; };
-		BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */; };
+		BC803C6A26ABF3FB001D42DA /* SettingsCompletionPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC803C6926ABF3FA001D42DA /* SettingsCompletionPickerCell.swift */; };
 		BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB502690DEED006BB12C /* myMeditationApp.swift */; };
 		BC87FB532690DEED006BB12C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87FB522690DEED006BB12C /* HomeView.swift */; };
 		BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB542690DEF2006BB12C /* Assets.xcassets */; };
@@ -43,6 +43,13 @@
 		BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */; };
 		BC8C9A3A26A5A7BA001489E4 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3926A5A7BA001489E4 /* AppMainView.swift */; };
 		BC8C9A3C26A5AE3D001489E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */; };
+		BC914FC4279A2F8600F5CF88 /* Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FBF279A2F7900F5CF88 /* Rain.mp3 */; };
+		BC914FC5279A2F8600F5CF88 /* Stream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FC0279A2F7C00F5CF88 /* Stream.mp3 */; };
+		BC914FC6279A2F8600F5CF88 /* Ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FC1279A2F7F00F5CF88 /* Ocean.mp3 */; };
+		BC914FC7279A2F8600F5CF88 /* Fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FC2279A2F8300F5CF88 /* Fire.mp3 */; };
+		BC914FC8279A2F8600F5CF88 /* Birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FC3279A2F8600F5CF88 /* Birds.mp3 */; };
+		BC914FCA279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC914FC9279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift */; };
+		BC914FCC279A375C00F5CF88 /* SettingsPickerAmbiantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC914FCB279A375C00F5CF88 /* SettingsPickerAmbiantView.swift */; };
 		BC94A4FB2787CC2A0031404C /* Launch Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94A4FA2787CC2A0031404C /* Launch Screen.swift */; };
 		BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E52732C3C100C332B5 /* Completion.ahap */; };
 		BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E62732C3C100C332B5 /* Breathe.ahap */; };
@@ -118,7 +125,7 @@
 		BC7F4D4226C157EF00A93CFD /* LearnTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicCell.swift; sourceTree = "<group>"; };
 		BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		BC7F4D4626C549BD00A93CFD /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
-		BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerCell.swift; sourceTree = "<group>"; };
+		BC803C6926ABF3FA001D42DA /* SettingsCompletionPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCompletionPickerCell.swift; sourceTree = "<group>"; };
 		BC87FB4D2690DEED006BB12C /* myMeditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myMeditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC87FB502690DEED006BB12C /* myMeditationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myMeditationApp.swift; sourceTree = "<group>"; };
 		BC87FB522690DEED006BB12C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -128,6 +135,13 @@
 		BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BC8C9A3926A5A7BA001489E4 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		BC8C9A3B26A5AE3D001489E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BC914FBF279A2F7900F5CF88 /* Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rain.mp3; sourceTree = "<group>"; };
+		BC914FC0279A2F7C00F5CF88 /* Stream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stream.mp3; sourceTree = "<group>"; };
+		BC914FC1279A2F7F00F5CF88 /* Ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ocean.mp3; sourceTree = "<group>"; };
+		BC914FC2279A2F8300F5CF88 /* Fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fire.mp3; sourceTree = "<group>"; };
+		BC914FC3279A2F8600F5CF88 /* Birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Birds.mp3; sourceTree = "<group>"; };
+		BC914FC9279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAmbiantPickerCell.swift; sourceTree = "<group>"; };
+		BC914FCB279A375C00F5CF88 /* SettingsPickerAmbiantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerAmbiantView.swift; sourceTree = "<group>"; };
 		BC94A4FA2787CC2A0031404C /* Launch Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Launch Screen.swift"; sourceTree = "<group>"; };
 		BCAC74E52732C3C100C332B5 /* Completion.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Completion.ahap; sourceTree = "<group>"; };
 		BCAC74E62732C3C100C332B5 /* Breathe.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Breathe.ahap; sourceTree = "<group>"; };
@@ -238,7 +252,7 @@
 		BC50567127340C2A0040CFF2 /* Settings Componets */ = {
 			isa = PBXGroup;
 			children = (
-				BC803C6926ABF3FA001D42DA /* SettingsPickerCell.swift */,
+				BC803C6926ABF3FA001D42DA /* SettingsCompletionPickerCell.swift */,
 				BC7F4D3E26BFFF0100A93CFD /* SettingsToggleCell.swift */,
 				BC7F4D4026C0050000A93CFD /* SettingsCell.swift */,
 				BCAC75032732C42A00C332B5 /* HealthButton.swift */,
@@ -247,6 +261,8 @@
 				BCAC75062732C42B00C332B5 /* notificationToggle.swift */,
 				BCAC75072732C42B00C332B5 /* reminderNotificationToggle.swift */,
 				BC1C212B27721D6A00C1C4FA /* SoundPickerView.swift */,
+				BC914FC9279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift */,
+				BC914FCB279A375C00F5CF88 /* SettingsPickerAmbiantView.swift */,
 			);
 			path = "Settings Componets";
 			sourceTree = "<group>";
@@ -392,6 +408,11 @@
 		BCAC74E72732C3C100C332B5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				BC914FC3279A2F8600F5CF88 /* Birds.mp3 */,
+				BC914FC2279A2F8300F5CF88 /* Fire.mp3 */,
+				BC914FC1279A2F7F00F5CF88 /* Ocean.mp3 */,
+				BC914FBF279A2F7900F5CF88 /* Rain.mp3 */,
+				BC914FC0279A2F7C00F5CF88 /* Stream.mp3 */,
 				BC5FFDF3277F887D0089C03B /* TibetanBell.wav */,
 				BC6866492774ACFE001B969C /* Bell.wav */,
 				BC68664A2774ACFE001B969C /* Gong.wav */,
@@ -472,15 +493,20 @@
 			files = (
 				BC87FB8F2690E75F006BB12C /* Launch Screen.storyboard in Resources */,
 				BC68664D2774ACFE001B969C /* Bell.wav in Resources */,
+				BC914FC4279A2F8600F5CF88 /* Rain.mp3 in Resources */,
 				BCAF11EA2797D8F400C31F35 /* PianoAhap.ahap in Resources */,
 				BC68664E2774ACFE001B969C /* Gong.wav in Resources */,
 				BCAF11EB2797D8F400C31F35 /* BellAhap.ahap in Resources */,
 				BC87FB582690DEF2006BB12C /* Preview Assets.xcassets in Resources */,
+				BC914FC8279A2F8600F5CF88 /* Birds.mp3 in Resources */,
 				BCAF11E92797D8F400C31F35 /* GongAhap.ahap in Resources */,
 				BC87FB552690DEF2006BB12C /* Assets.xcassets in Resources */,
 				BCAF11EC2797D8F400C31F35 /* TibetanBellAhap.ahap in Resources */,
 				BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */,
+				BC914FC7279A2F8600F5CF88 /* Fire.mp3 in Resources */,
 				BC5FFDF4277F887D0089C03B /* TibetanBell.wav in Resources */,
+				BC914FC5279A2F8600F5CF88 /* Stream.mp3 in Resources */,
+				BC914FC6279A2F8600F5CF88 /* Ocean.mp3 in Resources */,
 				BC68664C2774ACFE001B969C /* Piano.wav in Resources */,
 				BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */,
 			);
@@ -516,6 +542,7 @@
 				BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */,
 				BC0017B626CA99B400323A2B /* WhyMeditateArticle.swift in Sources */,
 				BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */,
+				BC914FCA279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift in Sources */,
 				BC7F4D4526C3F7DB00A93CFD /* ButtonsView.swift in Sources */,
 				BC7F4D3F26BFFF0100A93CFD /* SettingsToggleCell.swift in Sources */,
 				BCAD53DE274539BF003C3C6F /* dayGoalCircle.swift in Sources */,
@@ -529,6 +556,7 @@
 				BCAC7533273368F400C332B5 /* BarChartCell.swift in Sources */,
 				BC0444FB27372C28002FC01D /* LearnViewModel.swift in Sources */,
 				BCAC75252733684A00C332B5 /* ChartData.swift in Sources */,
+				BC914FCC279A375C00F5CF88 /* SettingsPickerAmbiantView.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
 				BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */,
 				BC94A4FB2787CC2A0031404C /* Launch Screen.swift in Sources */,
@@ -540,7 +568,7 @@
 				BC04C55E275ABA39004DB85B /* CountDownPicker.swift in Sources */,
 				BC7F4D3526BEE09100A93CFD /* ProgressBar.swift in Sources */,
 				BC0444F927372C1B002FC01D /* GoalsViewModel.swift in Sources */,
-				BC803C6A26ABF3FB001D42DA /* SettingsPickerCell.swift in Sources */,
+				BC803C6A26ABF3FB001D42DA /* SettingsCompletionPickerCell.swift in Sources */,
 				BC7F4D4126C0050000A93CFD /* SettingsCell.swift in Sources */,
 				BCAC75272733684A00C332B5 /* CoreDataManager.swift in Sources */,
 				BCAC752E2733689300C332B5 /* BarChart.swift in Sources */,
