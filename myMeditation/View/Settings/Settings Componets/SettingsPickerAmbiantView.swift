@@ -28,7 +28,7 @@ struct SettingsPickerAmbiantView: View {
                                 print("set ambiant sound works")
                                 soundManager.updateAmbiantSound()
                                 print("update ambiant sound works")
-                                soundManager.playAmbiantSound(turnAmbiantOff: false)
+                                soundManager.playAmbiantSound()
                                 
                                 print("pv selected sound: \(selectedAmbiantSound)")
                                 print("pv completion sound: \(soundManager.ambiantSound)")

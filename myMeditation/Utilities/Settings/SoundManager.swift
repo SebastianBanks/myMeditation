@@ -68,6 +68,8 @@ class SoundManager: ObservableObject {
         }
     }
     
+    @Published var ambiantSoundOn: Bool = false
+    
     var player: AVAudioPlayer?
     var coreHaptics = CoreHaptics()
     
@@ -113,7 +115,7 @@ class SoundManager: ObservableObject {
         
     }
     
-    func playAmbiantSound(turnAmbiantOff: Bool) {
+    func playAmbiantSound() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
         } catch(let error) {
@@ -125,13 +127,32 @@ class SoundManager: ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
-            if turnAmbiantOff == true {
+        } catch let error {
+            print("Error playing ambiant sound. \(error.localizedDescription)")
+        }
+
+    }
+    
+    func ambiantSoundStartStop() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
+        }
+        
+        guard let url = Bundle.main.url(forResource: ambiantSound.rawValue, withExtension: ".mp3") else { return }
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            
+            if ambiantSoundOn == true {
+                player?.play()
+            } else {
                 player?.stop()
             }
         } catch let error {
             print("Error playing ambiant sound. \(error.localizedDescription)")
         }
-
     }
 
     func playCompletionSoundOf(sound: CompletionSound) {

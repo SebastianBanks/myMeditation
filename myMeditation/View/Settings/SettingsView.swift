@@ -45,24 +45,10 @@ struct SettingsView: View {
                     
                     motivationNotificationToggle(notificationManager: notificationManager, title: "Mindful Motivation", imgName: "app.badge", key: notificationKeys.mindfulMotivationOn)
                     
-                    SettingsToggleCell(title: "Sound", imgName: "speaker", key: SoundKey.soundOn)
-                    
-                    SettingsToggleCell(title: "Vibration", imgName: "speaker", key: VibrationKey.vibrationOn)
-                    
                     SettingsToggleCell(title: "Buddha Mode", imgName: "clock", key: "buddhaMode")
                     
                             
-                    Button(action: {
-                        showCompletionPicker = true
-                    }) {
-                        SettingsCompletionPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedCompletionSound)
-                    }
                     
-                    Button(action: {
-                        showAmbiantPicker = true
-                    }) {
-                        SettingsAmbiantPickerCell(title: "Ambiant Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedAmbiantSound)
-                    }
                     
                     Button(action: {
                         let delaytime = DispatchTime.now() + 7.0
@@ -94,6 +80,26 @@ struct SettingsView: View {
                     })
                     
 
+                }
+                
+                Section(header: Text("Sound & Haptics")) {
+                    SettingsToggleCell(title: "Vibration", imgName: "speaker", key: VibrationKey.vibrationOn)
+                    
+                    SettingsToggleCell(title: "Completion Sound", imgName: "speaker", key: SoundKey.soundOn)
+                    
+                    SettingsToggleCell(title: "Ambiant Sound", imgName: "speaker", key: AmbiantKey.ambiantOn)
+                    
+                    Button(action: {
+                        showCompletionPicker = true
+                    }) {
+                        SettingsCompletionPickerCell(title: "Completion Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedCompletionSound)
+                    }
+                    
+                    Button(action: {
+                        showAmbiantPicker = true
+                    }) {
+                        SettingsAmbiantPickerCell(title: "Ambiant Sound", imgName: "speaker", pickerName: "", selectedSound: $selectedAmbiantSound)
+                    }
                 }
 
                 Section(header: Text("Support")) {

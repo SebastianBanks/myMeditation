@@ -17,6 +17,7 @@ struct MeditationView: View {
     @State var meditateTime = 0.0
     @State var isMeditating = false
     @State var pauseButton = true
+    @State var ambiantSoundOn = false
     
     @State var hours = 0
     @State var mins = 5
@@ -132,6 +133,12 @@ struct MeditationView: View {
         .onDisappear(perform: {
             meditationViewModel.isMeditatingOnDisappear(isMeditating: isMeditating)
         })
+        .onChange(of: meditationViewModel.soundManager.ambiantSoundOn) { bool in
+            if meditationViewModel.soundManager.ambiantOn == true {
+                meditationViewModel.soundManager.updateAmbiantSound()
+                meditationViewModel.soundManager.ambiantSoundStartStop()
+            }
+        }
     }
     
 }

@@ -41,6 +41,8 @@ class SettingsViewModel: ObservableObject {
             return self.$soundManager.soundOn
         case VibrationKey.vibrationOn:
             return self.$soundManager.vibrationOn
+        case AmbiantKey.ambiantOn:
+            return self.$soundManager.ambiantOn
         case "buddhaMode":
             return self.$buddhaModeOn
         default:

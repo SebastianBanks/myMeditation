@@ -80,6 +80,7 @@ class MeditationViewModel: ObservableObject {
     func cancel() {
         UIApplication.shared.isIdleTimerDisabled = false
         resetMeditationValues()
+        soundManager.ambiantSoundOn = false
         self.timer.upstream.connect().cancel()
         for item in self.cancellables {
             item.cancel()
@@ -88,6 +89,7 @@ class MeditationViewModel: ObservableObject {
     
     func meditationIsOver() {
         UIApplication.shared.isIdleTimerDisabled = false
+        soundManager.ambiantSoundOn = false
         self.isMeditatingPersist = false
         self.meditateTimePersist = 0.0
         self.timeRemainingPersist = 0.0
@@ -124,6 +126,7 @@ class MeditationViewModel: ObservableObject {
             self.timeRemainingPersist = self.timeRemaining
             self.pausePersist = true
             self.pause = true
+            soundManager.ambiantSoundOn = false
             
             print("----Background----")
             print("isMeditaingPersist: \(self.isMeditatingPersist)")
@@ -167,6 +170,7 @@ class MeditationViewModel: ObservableObject {
         self.pause = self.pausePersist
         self.progress = 0.0
         self.isDone = false
+        soundManager.ambiantSoundOn = false
     }
     
     func isMeditatingOnDisappear(isMeditating: Bool) {
@@ -182,7 +186,7 @@ class MeditationViewModel: ObservableObject {
             self.pausePersist = true
             self.pause = true
             self.timeRemainingPersist = self.timeRemaining
-            
+            soundManager.ambiantSoundOn = false
         }
         
         print("isMeditating Persist: \(self.isMeditatingPersist)")
@@ -420,14 +424,17 @@ class MeditationViewModel: ObservableObject {
                 // start meditation
                 print("---- start meditation ----")
                 start(time: time)
+                soundManager.ambiantSoundOn = true
             } else if isMeditatingPersist == true && pausePersist == true {
                 // resume meditation
                 print("---- resume meditation ----")
                 start(time: self.timeRemainingPersist)
+                soundManager.ambiantSoundOn = true
             } else {
                 // pause meditation
                 print("---- pause meditation ----")
                 pauseButton()
+                soundManager.ambiantSoundOn = false
             }
         }
         
