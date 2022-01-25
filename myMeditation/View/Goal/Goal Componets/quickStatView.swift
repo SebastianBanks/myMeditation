@@ -9,15 +9,17 @@ import SwiftUI
 
 struct quickStatView: View {
     
+    var goalsViewModel = GoalsViewModel()
     @Binding var streak: Int
     @Binding var meditatedToday: Int
-    @Binding var meditatedWeek: Int
+    @Binding var meditatedWeek: Double
     
     var body: some View {
         HStack {
             VStack {
                 Text("🔥 \(streak)")
                     .padding(.bottom, 5)
+                    .font(.system(size: 20))
                 Text("Streak")
                     .font(.system(size: 15))
                 
@@ -33,6 +35,7 @@ struct quickStatView: View {
             VStack {
                 Text("\(meditatedToday) mins")
                     .padding(.bottom, 5)
+                    .font(.system(size: 20))
                 Text("Meditated Today")
                     .font(.system(size: 15))
             }
@@ -43,8 +46,9 @@ struct quickStatView: View {
                 .font(.system(size: 40))
                 .offset(y: -3)
             VStack {
-                Text("\(meditatedWeek) mins")
+                Text("\(goalsViewModel.timeToString(timeRemaining: meditatedWeek))")
                     .padding(.bottom, 5)
+                    .font(.system(size: 20))
                 Text("Meditated This Week")
                     .font(.system(size: 15))
             }

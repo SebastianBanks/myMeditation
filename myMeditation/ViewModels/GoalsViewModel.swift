@@ -24,13 +24,17 @@ class GoalsViewModel: ObservableObject {
     @ObservedObject var notificationManager = NotificationManager()
     @ObservedObject var coreData = CoreData()
     var currentWeek = weekData(sun: 0.0, mon: 0.0, tues: 0.0, wed: 0.0, thur: 0.0, fri: 0.0, sat: 0.0)
+    var currentMonth = monthData(week1: 0.0, week2: 0.0, week3: 0.0, week4: 0.0, week5: 0.0)
+    var currentYear = yearData(jan: 0.0, feb: 0.0, mar: 0.0, apr: 0.0, may: 0.0, jun: 0.0, jul: 0.0, aug: 0.0, sep: 0.0, oct: 0.0, nov: 0.0, dec: 0.0)
     @Published var currentWeekData: [ChartData] = []
+    @Published var currentMonthData: [ChartData] = []
+    @Published var currentYearData: [ChartData] = []
     
     
     @Published var streak: Int = 0
     @Published var bestStreak: Int = 0
     @Published var meditatedToday: Int = 0
-    @Published var meditatedWeek: Int = 0
+    @Published var meditatedWeek: Double = 0.0
     @Published var meditatedTotal: Double = 0.0
     @Published var meditationSessions: Int = 0
     @Published var longestSession: Double = 0.0
@@ -48,13 +52,16 @@ class GoalsViewModel: ObservableObject {
     let calendar = Calendar.current
     let today: Date
     let startOfWeek: Date
+    let startOfMonth: Date
+    let startOfYear: Date
     var excluded: [Int] = []
     
     
     init() {
         today = calendar.startOfDay(for: Date())
         startOfWeek = calendar.startOfWeek(for: today) ?? today
-        
+        startOfMonth = calendar.startOfMonth(for: today) ?? today
+        startOfYear = calendar.startOfYear(for: today) ?? today
         
     }
     
@@ -85,7 +92,9 @@ class GoalsViewModel: ObservableObject {
     }
     
     func updateViewData() {
-        getChartData()
+        getWeekChartData()
+        getMonthChartData()
+        getYearChartData()
         getMeditatedToday()
         getMeditatedThisWeek()
         getTotalSessions()
@@ -97,7 +106,7 @@ class GoalsViewModel: ObservableObject {
         
     }
     
-    func getChartData() {
+    func getWeekChartData() {
         self.coreData.getSessions()
         
         let entities = self.coreData.savedSessionEntites
@@ -163,6 +172,159 @@ class GoalsViewModel: ObservableObject {
         
     }
     
+    func getMonthChartData() {
+        self.coreData.getSessions()
+        
+        let entities = self.coreData.savedSessionEntites
+        let currentMonthData = entities.filter({ entite in
+            entite.date ?? today >= startOfMonth
+        })
+        
+        self.currentMonth.week1 = 0.0
+        self.currentMonth.week2 = 0.0
+        self.currentMonth.week3 = 0.0
+        self.currentMonth.week4 = 0.0
+        self.currentMonth.week5 = 0.0
+        
+        for session in currentMonthData {
+            switch session.date?.weekOfMonth() {
+            case 1:
+                self.currentMonth.week1 += session.timeMeditated
+            case 2:
+                self.currentMonth.week2 += session.timeMeditated
+            case 3:
+                self.currentMonth.week3 += session.timeMeditated
+            case 4:
+                self.currentMonth.week4 += session.timeMeditated
+            case 5:
+                self.currentMonth.week5 += session.timeMeditated
+            default:
+                self.currentMonth.week1 += 0.0
+                self.currentMonth.week2 += 0.0
+                self.currentMonth.week3 += 0.0
+                self.currentMonth.week4 += 0.0
+                self.currentMonth.week5 += 0.0
+            }
+            
+            print("week 1: \(self.currentMonth.week1)")
+            print("week 2: \(self.currentMonth.week2)")
+            print("week 3: \(self.currentMonth.week3)")
+            print("week 4: \(self.currentMonth.week4)")
+            print("week 5: \(self.currentMonth.week5)")
+            
+            self.currentMonthData = [
+                ChartData(label: "w1", value: self.currentMonth.week1),
+                ChartData(label: "w2", value: self.currentMonth.week2),
+                ChartData(label: "w3", value: self.currentMonth.week3),
+                ChartData(label: "w4", value: self.currentMonth.week4),
+            ]
+            
+            if self.currentMonth.week5 != 0.0 {
+                self.currentMonthData.append(ChartData(label: "w5", value: self.currentMonth.week5))
+            }
+            
+            for value in self.currentMonthData {
+                print("label: \(value.label), value: \(value.value)")
+            }
+        }
+    }
+    
+    func getYearChartData() {
+        self.coreData.getSessions()
+        
+        let entities = self.coreData.savedSessionEntites
+        let currentYearData = entities.filter({ entite in
+            entite.date ?? today >= startOfYear
+        })
+        
+        self.currentYear.jan = 0.0
+        self.currentYear.feb = 0.0
+        self.currentYear.mar = 0.0
+        self.currentYear.apr = 0.0
+        self.currentYear.may = 0.0
+        self.currentYear.jun = 0.0
+        self.currentYear.jul = 0.0
+        self.currentYear.aug = 0.0
+        self.currentYear.sep = 0.0
+        self.currentYear.oct = 0.0
+        self.currentYear.nov = 0.0
+        self.currentYear.dec = 0.0
+        
+        for session in currentYearData {
+            switch session.date?.monthOfYear() {
+            case 1:
+                self.currentYear.jan += session.timeMeditated
+            case 2:
+                self.currentYear.feb += session.timeMeditated
+            case 3:
+                self.currentYear.mar += session.timeMeditated
+            case 4:
+                self.currentYear.apr += session.timeMeditated
+            case 5:
+                self.currentYear.may += session.timeMeditated
+            case 6:
+                self.currentYear.jun += session.timeMeditated
+            case 7:
+                self.currentYear.jul += session.timeMeditated
+            case 8:
+                self.currentYear.aug += session.timeMeditated
+            case 9:
+                self.currentYear.sep += session.timeMeditated
+            case 10:
+                self.currentYear.oct += session.timeMeditated
+            case 11:
+                self.currentYear.nov += session.timeMeditated
+            case 12:
+                self.currentYear.dec += session.timeMeditated
+            default:
+                self.currentYear.jan += 0.0
+                self.currentYear.feb += 0.0
+                self.currentYear.mar += 0.0
+                self.currentYear.apr += 0.0
+                self.currentYear.may += 0.0
+                self.currentYear.jun += 0.0
+                self.currentYear.jul += 0.0
+                self.currentYear.aug += 0.0
+                self.currentYear.sep += 0.0
+                self.currentYear.oct += 0.0
+                self.currentYear.nov += 0.0
+                self.currentYear.dec += 0.0
+            }
+            
+            print("jan: \(self.currentYear.jan)")
+            print("feb: \(self.currentYear.feb)")
+            print("mar: \(self.currentYear.mar)")
+            print("apr: \(self.currentYear.apr)")
+            print("may: \(self.currentYear.may)")
+            print("jun: \(self.currentYear.jun)")
+            print("jul: \(self.currentYear.jul)")
+            print("aug: \(self.currentYear.aug)")
+            print("sep: \(self.currentYear.sep)")
+            print("oct: \(self.currentYear.oct)")
+            print("nov: \(self.currentYear.nov)")
+            print("dec: \(self.currentYear.dec)")
+            
+            self.currentYearData = [
+                ChartData(label: "j", value: self.currentYear.jan),
+                ChartData(label: "f", value: self.currentYear.feb),
+                ChartData(label: "m", value: self.currentYear.mar),
+                ChartData(label: "a", value: self.currentYear.apr),
+                ChartData(label: "m", value: self.currentYear.mar),
+                ChartData(label: "j", value: self.currentYear.jun),
+                ChartData(label: "j", value: self.currentYear.jul),
+                ChartData(label: "a", value: self.currentYear.aug),
+                ChartData(label: "s", value: self.currentYear.sep),
+                ChartData(label: "o", value: self.currentYear.oct),
+                ChartData(label: "n", value: self.currentYear.nov),
+                ChartData(label: "d", value: self.currentYear.dec),
+            ]
+            
+            for value in self.currentYearData {
+                print("label: \(value.label), value: \(value.value)")
+            }
+        }
+    }
+    
     func getMeditatedToday() {
         self.coreData.getSessions()
         
@@ -187,7 +349,7 @@ class GoalsViewModel: ObservableObject {
         self.meditatedWeek = 0
         
         for session in currentWeekData {
-            self.meditatedWeek += (Int(session.timeMeditated) / 60)
+            self.meditatedWeek += session.timeMeditated
         }
     }
     
@@ -535,13 +697,39 @@ class GoalsViewModel: ObservableObject {
 }
 
 extension Calendar {
-  func intervalOfWeek(for date: Date) -> DateInterval? {
+    func intervalOfWeek(for date: Date) -> DateInterval? {
     dateInterval(of: .weekOfYear, for: date)
   }
+    func intervalOfMonth(for date: Date) -> DateInterval? {
+        dateInterval(of: .month, for: date)
+    }
+    
+    func intervalOfYear(for date: Date) -> DateInterval? {
+        dateInterval(of: .year, for: date)
+    }
 
-  func startOfWeek(for date: Date) -> Date? {
+    func startOfWeek(for date: Date) -> Date? {
     intervalOfWeek(for: date)?.start
   }
+    
+    func startOfMonth(for date: Date) -> Date? {
+        intervalOfMonth(for: date)?.start
+    }
+    
+    func startOfYear(for date: Date) -> Date? {
+        intervalOfYear(for: date)?.start
+    }
+    
+}
+
+extension Date {
+    func weekOfMonth() -> Int {
+        return Calendar.current.dateComponents([.weekOfMonth], from: self).weekOfMonth ?? 0
+    }
+    
+    func monthOfYear() -> Int {
+        return Calendar.current.dateComponents([.month], from: self).month ?? 0
+    }
 }
 
 extension ChartData: Equatable {

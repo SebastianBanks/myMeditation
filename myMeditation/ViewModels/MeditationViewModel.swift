@@ -474,5 +474,4 @@ class MeditationViewModel: ObservableObject {
             }
         }
     }
-    
 }

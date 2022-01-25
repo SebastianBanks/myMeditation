@@ -190,6 +190,14 @@ class SoundManager: ObservableObject {
         }
     }
     
+    func returnAmbiantOn() -> Bool {
+        self.ambiantOn = UserDefaults.standard.bool(forKey: AmbiantKey.ambiantOn)
+        if self.ambiantOn == true {
+            return true
+        } else {
+            return false
+        }
+    }
     
     func playCompletionSound() {
         

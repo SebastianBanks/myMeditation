@@ -12,6 +12,8 @@ struct GoalView: View {
     @ObservedObject var goalsViewModel = GoalsViewModel()
     @State var editGoal = false
     @State var date = Date()
+    @State var selectedRange = 0
+    @State var chartData: [ChartData] = []
     
     var body: some View {
         ZStack {
@@ -20,7 +22,8 @@ struct GoalView: View {
                 ScrollView{
                     VStack(spacing: 30) {
                         
-                        GoalChartView(data: $goalsViewModel.currentWeekData)
+                        
+                        GoalChartView(data: $chartData, selectedRange: $selectedRange)
                           .padding(.top, 30)
                         
                         quickStatView(streak: $goalsViewModel.streak, meditatedToday: $goalsViewModel.meditatedToday, meditatedWeek: $goalsViewModel.meditatedWeek)
@@ -56,11 +59,26 @@ struct GoalView: View {
         })
         .onAppear {
             goalsViewModel.updateViewData()
+            self.chartData = goalsViewModel.currentWeekData
         }
-            
+        .onChange(of: selectedRange) { value in
+            print("selectedRange: \(selectedRange)")
+            goalsViewModel.updateViewData()
+            switch selectedRange {
+            case 0:
+                self.chartData = goalsViewModel.currentWeekData
+            case 1:
+                self.chartData = goalsViewModel.currentMonthData
+            case 2:
+                self.chartData = goalsViewModel.currentYearData
+            default:
+                self.chartData = goalsViewModel.currentWeekData
+            }
+        }
         .sheet(isPresented: $editGoal, content: {
             EditGoalView(date: $date, showSheet: $editGoal)
         })
+        
         
     }
 }

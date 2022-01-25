@@ -27,7 +27,9 @@ class SettingsViewModel: ObservableObject {
     
     
     init() {
+        
         coreHaptics = CoreHaptics()
+        
         healthStore = HealthStore()
         getCompletionSound()
         getAmbiantSound()

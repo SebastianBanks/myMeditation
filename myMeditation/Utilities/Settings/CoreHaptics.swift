@@ -16,7 +16,7 @@ import SwiftUI
 class CoreHaptics {
     
     // A haptic engine manages the connection to the haptic server.
-    var engine: CHHapticEngine
+    var engine: CHHapticEngine?
     
     init?() {
         
@@ -30,7 +30,7 @@ class CoreHaptics {
         
         createEngine()
 
-        engine.isAutoShutdownEnabled = true
+        engine?.isAutoShutdownEnabled = true
         
         
         
@@ -44,7 +44,7 @@ class CoreHaptics {
     /// - Tag: CreateEngine
     func createEngine() {
         // Create and configure a haptic engine.
-        /*
+        
         do {
             // Associate the haptic engine with the default audio session
             // to ensure the correct behavior when playing audio-based haptics.
@@ -58,7 +58,7 @@ class CoreHaptics {
             print("Failed to create engine!")
             return
         }
-         */
+         
         
         // The stopped handler alerts you of engine stoppage due to external causes.
         engine.stoppedHandler = { reason in
@@ -88,7 +88,7 @@ class CoreHaptics {
             // Try restarting the engine.
             print("The engine reset --> Restarting now!")
             do {
-                try self.engine.start()
+                try self.engine?.start()
             } catch {
                 print("Failed to restart the engine: \(error)")
             }
@@ -107,10 +107,10 @@ class CoreHaptics {
         
         do {
             // Start the engine in case it's idle.
-            try engine.start()
+            try engine?.start()
             
             // Tell the engine to play a pattern.
-            try engine.playPattern(from: URL(fileURLWithPath: path))
+            try engine?.playPattern(from: URL(fileURLWithPath: path))
             
         } catch { // Engine startup errors
             print("An error occured playing \(filename): \(error).")

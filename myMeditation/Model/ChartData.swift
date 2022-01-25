@@ -17,16 +17,6 @@ struct ChartData {
 
 
 
-struct MonthData {
-    
-    var currentMonthDAta: [ChartData]
-}
-
-struct YearData {
-    
-    var currentYearData: [ChartData]
-}
-
 
 
 

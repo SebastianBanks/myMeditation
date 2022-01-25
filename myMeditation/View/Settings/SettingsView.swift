@@ -164,6 +164,9 @@ struct SettingsView: View {
                 showAlert.toggle()
             }
         })
+        .onChange(of: settingsViewModel.soundManager.ambiantOn) { bool in
+            settingsViewModel.soundManager.ambiantOn = bool
+        }
         .fullScreenCover(isPresented: $showCompletionPicker) {
             SoundPickerView(selectedSound: $selectedCompletionSound, showPicker: $showCompletionPicker)
         }

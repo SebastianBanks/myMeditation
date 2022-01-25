@@ -134,7 +134,10 @@ struct MeditationView: View {
             meditationViewModel.isMeditatingOnDisappear(isMeditating: isMeditating)
         })
         .onChange(of: meditationViewModel.soundManager.ambiantSoundOn) { bool in
-            if meditationViewModel.soundManager.ambiantOn == true {
+            
+            
+            
+            if meditationViewModel.soundManager.returnAmbiantOn() == true {
                 meditationViewModel.soundManager.updateAmbiantSound()
                 meditationViewModel.soundManager.ambiantSoundStartStop()
             }

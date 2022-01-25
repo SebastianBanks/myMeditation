@@ -10,10 +10,20 @@ import SwiftUI
 struct GoalChartView: View {
     
     @Binding var data: [ChartData]
+    @Binding var selectedRange: Int
     
     var body: some View {
         VStack {
-            BarChart(data: data)
+            Picker(selection: $selectedRange, label: Text("")) {
+                Text("Week").tag(0)
+                Text("Month").tag(1)
+                Text("Year").tag(2)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            .frame(width: 350)
+            
+            BarChart(data: data, selectedRange: $selectedRange)
             .font(.system(size: 15, weight: .semibold, design: .rounded))
             .frame(width: 350, height: 350)
             .foregroundColor(Color.init("TextColor"))
