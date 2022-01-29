@@ -15,11 +15,13 @@ class SettingsViewModel: ObservableObject {
     
     
     var coreHaptics: CoreHaptics?
+    @ObservedObject var meditationViewModel = MeditationViewModel()
     @ObservedObject var soundManager = SoundManager()
     @Published var selectedCompletionSound: String = ""
     @Published var selectedAmbiantSound: String = ""
     var healthStore: HealthStore?
     var statusImage: Image = Image(systemName: "questionMark")
+    var isMeditatating = false
     @AppStorage("buddhaMode", store: .standard) var buddhaModeOn: Bool = false
     
     var cancellables = Set<AnyCancellable>()
@@ -33,7 +35,12 @@ class SettingsViewModel: ObservableObject {
         healthStore = HealthStore()
         getCompletionSound()
         getAmbiantSound()
+        getIsMeditating()
         self.statusImage = returnImageStatus()
+    }
+    
+    func getIsMeditating() {
+        self.isMeditatating = meditationViewModel.isMeditatingPersist
     }
     
     func getIsOn(key: String) -> Binding<Bool> {
@@ -47,6 +54,8 @@ class SettingsViewModel: ObservableObject {
             return self.$soundManager.ambiantOn
         case "buddhaMode":
             return self.$buddhaModeOn
+        case "stopWatchMode":
+            return meditationViewModel.$stopWatchMode
         default:
             print("key not identified")
             return self.$soundManager.soundOn

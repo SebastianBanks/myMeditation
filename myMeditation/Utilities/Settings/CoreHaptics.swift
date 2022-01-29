@@ -21,14 +21,14 @@ class CoreHaptics {
     init?() {
         
         do {
-          engine = try CHHapticEngine()
+          engine? = try CHHapticEngine()
         } catch let error {
           print("Haptic engine Creation Error: \(error)")
           return nil
         }
 
         
-        createEngine()
+        
 
         engine?.isAutoShutdownEnabled = true
         
@@ -50,6 +50,7 @@ class CoreHaptics {
             // to ensure the correct behavior when playing audio-based haptics.
             let audioSession = AVAudioSession.sharedInstance()
             engine = try CHHapticEngine(audioSession: audioSession)
+            print("Engine Created")
         } catch let error {
             print("Engine Creation Error: \(error)")
         }
@@ -97,7 +98,7 @@ class CoreHaptics {
     
     /// - Tag: PlayAHAP
     func playHapticsFile(named filename: String) {
-        
+        createEngine()
         // If the device doesn't support Core Haptics, abort.
         
         // Express the path to the AHAP file before attempting to load it.

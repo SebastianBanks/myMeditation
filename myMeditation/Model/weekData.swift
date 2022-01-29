@@ -22,7 +22,6 @@ struct monthData {
     var week2: Double = 0.0
     var week3: Double = 0.0
     var week4: Double = 0.0
-    var week5: Double = 0.0
 }
 
 struct yearData {

@@ -24,7 +24,7 @@ class GoalsViewModel: ObservableObject {
     @ObservedObject var notificationManager = NotificationManager()
     @ObservedObject var coreData = CoreData()
     var currentWeek = weekData(sun: 0.0, mon: 0.0, tues: 0.0, wed: 0.0, thur: 0.0, fri: 0.0, sat: 0.0)
-    var currentMonth = monthData(week1: 0.0, week2: 0.0, week3: 0.0, week4: 0.0, week5: 0.0)
+    var currentMonth = monthData(week1: 0.0, week2: 0.0, week3: 0.0, week4: 0.0)
     var currentYear = yearData(jan: 0.0, feb: 0.0, mar: 0.0, apr: 0.0, may: 0.0, jun: 0.0, jul: 0.0, aug: 0.0, sep: 0.0, oct: 0.0, nov: 0.0, dec: 0.0)
     @Published var currentWeekData: [ChartData] = []
     @Published var currentMonthData: [ChartData] = []
@@ -47,8 +47,6 @@ class GoalsViewModel: ObservableObject {
     @AppStorage(meditateGoal.fri, store: .standard) var friGoal: Bool = false
     @AppStorage(meditateGoal.sat, store: .standard) var satGoal: Bool = false
     
-    var passThrough = PassthroughSubject<(Double, Date), Never>()
-    var cancellables = Set<AnyCancellable>()
     let calendar = Calendar.current
     let today: Date
     let startOfWeek: Date
@@ -147,14 +145,6 @@ class GoalsViewModel: ObservableObject {
                 self.currentWeek.sat += 0.0
             }
             
-            print("sun - \(self.currentWeek.sun)")
-            print("mon - \(self.currentWeek.mon)")
-            print("tues - \(self.currentWeek.tues)")
-            print("wed - \(self.currentWeek.wed)")
-            print("thur - \(self.currentWeek.thur)")
-            print("fri - \(self.currentWeek.fri)")
-            print("sat - \(self.currentWeek.sat)")
-            
             self.currentWeekData = [
                 ChartData(label: "sun", value: self.currentWeek.sun),
                 ChartData(label: "mon", value: self.currentWeek.mon),
@@ -165,9 +155,6 @@ class GoalsViewModel: ObservableObject {
                 ChartData(label: "sat", value: self.currentWeek.sat),
             ]
             
-            for value in self.currentWeekData {
-                print("label: \(value.label), value: \(value.value)")
-            }
         }
         
     }
@@ -184,7 +171,6 @@ class GoalsViewModel: ObservableObject {
         self.currentMonth.week2 = 0.0
         self.currentMonth.week3 = 0.0
         self.currentMonth.week4 = 0.0
-        self.currentMonth.week5 = 0.0
         
         for session in currentMonthData {
             switch session.date?.weekOfMonth() {
@@ -196,21 +182,12 @@ class GoalsViewModel: ObservableObject {
                 self.currentMonth.week3 += session.timeMeditated
             case 4:
                 self.currentMonth.week4 += session.timeMeditated
-            case 5:
-                self.currentMonth.week5 += session.timeMeditated
             default:
                 self.currentMonth.week1 += 0.0
                 self.currentMonth.week2 += 0.0
                 self.currentMonth.week3 += 0.0
                 self.currentMonth.week4 += 0.0
-                self.currentMonth.week5 += 0.0
             }
-            
-            print("week 1: \(self.currentMonth.week1)")
-            print("week 2: \(self.currentMonth.week2)")
-            print("week 3: \(self.currentMonth.week3)")
-            print("week 4: \(self.currentMonth.week4)")
-            print("week 5: \(self.currentMonth.week5)")
             
             self.currentMonthData = [
                 ChartData(label: "w1", value: self.currentMonth.week1),
@@ -218,10 +195,6 @@ class GoalsViewModel: ObservableObject {
                 ChartData(label: "w3", value: self.currentMonth.week3),
                 ChartData(label: "w4", value: self.currentMonth.week4),
             ]
-            
-            if self.currentMonth.week5 != 0.0 {
-                self.currentMonthData.append(ChartData(label: "w5", value: self.currentMonth.week5))
-            }
             
             for value in self.currentMonthData {
                 print("label: \(value.label), value: \(value.value)")
@@ -291,19 +264,6 @@ class GoalsViewModel: ObservableObject {
                 self.currentYear.dec += 0.0
             }
             
-            print("jan: \(self.currentYear.jan)")
-            print("feb: \(self.currentYear.feb)")
-            print("mar: \(self.currentYear.mar)")
-            print("apr: \(self.currentYear.apr)")
-            print("may: \(self.currentYear.may)")
-            print("jun: \(self.currentYear.jun)")
-            print("jul: \(self.currentYear.jul)")
-            print("aug: \(self.currentYear.aug)")
-            print("sep: \(self.currentYear.sep)")
-            print("oct: \(self.currentYear.oct)")
-            print("nov: \(self.currentYear.nov)")
-            print("dec: \(self.currentYear.dec)")
-            
             self.currentYearData = [
                 ChartData(label: "j", value: self.currentYear.jan),
                 ChartData(label: "f", value: self.currentYear.feb),
@@ -319,9 +279,6 @@ class GoalsViewModel: ObservableObject {
                 ChartData(label: "d", value: self.currentYear.dec),
             ]
             
-            for value in self.currentYearData {
-                print("label: \(value.label), value: \(value.value)")
-            }
         }
     }
     
@@ -411,41 +368,41 @@ class GoalsViewModel: ObservableObject {
             for index in 1..<datesMeditated.count {
                 let weekday = datesMeditated[index]
                 let previousWeekday = prev
-                print("Weekday: \(weekday)")
-                print("Previous Weekday: \(previousWeekday)")
+//                print("Weekday: \(weekday)")
+//                print("Previous Weekday: \(previousWeekday)")
                 
                 if tempStreak == 0 && previousWeekday == self.today.dayNumberOfWeek() {
                     tempStreak += 1
-                    print("tempStreak: \(tempStreak)")
+//                    print("tempStreak: \(tempStreak)")
                 }
                 
                 if previousWeekday - 1 == weekday || excluded.contains(previousWeekday - 1) {
                     prev = weekday
                     tempStreak += 1
-                    print("tempStreak: \(tempStreak)")
-                    print("1st")
+//                    print("tempStreak: \(tempStreak)")
+//                    print("1st")
                     continue
                 } else if previousWeekday == weekday && tempStreak == 0 {
-                    print("2nd")
+//                    print("2nd")
                     tempStreak += 1
                     prev = weekday
-                    print("tempStreak: \(tempStreak)")
+//                    print("tempStreak: \(tempStreak)")
                     continue
                 } else if previousWeekday == weekday {
-                    print("3rd")
+//                    print("3rd")
                     prev = weekday
-                    print("tempStreak: \(tempStreak)")
+//                    print("tempStreak: \(tempStreak)")
                     continue
                 } else if previousWeekday == 1 && weekday == 7 {
                     tempStreak += 1
                     prev = weekday
-                    print("4th")
-                    print("tempStreak: \(tempStreak)")
+//                    print("4th")
+//                    print("tempStreak: \(tempStreak)")
                     continue
                 }
                 
                 
-                print("break")
+//                print("break")
                 break
             }
 
@@ -454,8 +411,8 @@ class GoalsViewModel: ObservableObject {
 
         
         self.streak = tempStreak
-        print("datesMeditated: \(datesMeditated)")
-        print("excluded: \(excluded)")
+//        print("datesMeditated: \(datesMeditated)")
+//        print("excluded: \(excluded)")
         
     }
     
@@ -513,12 +470,12 @@ class GoalsViewModel: ObservableObject {
                 self.bestStreak = self.streak
             }
             
-            print("x: \(x)")
-            print("z: \(z)")
-            print("datesMeditated x: \(datesMeditated[x])")
-            print("datesMeditated z: \(datesMeditated[z])")
-            print("streak: \(tempStreak)")
-            print("currentStreak: \(currentStreak)")
+//            print("x: \(x)")
+//            print("z: \(z)")
+//            print("datesMeditated x: \(datesMeditated[x])")
+//            print("datesMeditated z: \(datesMeditated[z])")
+//            print("streak: \(tempStreak)")
+//            print("currentStreak: \(currentStreak)")
             x += 1
             z += 1
             

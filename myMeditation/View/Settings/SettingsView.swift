@@ -47,6 +47,12 @@ struct SettingsView: View {
                     
                     SettingsToggleCell(title: "Buddha Mode", imgName: "clock", key: "buddhaMode")
                     
+                    if settingsViewModel.isMeditatating == false {
+                        SettingsToggleCell(title: "Stopwatch Mode", imgName: "stopwatch", key: "stopWatchMode")
+                    }
+                    
+                    
+                    
                             
                     
                     
@@ -107,7 +113,7 @@ struct SettingsView: View {
                     Button(action: {
                         self.isShowingMessages = true
                     }) {
-                        SettingsCell(title: "Invite Friends", imgName: "person.3")
+                        SettingsCell(title: "Share App", imgName: "person.3")
                     }
                     .sheet(isPresented: self.$isShowingMessages) {
                                 MessageComposeView(recipients: [], body: "https://apps.apple.com/us/app/mymeditation-mindfulness-app/id1601051456") { messageSent in
@@ -155,6 +161,7 @@ struct SettingsView: View {
             
         })
         .onAppear(perform: notificationManager.updateToggles)
+        .onAppear(perform: settingsViewModel.getIsMeditating)
         .onChange(of: notificationManager.notificationsOn) { toggle in
             notificationManager.updateToggles()
         }

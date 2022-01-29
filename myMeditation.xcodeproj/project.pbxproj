@@ -22,6 +22,7 @@
 		BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF032742974900D03E9F /* quickStatView.swift */; };
 		BC2BFF082743E3BF00D03E9F /* CurrentGoalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */; };
 		BC42005F2753C11C00E746A5 /* EditGoalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */; };
+		BC48C76F27A5AD9A00D67EDA /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48C76E27A5AD9A00D67EDA /* StopWatchView.swift */; };
 		BC5FFDEC277F7B680089C03B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FFDEB277F7B670089C03B /* OnboardingView.swift */; };
 		BC5FFDF4277F887D0089C03B /* TibetanBell.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC5FFDF3277F887D0089C03B /* TibetanBell.wav */; };
 		BC68664C2774ACFE001B969C /* Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = BC6866482774ACFE001B969C /* Piano.wav */; };
@@ -50,7 +51,6 @@
 		BC914FC8279A2F8600F5CF88 /* Birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC914FC3279A2F8600F5CF88 /* Birds.mp3 */; };
 		BC914FCA279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC914FC9279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift */; };
 		BC914FCC279A375C00F5CF88 /* SettingsPickerAmbiantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC914FCB279A375C00F5CF88 /* SettingsPickerAmbiantView.swift */; };
-		BC94A4FB2787CC2A0031404C /* Launch Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94A4FA2787CC2A0031404C /* Launch Screen.swift */; };
 		BCAC74ED2732C3C100C332B5 /* Completion.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E52732C3C100C332B5 /* Completion.ahap */; };
 		BCAC74EE2732C3C100C332B5 /* Breathe.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAC74E62732C3C100C332B5 /* Breathe.ahap */; };
 		BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75032732C42A00C332B5 /* HealthButton.swift */; };
@@ -112,6 +112,7 @@
 		BC2BFF032742974900D03E9F /* quickStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quickStatView.swift; sourceTree = "<group>"; };
 		BC2BFF072743E3BE00D03E9F /* CurrentGoalWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGoalWidget.swift; sourceTree = "<group>"; };
 		BC42005E2753C11C00E746A5 /* EditGoalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalWidgetView.swift; sourceTree = "<group>"; };
+		BC48C76E27A5AD9A00D67EDA /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		BC5FFDEB277F7B670089C03B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BC5FFDF3277F887D0089C03B /* TibetanBell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibetanBell.wav; sourceTree = "<group>"; };
 		BC6866482774ACFE001B969C /* Piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Piano.wav; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		BC914FC3279A2F8600F5CF88 /* Birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Birds.mp3; sourceTree = "<group>"; };
 		BC914FC9279A36C700F5CF88 /* SettingsAmbiantPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAmbiantPickerCell.swift; sourceTree = "<group>"; };
 		BC914FCB279A375C00F5CF88 /* SettingsPickerAmbiantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerAmbiantView.swift; sourceTree = "<group>"; };
-		BC94A4FA2787CC2A0031404C /* Launch Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Launch Screen.swift"; sourceTree = "<group>"; };
 		BCAC74E52732C3C100C332B5 /* Completion.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Completion.ahap; sourceTree = "<group>"; };
 		BCAC74E62732C3C100C332B5 /* Breathe.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Breathe.ahap; sourceTree = "<group>"; };
 		BCAC75032732C42A00C332B5 /* HealthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthButton.swift; sourceTree = "<group>"; };
@@ -215,6 +215,7 @@
 				BC7F4D3626BEE0D500A93CFD /* MeditationCompleteView.swift */,
 				BC7F4D4426C3F7DB00A93CFD /* ButtonsView.swift */,
 				BC04C55D275ABA39004DB85B /* CountDownPicker.swift */,
+				BC48C76E27A5AD9A00D67EDA /* StopWatchView.swift */,
 			);
 			path = "Meditation Componets";
 			sourceTree = "<group>";
@@ -344,7 +345,6 @@
 				BC87FB592690DEF2006BB12C /* Info.plist */,
 				BC87FB562690DEF2006BB12C /* Preview Content */,
 				BC87FB8E2690E75F006BB12C /* Launch Screen.storyboard */,
-				BC94A4FA2787CC2A0031404C /* Launch Screen.swift */,
 			);
 			path = myMeditation;
 			sourceTree = "<group>";
@@ -520,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCAC750A2732C42B00C332B5 /* motivationNotificationToggle.swift in Sources */,
+				BC48C76F27A5AD9A00D67EDA /* StopWatchView.swift in Sources */,
 				BC7F4D4326C157EF00A93CFD /* LearnTopicCell.swift in Sources */,
 				BCAC751B2732CB0800C332B5 /* CoreHaptics.swift in Sources */,
 				BC0017B426CA999B00323A2B /* TypesOfMeditationArticle.swift in Sources */,
@@ -559,7 +560,6 @@
 				BC914FCC279A375C00F5CF88 /* SettingsPickerAmbiantView.swift in Sources */,
 				BC7F4D3726BEE0D500A93CFD /* MeditationCompleteView.swift in Sources */,
 				BC2BFF042742974900D03E9F /* quickStatView.swift in Sources */,
-				BC94A4FB2787CC2A0031404C /* Launch Screen.swift in Sources */,
 				BC87FB512690DEED006BB12C /* myMeditationApp.swift in Sources */,
 				BCAC750E2732C46400C332B5 /* notificationsModel.swift in Sources */,
 				BCAC75302733689300C332B5 /* CoreData.swift in Sources */,
@@ -704,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;
@@ -730,7 +730,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = myMeditation/myMeditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"myMeditation/Preview Content\"";
 				DEVELOPMENT_TEAM = SNNSSTW7MQ;
 				ENABLE_PREVIEWS = YES;

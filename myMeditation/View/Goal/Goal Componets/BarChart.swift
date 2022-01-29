@@ -11,6 +11,7 @@ import SwiftUI
 struct BarChart: View {
     
     var data: [ChartData]
+    var meditationVM = MeditationViewModel()
     @Binding var selectedRange: Int
     
     func normalizedValue(index: Int) -> Double {
@@ -32,30 +33,6 @@ struct BarChart: View {
         
     }
     
-    func timeToString(time: Double) -> String {
-        var timeRemainingString: String = ""
-        let hours = time/3600
-        let minsMinusHours = hours.truncatingRemainder(dividingBy: 1)
-        let mins = minsMinusHours * 60
-        
-        let wholehrs = Int(hours)
-        let wholemins = Int(mins)
-        
-        if wholehrs > 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hrs"
-        } else if wholehrs == 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hr"
-        } else if wholehrs > 1 && wholemins >= 1 {
-            timeRemainingString = "\(wholehrs) hrs \(wholemins) mins"
-        } else if wholehrs == 0 && wholemins > 1{
-            timeRemainingString = "\(wholemins) mins"
-        } else {
-            timeRemainingString = "\(wholemins) min"
-        }
-        
-        
-        return timeRemainingString
-    }
     
     var body: some View {
         if data != [] {
@@ -67,7 +44,7 @@ struct BarChart: View {
                             ForEach(0..<data.count, id: \.self) { i in
                                 VStack {
                                     if selectedRange != 2 {
-                                        Text(timeToString(time:data[i].value))
+                                        Text(meditationVM.timeToString(timeRemaining:data[i].value))
                                     }
                                     
                                     BarChartCell(value: normalizedValue(index: i))
@@ -125,9 +102,9 @@ struct BarChart_Previews: PreviewProvider {
         ChartData(label: "d", value: 0.0),
     ]
     
-    @State static var selectedRange = 0
+    @State static var selectedRange = 1
     static var previews: some View {
-        BarChart(data: yearData1, selectedRange: $selectedRange)
+        BarChart(data: monthData1, selectedRange: $selectedRange)
     }
 }
  

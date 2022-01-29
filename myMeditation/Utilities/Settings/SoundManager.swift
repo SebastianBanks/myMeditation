@@ -7,6 +7,7 @@
 
 import Foundation
 import AVKit
+import CoreHaptics
 
 enum VibrationKey {
     static let vibrationOn = "vibrationOn"
@@ -71,13 +72,15 @@ class SoundManager: ObservableObject {
     @Published var ambiantSoundOn: Bool = false
     
     var player: AVAudioPlayer?
-    var coreHaptics = CoreHaptics()
+    var coreHaptics: CoreHaptics?
     
     init() {
         
         self.completionSound = (UserDefaults.standard.object(forKey: "completionSound") == nil ? CompletionSound.Gong : CompletionSound(rawValue: UserDefaults.standard.object(forKey: "completionSound") as! String)) ?? CompletionSound.Gong
         
         self.ambiantSound = (UserDefaults.standard.object(forKey: "ambiantSound") == nil ? AmbiantSound.Ocean : AmbiantSound(rawValue: UserDefaults.standard.object(forKey: "ambiantSound") as! String)) ?? AmbiantSound.Ocean
+        
+        self.coreHaptics = CoreHaptics()
     }
     
     func updateCompletionSound() {
@@ -133,7 +136,7 @@ class SoundManager: ObservableObject {
 
     }
     
-    func ambiantSoundStartStop() {
+    func ambiantSoundStartStop(stop: Bool) {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
         } catch(let error) {
@@ -145,7 +148,7 @@ class SoundManager: ObservableObject {
         do {
             player = try AVAudioPlayer(contentsOf: url)
             
-            if ambiantSoundOn == true {
+            if stop == false {
                 player?.numberOfLoops = -1
                 player?.play()
             } else {
