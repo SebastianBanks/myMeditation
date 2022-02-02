@@ -11,7 +11,7 @@ import SwiftUI
 struct BarChart: View {
     
     var data: [ChartData]
-    var meditationVM = MeditationViewModel()
+    var goalsViewModel = GoalsViewModel()
     @Binding var selectedRange: Int
     
     func normalizedValue(index: Int) -> Double {
@@ -43,9 +43,9 @@ struct BarChart: View {
                         HStack {
                             ForEach(0..<data.count, id: \.self) { i in
                                 VStack {
-                                    if selectedRange != 2 {
-                                        Text(meditationVM.timeToString(timeRemaining:data[i].value))
-                                    }
+                                    Text(goalsViewModel.getChartTimes(timeRemaining:data[i].value))
+                                        .font(.system(size: selectedRange == 2 ? 9 : 15))
+                                    
                                     
                                     BarChartCell(value: normalizedValue(index: i))
                                     Text("\(data[i].label)")
@@ -72,7 +72,7 @@ struct BarChart_Previews: PreviewProvider {
     static var weekData1 = [
         ChartData(label: "sun", value: 600.0),
         ChartData(label: "mon", value: 300.0),
-        ChartData(label: "tues", value: 1200.0),
+        ChartData(label: "tues", value: 4000.0),
         ChartData(label: "wed", value: 750.0),
         ChartData(label: "thur", value: 0.0),
         ChartData(label: "fri", value: 300.0),
@@ -102,9 +102,9 @@ struct BarChart_Previews: PreviewProvider {
         ChartData(label: "d", value: 0.0),
     ]
     
-    @State static var selectedRange = 1
+    @State static var selectedRange = 2
     static var previews: some View {
-        BarChart(data: monthData1, selectedRange: $selectedRange)
+        BarChart(data: yearData1, selectedRange: $selectedRange)
     }
 }
  

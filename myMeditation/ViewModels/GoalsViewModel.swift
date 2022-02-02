@@ -615,6 +615,21 @@ class GoalsViewModel: ObservableObject {
         }
     }
     
+    func getChartTimes(timeRemaining: Double) -> String {
+        var string = ""
+        let h = Int(timeRemaining) / 3600
+        let m = (Int(timeRemaining) % 3600) / 60
+        
+        if h != 0 {
+            string = "\(h)h \(m)m"
+        } else {
+            string = "\(m)m"
+        }
+        
+        
+        return string
+    }
+    
     func timeToString(timeRemaining: Double) -> String {
         var timeRemainingString: String = ""
         

@@ -12,11 +12,13 @@ struct StopWatchView: View {
     @Binding var timeReamaining: Double
     
     var body: some View {
-        Text(meditationViewModel.getStopWatchText(timeRemaing: timeReamaining))
+        Text(meditationViewModel.timeToString(timeRemaining: timeReamaining))
             .font(.system(size: 50))
             .bold()
             .foregroundColor(Color.init("TextColor"))
             .padding()
+            
+        
     }
 }
 

@@ -62,7 +62,6 @@
 		BCAC751A2732CB0800C332B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75132732CB0800C332B5 /* NotificationManager.swift */; };
 		BCAC751B2732CB0800C332B5 /* CoreHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75142732CB0800C332B5 /* CoreHaptics.swift */; };
 		BCAC751C2732CB0800C332B5 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75152732CB0800C332B5 /* HealthStore.swift */; };
-		BCAC751D2732CB0800C332B5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */; };
 		BCAC751E2732CB0800C332B5 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75172732CB0800C332B5 /* SoundManager.swift */; };
 		BCAC75252733684A00C332B5 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75212733684A00C332B5 /* ChartData.swift */; };
 		BCAC75262733684A00C332B5 /* CoreDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCAC75222733684A00C332B5 /* CoreDataContainer.xcdatamodeld */; };
@@ -75,6 +74,7 @@
 		BCAF11EA2797D8F400C31F35 /* PianoAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E62797D8F400C31F35 /* PianoAhap.ahap */; };
 		BCAF11EB2797D8F400C31F35 /* BellAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E72797D8F400C31F35 /* BellAhap.ahap */; };
 		BCAF11EC2797D8F400C31F35 /* TibetanBellAhap.ahap in Resources */ = {isa = PBXBuildFile; fileRef = BCAF11E82797D8F400C31F35 /* TibetanBellAhap.ahap */; };
+		BCAF6B6F27AA10730063C854 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAF6B6E27AA10730063C854 /* SettingsViewModel.swift */; };
 		BCB5C35B2753C7B4005BB243 /* EditGoalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */; };
 		BCE4EED8276F731800328715 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE4EED7276F731800328715 /* HealthKit.framework */; };
 		BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC85CC2694802900E11858 /* MeditationView.swift */; };
@@ -155,7 +155,6 @@
 		BCAC75132732CB0800C332B5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		BCAC75142732CB0800C332B5 /* CoreHaptics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreHaptics.swift; sourceTree = "<group>"; };
 		BCAC75152732CB0800C332B5 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
-		BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		BCAC75172732CB0800C332B5 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		BCAC75212733684A00C332B5 /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		BCAC75232733684A00C332B5 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		BCAF11E62797D8F400C31F35 /* PianoAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PianoAhap.ahap; sourceTree = "<group>"; };
 		BCAF11E72797D8F400C31F35 /* BellAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BellAhap.ahap; sourceTree = "<group>"; };
 		BCAF11E82797D8F400C31F35 /* TibetanBellAhap.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TibetanBellAhap.ahap; sourceTree = "<group>"; };
+		BCAF6B6E27AA10730063C854 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		BCB5C35A2753C7B4005BB243 /* EditGoalButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalButtonView.swift; sourceTree = "<group>"; };
 		BCE4EED7276F731800328715 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BCEC85CC2694802900E11858 /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 				BC0444F627372C0C002FC01D /* MeditationViewModel.swift */,
 				BC0444F827372C1B002FC01D /* GoalsViewModel.swift */,
 				BC0444FA27372C28002FC01D /* LearnViewModel.swift */,
-				BCAC75162732CB0800C332B5 /* SettingsViewModel.swift */,
+				BCAF6B6E27AA10730063C854 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -537,7 +537,6 @@
 				BCEC85D12694805B00E11858 /* GoalView.swift in Sources */,
 				BCAC751C2732CB0800C332B5 /* HealthStore.swift in Sources */,
 				BCEC85CD2694802900E11858 /* MeditationView.swift in Sources */,
-				BCAC751D2732CB0800C332B5 /* SettingsViewModel.swift in Sources */,
 				BC0017C826CFF30C00323A2B /* GoalWidgetView.swift in Sources */,
 				BC0017B226CA998400323A2B /* WhatIsMeditationArticle.swift in Sources */,
 				BCAC75082732C42B00C332B5 /* HealthButton.swift in Sources */,
@@ -550,6 +549,7 @@
 				BCAC751A2732CB0800C332B5 /* NotificationManager.swift in Sources */,
 				BC5FFDEC277F7B680089C03B /* OnboardingView.swift in Sources */,
 				BCAC75262733684A00C332B5 /* CoreDataContainer.xcdatamodeld in Sources */,
+				BCAF6B6F27AA10730063C854 /* SettingsViewModel.swift in Sources */,
 				BC7F4D4726C549BE00A93CFD /* ListData.swift in Sources */,
 				BCAC75092732C42B00C332B5 /* MessageComposeView.swift in Sources */,
 				BC0017C626CD30C000323A2B /* StickyHeader.swift in Sources */,

@@ -459,48 +459,19 @@ class MeditationViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func getStopWatchText(timeRemaing: Double) -> String {
-        var string = ""
-        let h = Int(timeRemaing) / 3600
-        let m = (Int(timeRemaing) % 3600) / 60
-        let s = (Int(timeRemaing) % 3600) % 60
-        string = " \(h) : \(m) : \(s) "
-        
-        return string
-    }
-    
     func timeToString(timeRemaining: Double) -> String {
-        var timeRemainingString: String = ""
-        
-        let hours = timeRemaining/3600
-        let minsMinusHours = hours.truncatingRemainder(dividingBy: 1)
-        let mins = minsMinusHours * 60
-        
-        let wholehrs = Int(hours) 
-        let wholemins = Int(mins)
-        
-        if wholehrs > 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hrs"
-        } else if wholehrs == 1 && wholemins == 0 {
-            timeRemainingString = "\(wholehrs) hr"
-        } else if wholehrs > 1 && wholemins > 1 {
-            timeRemainingString = "\(wholehrs) hrs \(wholemins) mins"
-        } else if wholehrs > 1 && wholemins == 1 {
-            timeRemainingString = "\(wholehrs) hrs \(wholemins) min"
-        } else if wholehrs == 1 && wholemins > 1 {
-            timeRemainingString = "\(wholehrs) hr \(wholemins) mins"
-        } else if wholehrs == 1 && wholemins == 1 {
-            timeRemainingString = "\(wholehrs) hr \(wholemins) min"
-        } else if wholehrs == 0 && wholemins > 1 {
-            timeRemainingString = "\(wholemins) mins"
-        } else if wholehrs == 0 && wholemins == 1 {
-            timeRemainingString = "\(wholemins) min"
+        var string = ""
+        let h = Int(timeRemaining) / 3600
+        let m = (Int(timeRemaining) % 3600) / 60
+        let s = (Int(timeRemaining) % 3600) % 60
+        if h != 0 {
+            string = String(format: "%2i:%02i:%02i", h, m, s)
         } else {
-            timeRemainingString = "\(Int(timeRemaining)) sec"
+            string = String(format: "%2i:%02i", m, s)
         }
         
         
-        return timeRemainingString
+        return string
     }
     
     func startPauseButton(time: Double) {
